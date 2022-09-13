@@ -86,7 +86,7 @@ Object  Stone_Cross "Stone Cross"
             "~Just a minute, I'm doing my form.~";
         }
         print "He looks at you in a hypnotic daze,";
-        if( action == ##Give && noun == Crescent_Moon && second == player ) {
+        if( action == ##Give && noun == Crescent_Moon && second == player && Crescent_Moon in Old_Evans ) {
             move Crescent_Moon to player;
             Achieved(SCORE_HYPNOSIS);
             self.description = "Old Evans' hat is empty. You feel terribly guilty.";
@@ -112,7 +112,7 @@ Object  -> Old_Evans "Old Evans"
         orders [;
             print "He looks at you in a hypnotic daze,";
             Give:
-                if( noun == Crescent_Moon && second == player ) {
+                if( noun == Crescent_Moon && second == player && Crescent_Moon in Old_Evans ) {
                     move Crescent_Moon to player;
                     Achieved(SCORE_HYPNOSIS);
                     self.description = "Old Evans' hat is empty. You feel terribly guilty.";
