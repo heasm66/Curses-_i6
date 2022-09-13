@@ -2693,7 +2693,7 @@ HRoom   Wine_Cellars "Wine Cellars"
         cant_go "This is the eastern end of the cellars, from which you can only go west.",
   has   ;
 
-Array mouse_maze string "111111111111001001111100101111110000111100111111110011111111111";
+Array mouse_maze -> "111111111111001001111100101111110000111100111111110011111111111";
 
 ! was MouseMove2 in my r7 recreation
 [ MouseBoundary x y cell ;
