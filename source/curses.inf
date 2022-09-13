@@ -419,8 +419,13 @@ Replace JumpSub;
 Replace DarkToDark;
 Replace FillSub;
 Replace Amusing;					
+Replace Dword__No;
+Replace No__Dword;
+Replace Parser__parse;
+Replace ParseToken__;
 
 Include "Parser";
+Include "parser_fix.inf";
 
 Object LibraryMessages
   with  before [;
