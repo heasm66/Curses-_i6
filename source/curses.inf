@@ -6,6 +6,7 @@ Constant Story "CURSES";
 Constant Headline "^An Interactive Diversion^Copyright (c) 1993, 1994, 1995 by Graham Nelson.^";
 Release 18;
 
+CONSTANT AMUSING_PROVIDED;								
 Constant SACK_OBJECT = rucksack;
 Constant MAX_CARRIED = 5;
 Constant MAX_SCORE = 550;
@@ -414,6 +415,7 @@ Replace SorrySub;
 Replace JumpSub;
 Replace DarkToDark;
 Replace FillSub;
+Replace Amusing;					
 
 Include "Parser";
 
@@ -488,13 +490,13 @@ Include "VerbLib";
 
 Class LagachObj
   with  orders [ i r flag;
-			Lagach:
-				flag = true;
-				if( painting_of_Mad_Isaac_Meldrewe notin White_Hallway || painting_of_Mad_Isaac_Meldrewe has moved )
-					flag = false;
-				if( self == painting_of_Mad_Isaac_Meldrewe && flag == false )
-					"A breeze ripples the canvas of the unanchored painting, but that's all.";
-				i = 0;
+            Lagach:
+				flag = true;			! r18
+                if( painting_of_Mad_Isaac_Meldrewe notin White_Hallway || painting_of_Mad_Isaac_Meldrewe has moved )
+                    flag = false;		! r18
+                if( self == painting_of_Mad_Isaac_Meldrewe && flag == false )
+                    "A breeze ripples the canvas of the unanchored painting, but that's all.";
+                i = 0;
                 if( location == Greek_Frieze1 ) i = 1;
                 if( location == Mosaic ) i = 2;
                 if( location == Crypt ) i = 3;
@@ -607,28 +609,29 @@ Include "afterlife.inf";
 ];
 
 [ DarkToDark ;
-	deadflag = DIED;
-	if( real_location.section ~= T_MODERN ) {
-		"As you step falteringly through the darkness, the air falls ice-cold, whispering in secret languages. 
-		 Suddenly a great bear rears up before you, savagely sweeping its paw!";
-	}
-	deadflag = FAILED;
-	print "As you unwisely blunder about in the dark, you ";
-	if( real_location == Priests_Hole || real_location == Chimney )
-		"slip down a side passage of the chimney, further and further, blindly landing in a cloud of soot in the 
-		 fireplace of the lounge downstairs. Fortunately your family is on hand to clean you up and put you back
-		 to work packing.";
-	if( real_location == Dark_Shaft || real_location == Dark_Passage || real_location == Cellars ||
+    deadflag = DIED;
+    if( real_location.section ~= T_MODERN ) {						! r18
+        "As you step falteringly through the darkness, the air falls ice-cold, whispering in secret languages. 
+         Suddenly a great bear rears up before you, savagely sweeping its paw!";
+    }
+    deadflag = FAILED;
+    print "As you unwisely blunder about in the dark, you ";
+    if( real_location == Priests_Hole || real_location == Chimney )	! r18 
+        "slip down a side passage of the chimney, further and further, blindly landing in a cloud of soot in the 
+         fireplace of the lounge downstairs. Fortunately your family is on hand to clean you up and put you back
+         to work packing.";
+    if( real_location == Dark_Shaft || real_location == Dark_Passage || real_location == Cellars ||
 		real_location == Wine_Cellars || real_location == Cellars_South || real_location == Cellar_West || 
 		real_location == Infinity_Symbol || real_location == Sandstone_Passage || 
 		real_location == The_Octagon || real_location == White_Hallway ) 
-		"miss your footing, trip over and bang your head... Some time later you wake up in hospital, 
-		 very confused and not on holiday. Fortunately Aunt Jemima comes to visit you every afternoon with plenty
-		 of things for you to do...";
-	"put a foot wrong and crash through a thin plaster roof into one of the upstairs bedrooms, happily landing 
-	 on the bed. In later years it becomes a family joke that you demolished half the house for a tatty old
-	 tourist map.";
+        "miss your footing, trip over and bang your head... Some time later you wake up in hospital, 
+         very confused and not on holiday. Fortunately Aunt Jemima comes to visit you every afternoon with plenty
+         of things for you to do...";
+    "put a foot wrong and crash through a thin plaster roof into one of the upstairs bedrooms, happily landing 
+     on the bed. In later years it becomes a family joke that you demolished half the house for a tatty old
+     tourist map.";
 ];
+
 
 Object carbolic_soap "carbolic soap"
   with  name 'soap' 'carbolic',
@@ -1516,3 +1519,5 @@ Object carbolic_soap "carbolic soap"
 
 Include "Grammar";
 Include "newverbs.inf";
+Include "help.inf";
+
