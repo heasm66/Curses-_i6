@@ -71,7 +71,7 @@ Class   Rod
 					}
                     else if( w == self.&name-->i ) {
                         if( self hasnt unidentifed_rod && w == 'featureless' )
-                            j == false;
+                            j = false;
                         else
                             j = true;
                     }
