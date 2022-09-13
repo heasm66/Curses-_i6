@@ -606,6 +606,15 @@ Include "afterlife.inf";
     "^A shame to see such a good try unrewarded... oh, go on, have an extra five points.";
 ];
 
+[ GoodTryRevoked ;
+    if( good_try_bonus == 1 ) {
+        score = score - 5;
+        good_try_bonus = 0;
+        "^Under the circumstances, the 5-point bonus is forfeit.";
+    }
+    rtrue;
+];
+
 [ DarkToDark ;
     deadflag = DIED;
     if( game_section ~= T_MODERN ) {
