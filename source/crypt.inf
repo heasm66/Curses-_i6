@@ -51,7 +51,7 @@ Object Jagged_Passage "Jagged Passage"
 
 Object -> wrought_iron_key "long wrought iron key"
   with  name 'long' 'wrought' 'iron' 'key',
-        sw_to compass,
+        list_together KEY_GROUP,
         initial "You appear to be standing on a wrought iron key.",
         description "A figure-eight double ring, a long barrel and a finely-cut ten-groove claw: this is the ultimate in keys. It is superb.",
   has   ;

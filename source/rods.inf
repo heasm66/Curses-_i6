@@ -1,12 +1,12 @@
 [ discover_rod r ;
     give r ~unidentifed_rod;
     r.&name-->3 = r.rod_word;
-    r.list_together = "Rods";
+    r.list_together = ListingRods;
     rtrue;
 ];
 
 [ ListingRods enhanced ;
-    if( rod_identity == 1 ) {
+    if( inventory_stage == 1 ) {
         if( enhanced == true ) {
             print "the High Rods of ";
         } else {
@@ -29,7 +29,8 @@
 
 Class   Rod
   with  name 'rod' 'of' 'mahogany' 'featureless' 'plaque',
-        list_together "featureless mahogany rods",
+        list_together 0
+		plural "featureless mahogany rods",
         before [;
             Examine:
                 if( self has unidentifed_rod )
@@ -42,15 +43,20 @@ Class   Rod
                 new_line;
                 rtrue;
         ],
-!        u_to rod_display_before,
+		invent [ ;  
+			if (inventory_stage == 2 && self has charged) print " (charged)";
+			rfalse;
+		],
         short_name [;
             if( self has unidentifed_rod ) {
                 print "featureless mahogany rod";
                 rtrue; 
             }
-            if( self has high_rod )
-                print "High ";
-            print "Rod of ";
+			if (listing_together hasnt rod_attr) {
+				if( self has high_rod )
+					print "High ";
+				print "Rod of ";
+			}
             rfalse;
         ],
         parse_name [ i j w len cnt;
@@ -113,7 +119,6 @@ Class HighRod
                 }
                 Achieved(SCORE_HIGHROD);
         ],
-
         description [;
             print "An adamantine rod, bearing a sculpted ";
             if( self == rod_of_life ) print "hand";
@@ -139,7 +144,6 @@ Class HighRod
                 give rod_of_love scored;
                 move noun to player;
 
-                !! Likely a bug: prevents it from being scored
                 give noun ~scored;
                 HighRodBalance = true;
                 "(Interesting choice.)^^As you take it, you upset the balance and the other two High Rods rattle 

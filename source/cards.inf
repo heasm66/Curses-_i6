@@ -30,7 +30,19 @@ class   TarotCard
                     cnt++;
             }
             return cnt;
-       ],
+        ],
+		short_name [ ;
+			if (listing_together has card && c_style & 4096 == 0) {
+				c_style = c_style | (4096 + 8);
+				if (c_style & 2 ~= 0) {
+					c_style = c_style - 2;
+				}
+				if (c_style & 1 ~= 0) {
+					c_style = c_style - 1;
+				}
+			}
+			rfalse;
+		],
         article "the",
   has   card;
 

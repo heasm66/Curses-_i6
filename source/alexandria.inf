@@ -143,7 +143,7 @@ Object  -> rusty_iron_key "rusty iron key"
                 if( rusty_iron_key hasnt general ) "Reach down the grating as you may, it remains just beyond reach.";
                 rfalse;
         ],
-        sw_to compass,
+        list_together KEY_GROUP,
         initial "Interestingly, a key which looks as if it would fit the grating can be seen inside the passage beneath.",
         angel_hint "Oh dear, surely it's gratingly obvious what this fits?",
   has   ;

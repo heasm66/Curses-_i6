@@ -7,7 +7,7 @@ Constant Headline "^An Interactive Diversion^Copyright (c) 1993, 1994, 1995 by G
 Release 18;
 
 #ifdef VN_1636;
-Include "abbreviations.inf"; 	! r18 
+Include "abbreviations.inf";
 #endif;
 CONSTANT AMUSING_PROVIDED;								
 Constant SACK_OBJECT = rucksack;
@@ -88,6 +88,9 @@ Constant SCORE_KNIGHT = 42;
 Constant SCORE_KNIGHT_ENCOURAGE = 43;
 Constant SCORE_HIGHROD = 44;
 
+Constant KEY_GROUP = 1;		! Identified from DM4
+Constant BOOK_GROUP = 2;
+Constant TORCH_GROUP = 3;
 Constant TASKS_PROVIDED;
 Constant NUMBER_TASKS = 45;
 Array task_scores -> 3 7 7 10 3 3 5 5 2 2 3 50 3 4 6 6 15 10 1
@@ -174,7 +177,6 @@ Global short_loc_var;
 Global save_score;
 Global quote_selection = -1;
 Global ball_polished;
-Global rod_identity;
 Global OldDigX;
 Global OldDigY;
 Global HighRodWarn;
@@ -499,9 +501,9 @@ Include "VerbLib";
 Class LagachObj
   with  orders [ i r flag;
             Lagach:
-				flag = true;			! r18
+				flag = true;
                 if( painting_of_Mad_Isaac_Meldrewe notin White_Hallway || painting_of_Mad_Isaac_Meldrewe has moved )
-                    flag = false;		! r18
+                    flag = false;
                 if( self == painting_of_Mad_Isaac_Meldrewe && flag == false )
                     "A breeze ripples the canvas of the unanchored painting, but that's all.";
                 i = 0;
@@ -618,13 +620,13 @@ Include "afterlife.inf";
 
 [ DarkToDark ;
     deadflag = DIED;
-    if( real_location.section ~= T_MODERN ) {						! r18
+    if( real_location.section ~= T_MODERN ) {
         "As you step falteringly through the darkness, the air falls ice-cold, whispering in secret languages. 
          Suddenly a great bear rears up before you, savagely sweeping its paw!";
     }
     deadflag = FAILED;
     print "As you unwisely blunder about in the dark, you ";
-    if( real_location == Priests_Hole || real_location == Chimney )	! r18 
+    if( real_location == Priests_Hole || real_location == Chimney )
         "slip down a side passage of the chimney, further and further, blindly landing in a cloud of soot in the 
          fireplace of the lounge downstairs. Fortunately your family is on hand to clean you up and put you back
          to work packing.";

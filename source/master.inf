@@ -173,7 +173,7 @@ Object -> flaming_torch "flaming torch"
 
 Object -> historical_pamphlet "historical pamphlet"     
   with  name 'historical' 'pamphlet',
-        sw_to n_obj,
+        list_together BOOK_GROUP,
         description "It is a summary of the writings of a polemical monk called Gildas, and relates to events 
             following the fall of the tyrant Vortigern at the turn of the fifth century A.D. After dark decades
             of pillage by Saxon mercenaries, Britain was reunited by Ambrosius Aurelianus and then defended at the
@@ -246,7 +246,22 @@ Object -> yellow_daisy "yellow daisy"
                 }
                 rfalse;
         ],
-!        u_to DaisyUp,
+		invent [ o sib; 
+				if (self has worn && inventory_stage == 2) {
+					o = child(player);
+					while( o ~= nothing ) {
+						sib = sibling(o);
+						if (o has hidden_rod) {
+							print " (twitching behind your ear)";
+							rtrue;
+						}
+						o = sib;
+					}
+					print " (tucked behind your ear)";
+					rtrue;
+				}
+				rfalse;	
+		],
         initial "A single yellow daisy grows from a little tuft of grass on the crags.",
   has   clothing scored;
 
