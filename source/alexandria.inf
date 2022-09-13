@@ -95,6 +95,7 @@ Object  Island_of_Pharos "Island of Pharos"
                 give smooth_round_stone ~general;
                 give smooth_round_stone ~moved;
                 give smooth_round_stone ~concealed;
+				give smooth_round_stone ~scored;
                 give rusty_iron_key general;
                 rusty_iron_key.initial = "That iron key seems to have washed up here...";
                 smooth_round_stone.initial = "...and there's the strange stone again.";
