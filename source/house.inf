@@ -1190,7 +1190,7 @@ Object  -> book_of_Twenties_poetry "book of Twenties poetry"
 
 [ WallDisplay o ;       
     print "the picture on ", (the) o;
-    if( o.n_to == nothing )
+    if( o.door_to == nothing )
         ".";
     ", beautifully magnified and amazingly life-like. Why, you'd hardly know there was a wall there at all.";
 ];
@@ -1198,7 +1198,7 @@ Object  -> book_of_Twenties_poetry "book of Twenties poetry"
 ! Hmm, yep, there are two functions that do the exact same thing.
 [ DisplayCardDesc o ;
     print "the picture on ", (the) o;
-    if( o.n_to == nothing ) {
+    if( o.door_to == nothing ) {
         ".";
     }
     ", beautifully magnified and amazingly life-like. Why, you'd hardly know there was a wall there at all.";
@@ -1318,7 +1318,7 @@ Object  -> slide_projector "slide projector"
 [ ToggleSouthWall o ;
     if( o ~= nothing ) {
         if( o.door_to ~= nothing ) {
-            south_wall.door_to = o.n_to;
+            south_wall.door_to = o.door_to;
             give south_wall ~concealed;
         }
         print "The south wall lights up with ";
