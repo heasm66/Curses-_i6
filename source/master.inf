@@ -44,7 +44,7 @@ Object Murky_Cave "Murky Cave"
             lead a little way west. Outside is a clear starry night. There is no traffic noise, and the air
             smells fresh.",
         daemon [ cnt;
-            if( game_section ~= T_ANCIENT_BRITAIN ) 
+            if( real_location.section ~= T_ANCIENT_BRITAIN ) 
                 StopDaemon(self);
             cnt = CouncilCnt;
             if( cnt > 0 ) 
