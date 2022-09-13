@@ -2342,7 +2342,7 @@ Object  -> Jemima "Jemima"
             move daisy_chain to player;
             rtrue;
         ],
-  has   animate proper;
+  has   animate proper female;
 
 [ DaisyType n ;
     switch( n ) {
