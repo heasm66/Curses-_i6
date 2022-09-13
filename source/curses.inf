@@ -1,8 +1,11 @@
+! This game is meant to be compiled with Inform v6.41 (or later) and 6/11 of the Inform standard library.
+! 
+! Example of compilation:
+! inform -v5 -xrs~Se +include_path=inform_library611,.\ $TRANSCRIPT_FORMAT=1 $OMIT_UNUSED_ROUTINES=1 $ZCODE_LESS_DICT_DATA=1 $MAX_ABBREVS=96 curses!.inf curses!.z5
 Constant Story "CURSES";
 Constant Headline "^An Interactive Diversion^Copyright (c) 1993, 1994, 1995 by Graham Nelson.^";
-Release 17;
+Release 18;
 
-Constant DEBUG;
 Constant SACK_OBJECT = rucksack;
 Constant MAX_CARRIED = 5;
 Constant MAX_SCORE = 550;
