@@ -875,11 +875,23 @@
     rtrue;
 ];
 
-
 [ HintsSub ;
     "There are hints built into this game, but you will have to find out for yourself how to get them.";
 ];
 
+[ PrettySub ;
+	pretty_flag = true;
+	trigger_quotation(5);
+	redraw_statusline = true;
+	"~Curses~ is now in its (supposedly) ~pretty~ mode.";
+];
+
+[ PlainSub ;    
+	pretty_flag = false;
+	redraw_statusline = true;
+	"~Curses~ is now in its ~plain~ printing mode.";
+];
+	
 Verb 'strike'
     * noun                                              -> Strike
     * noun 'with' held                                  -> Attack;
@@ -970,7 +982,7 @@ Verb 'make' 'wish'
     * 'a//' 'wish'                                      -> Wish
     * 'for' special                                     -> Wish;
 
-Verb 'hint' 'hints'
+Verb meta 'hint' 'hints'
     *                                                   -> Hints;
 
 Verb 'dance' 'tango' 'waltz'
@@ -1051,3 +1063,7 @@ Extend 'dig' last
 Extend 'go' last
     * CroquetFunc                                       -> PaceDir;
 
+Verb meta 'pretty'
+	*                                                   -> Pretty;
+Verb meta 'plain'
+	*                                                   -> Plain;
