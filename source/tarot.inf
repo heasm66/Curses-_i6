@@ -149,8 +149,8 @@ Object  -> timer_detonator "timer-detonator"
         before [ i;
             Examine:
                 print "The timer seems quite simple to set. ";
-                i = self.number;
-                if( self.time_left ~= 0 ) {
+                i = self.time_left;
+                if( i ~= 0 ) {
                     print "The clock is running, and currently at ";
                     EnglishNumber(i);
                     " minutes.";
