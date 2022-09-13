@@ -21,3 +21,6 @@ in Graham's words:
         tool to turn story files into Inform 6 out there somewhere. I
         occasionally think of asking if anyone would like to do that,
         and perhaps produce a faithful Inform 7 implementation.
+
+Compiles with Inform 6 version 6.36 or later using the Standard
+Library 6/11. 
