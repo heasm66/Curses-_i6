@@ -45,20 +45,23 @@
 ];
 
 [ FillSub ;     
-	if (location == Croquet_Lawn) {
-		if (dug_hole notin Croquet_Lawn || noun ~= dug_hole) {
-			"What?";
-		}
-		while( child(dug_hole) ~= nothing ) {
-			remove child(dug_hole);
-		}
-		remove dug_hole;
-		"You fill in the hole, restoring the turf.";
-	}
-	if (location == Down_by_River or Garden_Stream or Stream or Sea_Shore) {
-		"Don't go carting water about, for heaven's sake, it'll only make a mess of your clothes and all your spare clothes are packed.";
-	}
-	"Try ~get all~ and then ~put all in...~.";
+    if (location == Croquet_Lawn) {
+        if (dug_hole notin Croquet_Lawn || noun ~= dug_hole) {
+            "What?";
+        }
+        while( child(dug_hole) ~= nothing ) {
+            remove child(dug_hole);
+        }
+        remove dug_hole;
+        "You fill in the hole, restoring the turf.";
+    }
+    if (location == Down_by_River or Garden_Stream or Stream or Sea_Shore) {
+        "Don't go carting water about, for heaven's sake, it'll only make a mess of your clothes and all your spare clothes are packed.";
+    }
+    "Try ~get all~ and then ~put all in...~.";
+];
+[ LieSub ;      
+    "Whatever happened to truthfulness...";
 ];
 
 [ LieDownSub ;
@@ -110,24 +113,19 @@
 ];
 
 [ PaceSub ;
-!    print "DEBUG: verb, PaceDirSub^";
     if( yard_dir <= 0 ) {
         yard_dir = e_obj;
     }
     PaceMovement(1, yard_dir);
-    ! PaceMovement(number_paces, yard_dir);
     rtrue;
 ];
 
 [ PaceDirSub ;
-!    print "DEBUG: verb, PaceSub^";
     PaceMovement(number_paces,yard_dir);
     rtrue;
 ];
 
 [ PaceMovement i d ydelta xdelta x y ;
-!    print "Debug PaceMovement(", i, ", ", (name) d, ")^";
-!    print "Current pos: (", DigX, ", ", DigY, ")^";
     if( d == nothing ) {
         d = e_obj;
     }
@@ -181,7 +179,6 @@
     if( ydelta == 0 && xdelta == 0 ) {
         "Hardly!";
     }
-!    print "DEBUG: xdelta = ", xdelta, "  ydelta = ", ydelta, "^";
     x = DigX + ydelta * i;
     y = DigY + xdelta * i;
     if( x >= 13 || x <= -13 || y >= 13 || y <= -13 ) {
@@ -266,16 +263,6 @@
     i = wn;
     if (w ~= -1 ) {
         j = NounDomain(compass,0,0);
-
-! ("pace 3 north")
-! [line 4 * Routine(20088) -> PaceDir]
-!  [line 4 token 1 word 2 : Routine(20088)]
-!    [NounDomain called at word 4
-!    seeking definite object
-! 
-! [** Programming error: tried to find the "child" of Class **]
-!    [ND made 0 matches]
-
     } else {
         j = -1;
     }
@@ -313,7 +300,6 @@
             }
         }
     }
-!    print "DEBUG CroquetMove(), return: ", (name) d, "^";
     return d;
 ];
 
@@ -337,7 +323,6 @@
     }
     number_paces = i;
     yard_dir = j;
-!    print "DEBUG CroquetFunc(): number_paces = ", number_paces, ", yard_dir = ", (name) yard_dir, "^";
     return 0;
 ];
 
@@ -600,6 +585,11 @@
     "What?";
 ];
 
+[ CloseWithSub ;      
+    R_Process(##PutOn,second,noun);
+    rtrue;
+];
+
 [ StackSub; << Drop noun >>; ];
 
 [ RipSub ;
@@ -620,10 +610,34 @@
     "You feel inexplicably powerful, but nothing happens. Perhaps you should have addressed yourself more precisely.";
 ];
 
+[ ShoutSub ;    
+    "Try ~help~ for details of how to speak to people.";
+];
 [ ShantihSub ;
     "For a moment you can almost hear thunder, as though it were saying something. But the moment passes.";
 ];
 
+[ ConsultDefault o ;    
+    if (Meldrewes_History in o) return Meldrewes_History;
+    if (classical_dictionary in o) return classical_dictionary;
+    if (ancient_prayer_book in o) return ancient_prayer_book;
+    if (tourist_map in o) return tourist_map;
+    return nothing;
+];
+
+[ LookUpSub o n ;       
+    n = TryNumber(consult_from);
+    if (n >= 0 && (tourist_map in player || tourist_map in location)) o = tourist_map;
+    if (n >= 0 && (ancient_prayer_book in player || ancient_prayer_book in location)) o = ancient_prayer_book;
+    if (o == nothing) o = ConsultDefault(player);
+    if (o == nothing) o = ConsultDefault(location);
+    if (o == nothing) "I can't see what you wish to consult.";
+    print "(consulting ";
+    Defart(o);
+    print ")^";
+    R_Process(##Consult,o);
+    rtrue;
+];
 [ TimeSub ;
     WhereInGame();
     new_line;
@@ -652,7 +666,6 @@
 ];
 
 [ SaveSub i;
-!    redraw_statusline = true;
     if( location == Heavenly_Place ) "The angel looks at you reproachfully.";
     if( location == Hellish_Place ) "The demon looks at you viciously.";
     @save -> i;
@@ -880,18 +893,18 @@
 ];
 
 [ PrettySub ;
-	pretty_flag = true;
-	trigger_quotation(5);
-	redraw_statusline = true;
-	"~Curses~ is now in its (supposedly) ~pretty~ mode.";
+    pretty_flag = true;
+    trigger_quotation(5);
+    redraw_statusline = true;
+    "~Curses~ is now in its (supposedly) ~pretty~ mode.";
 ];
 
 [ PlainSub ;    
-	pretty_flag = false;
-	redraw_statusline = true;
-	"~Curses~ is now in its ~plain~ printing mode.";
+    pretty_flag = false;
+    redraw_statusline = true;
+    "~Curses~ is now in its ~plain~ printing mode.";
 ];
-	
+
 Verb 'strike'
     * noun                                              -> Strike
     * noun 'with' held                                  -> Attack;
@@ -1063,7 +1076,85 @@ Extend 'dig' last
 Extend 'go' last
     * CroquetFunc                                       -> PaceDir;
 
+Verb 'tighten' 'tweak' 'unwind' 'wind' 'wrench'
+    * noun                                              -> Turn
+    * noun 'with' noun                                  -> TurnWith;
+
+Verb 'board' 'embark'
+    * noun                                              -> Enter;
+
+Verb 'hang' 'mount'
+    * noun 'on' noun                                    -> Insert
+    * noun 'onto' noun                                  -> Insert
+    * 'up' noun 'on' noun                               -> Insert
+    * 'up' noun 'onto' noun                             -> Insert
+    * noun 'up' 'on' noun                               -> Insert
+    * noun 'up' 'onto' noun                             -> Insert;
+
+Verb 'kick'
+    * noun                                              -> Attack;
+
+Extend 'dig' first
+	* 													-> Dig;
+
+Extend 'dig' last
+    * special                                           -> Dig;
+	
+Extend 'drink' first
+    *                                           		-> Drink;
+
+Extend 'attach' replace
+    * noun                                              -> Repair
+    * noun 'to' noun                                    -> Repair;
+
+Extend 'buy' first
+    * special                                           -> Buy;
+
+Extend 'answer' first
+    * 'lagach' 'to' noun                                -> Lagach;
+
+Extend 'answer' first
+    *                                                   -> Shout;
+	
+Extend 'attack' last
+    * noun 'with' held                                  -> Kill;
+
+Extend 'turn' last
+    * noun 'inside' 'out'                               -> Turn;
+
+Extend 'turn' last
+    * noun 'around'                                     -> Turn;
+	
+Extend 'turn' last
+    * 'round' noun                                      -> Turn;
+
+Extend 'turn' last
+    * noun 'to' topic	                                -> Consult;
+	
+Extend 'lie' first
+    *                                                   -> Lie;
+
+Extend 'lie' last
+    * 'down' 'on' noun                                  -> Enter;
+
 Verb meta 'pretty'
-	*                                                   -> Pretty;
+    *                                                   -> Pretty;
+
 Verb meta 'plain'
-	*                                                   -> Plain;
+    *                                                   -> Plain;
+
+Verb meta 'help'
+    *                                                   -> Help
+    * special                                           -> HelpSpecial;
+
+Extend 'look' last
+    * 'up' topic 'on' noun                          	-> Consult;
+
+Extend 'look' last
+    * 'up' topic                                    	-> LookUp;
+
+Extend 'display' last
+    * 'off'                                             -> Sing;
+
+Extend 'close' last
+    * noun 'with' noun                                  -> CloseWith;
