@@ -252,7 +252,7 @@ Object -> hieroglyphic_symbols "hieroglyphic symbols"
             "^Confused and hazy, you feel you can understand hieroglyphics, - or hasn't that happened yet?";
         ],
         article "some",
-  has   scenery;
+  has   scenery pluralname;
 
 Object -> ships_wheel "ship's wheel"    
   with  name 'ships' 'wheel',

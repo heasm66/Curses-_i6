@@ -169,7 +169,7 @@ Object  -> teachests "teachests"
         ],
         description "Open-topped. You could easily look inside, if so minded.",
         article "some",
-  has   container open scenery;
+  has   container open scenery pluralname;
 
 Object  -> -> Meldrewes_History "History of the Meldrews (vol. II)"      
   with  name 'book' 'history',
@@ -1417,7 +1417,7 @@ Object  -> insulation_rolls "insulation rolls"
                  was being done.";
         ],
         article "some",
-  has   scenery;
+  has   scenery pluralname;
 
 Object  -> -> new_battery "new-looking battery"  
   with  name 'new' 'battery',
@@ -2211,7 +2211,7 @@ Object  -> old_gardeners__gloves "old gardeners' gloves"
         initial "A pair of yellow rubber gloves hangs from a hook on one wall.",
         article "some",
         devil_hint "Good for nothing. Why would you want gloves on?",
-  has   clothing scored;
+  has   clothing scored pluralname;
 
 Object  -> Jemima "Jemima"       
   with  name 'aunt' 'jemima',
