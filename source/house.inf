@@ -2994,7 +2994,7 @@ Object  dog_eared_old_letter "dog-eared old letter"
             print "^  ::   and        #     the               #.    this^  :;   but        +*+   god/spirit?       (())  all^  =    of         []    house/building    |||   indicates plural^  ->   through    >>>   moves             <>    item/thing?^  __   sits/lies/rests/is near            /     to/toward^";
             0-->8 = 65533 & 0-->8;
             rtrue;
-        ]
+        ],
         devil_hint "The ravings of a madman. Ignore it.",
   has   ;
 
