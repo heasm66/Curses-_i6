@@ -1661,20 +1661,22 @@ Object  -> Sir_Joshua_Meldrewe "Sir Joshua Meldrewe"
 
 Object  Chimney "Chimney"        
   with  before [ o;
-            Exit, Look, Inv: rfalse;
-            Go:
-                objectloop( o in player )
-                    if( o hasnt worn || o == rucksack )
-                        "It's too narrow a squeeze for you at present.";
-                print "You squeeze awkwardly down the chimney. Lucky your best clothes are all packed, because 
-                    you're getting filthy.^";
-                rfalse;
-            default: "There's not enough room in this confined space to do anything much!";
-        ],
-        e_to Inside_Cupboard,
-        d_to Priests_Hole,
-        description "The chimney is cramped, sooty, unpleasant and has no floor to speak of, so you are held up only by jamming your feet against the walls. To the east, through the fireplace, is the cupboard.",
-        cant_go "Not a chance!",
+			Exit, Look, Inv: rfalse;
+			Go:
+				if (noun == d_obj) {
+					objectloop( o in player )
+						if( o hasnt worn || o == rucksack )
+							"It's too narrow a squeeze for you at present.";
+					print "You squeeze awkwardly down the chimney. Lucky your best clothes are all packed, because 
+						you're getting filthy.^";
+				}
+				rfalse;
+			default: "There's not enough room in this confined space to do anything much!";
+		],
+		e_to Inside_Cupboard,
+		d_to Priests_Hole,
+		description "The chimney is cramped, sooty, unpleasant and has no floor to speak of, so you are held up only by jamming your feet against the walls. To the east, through the fireplace, is the cupboard.",
+		cant_go "Not a chance!",
   has   ;
 
 Object  -> sooty_old_stick "sooty old stick"     
