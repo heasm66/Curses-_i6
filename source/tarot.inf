@@ -3,20 +3,20 @@ Class   TRoom
 
 [ BombTicks w i ;
     print "The clock is ticking downwards, and is ";
-    if( complicated_looking_bomb.number == 0 ) {
+    if( complicated_looking_bomb.time_left == 0 ) {
         print "right on the red zone!  ";
     } else {
-        EnglishNumber(complicated_looking_bomb.number);
+        EnglishNumber(complicated_looking_bomb.time_left );
         print " minute";
-        if( complicated_looking_bomb.number ~= 1 ) {
+        if( complicated_looking_bomb.time_left  ~= 1 ) {
             print "s";
         }
         print " short of the red zone. ";
-        if( complicated_looking_bomb.number == 5 ) {
+        if( complicated_looking_bomb.time_left  == 5 ) {
             trigger_quotation(10);
         }
     }
-    w = complicated_looking_bomb.time_left;
+    w = complicated_looking_bomb.number;
     if( w == 0 ) "All four wires are plugged into the timer.";
     if( w == 1 ) print "Only the ";
     if( w == 2 ) print "The ";
@@ -86,7 +86,7 @@ TRoom   Ruined_Castle_Cafe "Ruined Castle Cafe"
             if( complicated_looking_bomb hasnt concealed ) {
                 new_line;
                 BombTicks();
-            } else {
+            } else if ( complicated_looking_bomb hasnt general ) {
                 print "^The table rattles again.^";
             }
         ],
@@ -133,6 +133,8 @@ Object  complicated_looking_bomb "complicated-looking bomb"
                     print "^Click!  The timer runs out, but the bomb was disarmed. You pocket the timer and hide the rest of the evidence under the table.^";
                     move timer_detonator to player;
                     give timer_detonator ~static;
+					give complicated_looking_bomb concealed;
+					give complicated_looking_bomb general;
                     remove complicated_looking_bomb;
                     rtrue;
                 }
