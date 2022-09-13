@@ -383,7 +383,7 @@ Array horrible_tunes table
     "~My Way~, crooned over by Frank Sinatra."
 ;
 
-Array quote_flag_set -> 48;
+Array quote_flag_set -> 49;
 
 Attribute cat_nofollow;
 Attribute charged;
@@ -604,15 +604,6 @@ Include "afterlife.inf";
     score = score + 5;
     good_try_bonus = 1;
     "^A shame to see such a good try unrewarded... oh, go on, have an extra five points.";
-];
-
-[ GoodTryRevoked ;
-    if( good_try_bonus == 1 ) {
-        score = score - 5;
-        good_try_bonus = 0;
-        "^Under the circumstances, the 5-point bonus is forfeit.";
-    }
-    rtrue;
 ];
 
 [ DarkToDark ;
