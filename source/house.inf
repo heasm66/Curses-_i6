@@ -1705,7 +1705,7 @@ HRoom   Priests_Hole "Priest's Hole"
                     objectloop( o in player )
                         if( o hasnt worn || o == rucksack )
                             "It's too narrow a squeeze for you at present.";
-                    print "You squeeze awkwardly back up the chimney.";
+                    print "You squeeze awkwardly back up the chimney.^";
                 }
                 if( noun == d_obj )
                     DownTheHatch();
