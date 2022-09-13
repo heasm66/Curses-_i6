@@ -6,6 +6,9 @@ Constant Story "CURSES";
 Constant Headline "^An Interactive Diversion^Copyright (c) 1993, 1994, 1995 by Graham Nelson.^";
 Release 18;
 
+#ifdef VN_1636;
+Include "abbreviations.inf"; 	! r18 
+#endif;
 CONSTANT AMUSING_PROVIDED;								
 Constant SACK_OBJECT = rucksack;
 Constant MAX_CARRIED = 5;
