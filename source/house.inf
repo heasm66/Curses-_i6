@@ -1499,7 +1499,7 @@ HRoom   Inside_Cupboard "Inside Cupboard"
         description "This is a surprisingly spacious cupboard, which you can't recall ever visiting before today. You really ought to use this convenient empty room for something...",
   has   ;
 
-Object  -> painting_of_Mad_Isaac_Meldrewe "painting of Mad Isaac Meldrewe"       
+LagachObj -> painting_of_Mad_Isaac_Meldrewe "painting of Mad Isaac Meldrewe"       
   with  name 'painting' 'of' 'mad' 'isaac' 'picture',
         after [;
             Take:        

@@ -482,12 +482,13 @@ Include "VerbLib";
 
 Class LagachObj
   with  orders [ i r flag;
-            Lagach:
-                if( painting_of_Mad_Isaac_Meldrewe notin White_Hallway || painting_of_Mad_Isaac_Meldrewe has moved )
-                    rfalse;
-                if( self == painting_of_Mad_Isaac_Meldrewe && flag == false )
-                    "A breeze ripples the canvas of the unanchored painting, but that's all.";
-                i = 0;
+			Lagach:
+				flag = true;
+				if( painting_of_Mad_Isaac_Meldrewe notin White_Hallway || painting_of_Mad_Isaac_Meldrewe has moved )
+					flag = false;
+				if( self == painting_of_Mad_Isaac_Meldrewe && flag == false )
+					"A breeze ripples the canvas of the unanchored painting, but that's all.";
+				i = 0;
                 if( location == Greek_Frieze1 ) i = 1;
                 if( location == Mosaic ) i = 2;
                 if( location == Crypt ) i = 3;
