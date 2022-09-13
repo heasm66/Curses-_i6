@@ -1615,9 +1615,9 @@ Object  -> Sir_Joshua_Meldrewe "Sir Joshua Meldrewe"
         life [;
             Give, ThrowAt:
                 remove noun;
-                StopDaemon(self);
                  if( noun == chicken_wishbone ) {
-                    move iron_key to Priests_Hole;
+					StopDaemon(self);
+					move iron_key to Priests_Hole;
                     give iron_key general;
                     remove Sir_Joshua_Meldrewe;
                     Achieved(SCORE_JOSHUA);
