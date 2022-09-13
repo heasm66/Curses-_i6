@@ -952,8 +952,10 @@ Object  tube_with_an_alpha_on "tube with an alpha on"
      for( w = NextWord() : w : w = NextWord() ) {
          j = false;
          for( i=0: i < len : i++ ) {
-             if( w == 'tubes' )
+             if( w == 'tubes' ) {
                  parser_action = ##PluralFound;
+				 j = true;
+			 }
              else if( w == self.&name-->i )
                  j = true;
          }
@@ -976,8 +978,10 @@ Object  tube_with_an_alpha_on "tube with an alpha on"
      for( w = NextWord() : w : w = NextWord() ) {
          j = false;
          for( i=0: i < len : i++ ) {
-             if( w == 'scrolls' )
+             if( w == 'scrolls' ) {
                  parser_action = ##PluralFound;
+				 j = true;
+			 }
              else if( w == self.&name-->i )
                  j = true;
          }
