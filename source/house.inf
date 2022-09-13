@@ -1208,7 +1208,7 @@ HRoom   Souvenirs_Room "Souvenirs Room"
   with  name 'souvenirs' 'holiday' 'snaps' 'beam',
         before [ o;
             Examine:
-                if( noun == s_obj && slide_projector has on ) {
+                if( ( noun == s_obj || noun == south_wall ) && slide_projector has on ) {
                     o = child(slide_projector);
                     if( o == nothing ) "The south wall is lit up by the projector.";
                     print "The south wall shows "; WallDisplay(o); rtrue;
@@ -1342,7 +1342,8 @@ Object  -> slide_projector "slide projector"
 ];
 
 Object  -> south_wall "south wall"       
-  with  before [ o;
+ with name 'south' 'wall',
+	  before [ o;
             Enter:
                 o = child(slide_projector);
                 if( o == nothing ) 
