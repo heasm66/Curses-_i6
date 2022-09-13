@@ -105,7 +105,6 @@ Array angel_topics --> 3 'heaven' 'yourself' 'herself' "~Heaven?  Oh this isn't 
         }
         ++ndx;
     }
-    rtrue;
 ];
 
 [ DemonQuestion w topic ;
