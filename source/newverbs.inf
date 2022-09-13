@@ -44,6 +44,23 @@
     ".";
 ];
 
+[ FillSub ;     
+	if (location == Croquet_Lawn) {
+		if (dug_hole notin Croquet_Lawn || noun ~= dug_hole) {
+			"What?";
+		}
+		while( child(dug_hole) ~= nothing ) {
+			remove child(dug_hole);
+		}
+		remove dug_hole;
+		"You fill in the hole, restoring the turf.";
+	}
+	if (location == Down_by_River or Garden_Stream or Stream or Sea_Shore) {
+		"Don't go carting water about, for heaven's sake, it'll only make a mess of your clothes and all your spare clothes are packed.";
+	}
+	"Try ~get all~ and then ~put all in...~.";
+];
+
 [ LieDownSub ;
     if( location == Servants_Room ) << Enter servants_bed >>;
     if( location == Alisons_Writing_Room ) << Enter comfortable_bed >>;
