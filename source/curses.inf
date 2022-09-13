@@ -22,6 +22,8 @@ Constant T_NE_OF_HOME = 12;
 Constant T_SPIRIT_WORLD = 13;
 Constant T_AFTERLIFE = 14;
 
+Property section T_AFTERLIFE;		! Assign a default value to this property
+
 Constant DIED = 1;
 Constant WON = 2;
 Constant FAILED = 3;
