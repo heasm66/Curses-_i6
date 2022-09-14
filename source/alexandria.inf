@@ -940,7 +940,7 @@ Object  tube_with_an_alpha_on "tube with an alpha on"
         description "An open-ended hollow tube, marked with a Greek capital Alpha.",
         parse_name TubeParse,
         angel_hint "Surely this is addressed to someone?",
-  has   container open;
+  has   container open transparent;
 
 [ TubeParse i j w len cnt;
      if( parser_action==##TheSame ) {   
@@ -1009,7 +1009,7 @@ Object  tube_with_a_kappa_on "tube with a kappa on"
         description "An open-ended hollow tube, marked with a Greek capital Kappa.",
         parse_name TubeParse,
         angel_hint "Surely this is addressed to someone?",
-  has   container open;
+  has   container open transparent;
 
 Object  -> scroll_bearing_a_short_poem "scroll bearing a short poem"     
   with  name 'short' 'scroll' 'poem',
