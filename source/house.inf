@@ -111,9 +111,8 @@ Object  chocolate_biscuit "chocolate biscuit"
             Eat: Achieved(SCORE_BISCUIT); rfalse;
         ],
         description "Oatmeal covered with plain chocolate, since you ask.",
-        devil_hint "I bet you didn't know that chocolate biscuit manufacturers are damned in perpetuity? 
-            I'm afraid the chapters about that in the Old Testaments were lost, though, and now no-one can
-            remember why.",
+        devil_hint "I bet you didn't know that chocolate biscuit manufacturers are damned in perpetuity?  I'm afraid the 
+			chapters about that in the Old Testaments were lost, though, and now no-one can remember why.",
   has   edible moved;
 
 HRoom   Attic "Attic"    
@@ -1676,7 +1675,7 @@ Object  Chimney "Chimney"
 		],
 		e_to Inside_Cupboard,
 		d_to Priests_Hole,
-		description "The chimney is cramped, sooty, unpleasant and has no floor to speak of, so you are held up only by jamming your feet against the walls. To the east, through the fireplace, is the cupboard.",
+        description "The chimney is cramped, sooty, unpleasant and has no floor to speak of, so you are held up only by jamming your feet against the walls. To the east, through the fireplace, is the cupboard.",
 		cant_go "Not a chance!",
   has   ;
 
@@ -2369,7 +2368,9 @@ Object  daisy_chain "daisy chain"
   with  name 'daisy' 'chain' 'daisychain',
         before [;
             Examine:
-                print_ret "A delicate, pretty chain of ", DaisyType(self.number), " daisies.";
+                print "A delicate, pretty chain of ";
+				DaisyType(self.number);
+				" daisies.";
             Drop:
                 remove self;
                 give self ~worn;
