@@ -205,9 +205,9 @@ DERoom  Coven_Cell "Coven Cell"
                 StartTimer(self,3);
                 rtrue;
             }
-            print "^A key turns in the door and Doktor Stein bursts in. He stops to pat the goat affectionately. 
-                ~Cheer up, Dobbin. As soon as I've finished this brutal human sacrifice I'll take you for your walk.~
-                He feeds Dobbin some sugar-cake. ~They make such marvellous cheese,~ he explains confidentially.^";
+            print "^A key turns in the door and Doktor Stein bursts in. He stops to pat the goat affectionately. ~Cheer up, Dobbin. As soon 
+			        as I've finished this brutal human sacrifice I'll take you for your walk.~  He feeds Dobbin some sugar-cake. ~They make 
+					such marvellous cheese,~ he explains confidentially.^";
             deadflag = DIED;
             if( player has general ) 
                 "^In a trance, you go willingly to your (somewhat messy) sacrifice...";
