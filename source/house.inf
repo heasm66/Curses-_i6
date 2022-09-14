@@ -1659,7 +1659,7 @@ Object  -> Sir_Joshua_Meldrewe "Sir Joshua Meldrewe"
 
   has   animate concealed;
 
-Object  Chimney "Chimney"        
+HRoom  Chimney "Chimney"        
   with  before [ o;
 			Exit, Look, Inv: rfalse;
 			Go:
