@@ -170,8 +170,18 @@ Object CR "CR"
                     AdjustSlide(12,14);
                 }
                 rfalse;
-
-        ],
+			Look:
+				if (self has general) {
+					print "^The lower basket contains a cannonball, and the upper is empty.^";
+					rfalse;
+				}
+				if (child(hanging_cord) ~= nothing) {
+					print "^The lower basket contains ";
+					WriteListFrom(child(hanging_cord),8 + 64);
+					".";
+				}
+				rfalse;
+		],
         n_to metal_wall,
         s_to nothing,
         e_to [;
