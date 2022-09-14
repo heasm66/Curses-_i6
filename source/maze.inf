@@ -455,7 +455,8 @@ Object Maze_Foundations "Maze Foundations"
                 }
                 MazeX = x;
                 MazeY = y;
-                << Look >>;
+                LookSub(true);
+				rtrue;
         ],
         after [;
             Look: MazeOldDescribe(); rtrue;
