@@ -286,14 +286,12 @@ Rod     rod_of_stalking "Stalking"
                 "Nothing obvious happens.";
 
             give runner_bean_plant open;
-            print "^Warning: something extremely cliched is about to happen. When you think you have composed 
-                yourself and can stand it, press ENTER. ", '>';
+            print "^Warning: something extremely cliched is about to happen. When you think you have composed yourself and can stand it, press ENTER. >";
             buffer->1 = 0;
             DrawStatusLine();
             @aread buffer parse -> i;
             new_line;
-            "Suddenly an enormous beanstalk sprouts out of the ground, exactly as per fairy tale, reac
-             hing up high into the sky!  You yawn convulsively.";
+            "Suddenly an enormous beanstalk sprouts out of the ground, exactly as per fairy tale, reaching up high into the sky!  You yawn convulsively.";
         ],
         devil_hint "It has no horticultural application.",
   has   unidentifed_rod;
@@ -486,12 +484,12 @@ Rod     rod_of_returning2 "Returning"
 
 HighRod     rod_of_life "Life"
   with  name 'life' 'high' 'rod' 'of',
-        initial "The High HighRods of Life, Love and Death lean together in a pyramid at the top of the steep slope, balanced rather delicately.",
-        angel_hint "Astonishing!  One of the three high HighRods!";
+        initial "The High Rods of Life, Love and Death lean together in a pyramid at the top of the steep slope, balanced rather delicately.",
+        angel_hint "Astonishing!  One of the three high Rods!";
 
 HighRod     rod_of_death "Death"
   with  name 'death' 'high' 'rod' 'of',
-        angel_hint "Astonishing!  One of the three high HighRods!",
+        angel_hint "Astonishing!  One of the three high Rods!",
   has   concealed;
 
 HighRod     rod_of_love "Love"
