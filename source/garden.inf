@@ -255,8 +255,8 @@ Object  -> garden_roller "garden roller"
                 }
                 rfalse;
         ],
-        s_to "A big motorised garden roller is parked here.",
-        initial "The garden roller sits here, its engine still running.",
+        when_off "A big motorised garden roller is parked here.",
+        when_on "The garden roller sits here, its engine still running.",
         description "A motorised garden roller of the kind you sit inside, among whose simple controls is a big 
             on/off switch.",
         each_turn [;
