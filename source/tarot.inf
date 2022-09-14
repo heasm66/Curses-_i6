@@ -198,15 +198,15 @@ Object  -> timer_detonator "timer-detonator"
                     k = parent(k);
                     if( k == mirrored_device && photographers_flash hasnt general ) {
                         give photographers_flash general;
-                        print "Consequently you can only hear as the smudge on the horizon rises from the waves, 
-                            becomes an enormous Kraken sea monster and lunges for the stone tower. (Considering this
-                            is supposed to be a Greek myth it feels surprisingly like a Japanese 1960s creature film.)
-                            The Kraken swipes at you, overreaches itself and falls over forward, impaling itself extremely
-                            messily on the pharos. Your eyes just about recover by the time the rest of your body is
-                            crushed by its weight.^^Up on Mount Olympus, Zeus is still cross. ~Take me to your Leda~,
-                            you wittily demand, but this does not seem to improve matters. Poseidon also looks rather
-                            fed up, but luckily a sizeable faction of goddesses takes your side and arranges to have
-                            you resurrected...^";
+                        print "Consequently you can only hear as the smudge on the horizon rises from the waves, becomes an enormous Kraken 
+						    sea monster and lunges for the stone tower. (Considering this is supposed to be a Greek myth it feels surprisingly 
+																																												 
+							like a Japanese 1960s creature film.)  The Kraken swipes at you, overreaches itself and falls over forward, 
+							impaling itself extremely messily on the pharos. Your eyes just about recover by the time the rest of your body is
+                            crushed by its weight.^^Up on Mount Olympus, Zeus is still cross. ~Take me to your Leda~, you wittily demand, but 
+							this does not seem to improve matters. Poseidon also looks rather fed up, but luckily a sizeable faction of goddesses 
+							takes your side and arranges to have you resurrected...^";
+
                         Achieved(SCORE_ANDROMEDA);
                         remove photographers_flash;
                         give Lighthouse ~visited;
@@ -669,8 +669,13 @@ TRoom   West_Cloister "West Cloister"
 Object  -> symbol "symbol"       
   with  name 'symbol' 'symbols',
         initial "A curious symbol is repeated along the top of the relief.",
-        description "  j  c     k  b   s you gk ",
-  has   static;
+        description [ ;
+			0-->8 = 2 | 0-->8; 
+			print "   (---)  (---)  (---)  (---)^";
+			0-->8 = 65533 & 0-->8;
+			rtrue;
+		],
+		has   static;
 
 TRoom   Inner_Sanctum "Inner Sanctum"    
   with  n_to Cross_Centre,
@@ -950,8 +955,7 @@ Object  -> flaming_bronze_urn "flaming bronze urn"
                 }
                 if( noun has edible ) {
                     give Oracle general;
-                    "You have pleased the god Apollo - Loxias, god of words and counsel, as he was once called!  
-                     Very wise.";
+                    "You have pleased the god Apollo - Loxias, god of words and counsel, as he was once called!  Very wise.";
                 }
                 "The god Apollo is unimpressed with your offering, which feeds the eternal flame.";
             Enter: "You have no desire to be burnt.";
