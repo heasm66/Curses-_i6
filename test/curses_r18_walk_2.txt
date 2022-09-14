@@ -1,0 +1,971 @@
+verbose. i. x biscuit. x torch. x paper
+x teachests. look in them
+x book. look up Peter in History. look up me in History
+s
+x cupboard
+x whistle. x parcel. x bottle
+se. e
+x rolls
+open door
+n
+s
+take rucksack. x it
+look up Ebenezer in History
+n. w. nw
+take whistle, parcel, bottle
+open parcel. x box. x card
+open bottle
+look. x wrapping
+n
+close trapdoor
+look. take jewellery box. open trapdoor
+x jewellery box
+open it
+n
+x demijohn
+x battery
+x map
+take demijohn
+open demijohn
+w
+x calendar
+turn page
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+g
+s
+x sheets
+x radio
+turn it on. push it north
+w
+x Jemima
+look up Jemima in History
+ask Jemima about gloves. ask Jemima about calendar
+ask Jemima about daisies. ask Jemima about Paris
+take gloves
+e. e
+wear gloves. open demijohn
+take all from demijohn
+read map
+look up A1 on map
+e
+take wrench
+x dumbwaiter. x wishbone. take it
+x shaft. x wheel
+w. s. e
+x book
+take it
+look up Merlyn in dictionary. look up Arthur in dictionary
+x scarf. take it
+get on bed. sleep
+i
+e. n
+x Druid. x mascot. x bear
+take mascot
+lagach
+drop mascot
+s. w. sw. e
+stand. w. s. se. w
+pull cord
+x plaque. look up Roger in History
+x flash. take it
+x postcard
+e. s
+x detector
+x ball. rub ball
+x ball. g. g. g. g. g
+w
+take wrench. tighten joint
+take novel and poetry
+x novel
+look up Alison in History
+x poetry
+open torch. look in it. x old battery
+n
+x poster
+take poster
+take poster. e
+x mural. look up Helene in History
+look up Anton in History
+w. u
+x bell. x Tarot. w
+push bell
+say odd
+n. u
+take cards
+push bell 
+look up Sosostris in dictionary
+look up Alexander in dictionary
+e. d
+x man
+buy map
+u. w. w
+take hanky. x it
+x boat
+wave hanky
+enter boat
+answer time
+i. x Ace. open bunker
+nw
+climb tree
+x maze
+d. w. w
+x roller
+x weed killer
+x bladed
+take weed killer. take spade
+e. s
+x plant. dig
+n. e. e
+x bust
+e
+x mosaic. take ball
+w. w
+n
+w. w
+get in roller. turn it on
+e. e. n
+n. w. w.
+n. n. n. n
+w. w. w
+turn off roller. out
+x plaque
+look up Capability in History
+x etching
+take it
+get in roller. turn it on
+e. e. e. s. s.
+s. s. e. e. s. s
+e
+look. x well
+out. w
+take medicine bottle. drop it. e
+enter roller. w
+turn off roller. out. take tablet
+se. e
+x shrub. x wall
+push tub
+open hatch. d
+u
+close torch
+w
+x vent. x mouse
+mouse, s
+s
+mouse, w
+hole, w
+hole, w
+hole, w
+hole, n
+hole, w
+hole, n
+hole, s
+hole, e
+hole, s
+hole, e
+hole, e
+hole, e
+hole, e
+x brass key. take it
+n. w
+x door
+d
+x demon
+u. e
+turn off wheel. turn wheel
+enter dumbwaiter. pull ropes
+out. n
+x door
+s. enter waiter. pull ropes
+out. w. s.
+s. se. e
+x rolls
+take new battery
+s
+push south wall
+s
+x mirror
+get in bed. sleep
+stand
+open window
+hit window
+s
+x sill. search sill. look
+take gold key
+unlock jewellery box with gold key. open it
+x clover. take it
+open torch. take old battery. take new battery
+put new battery in torch. close torch
+n. n. n. n
+x painting. look up Isaac in History
+take painting
+x fireplace
+take mask
+x skylight. turn crank
+u. nw
+take key
+x ghost
+look up Joshua in History
+give wishbone to Joshua
+se. d. w
+take stick
+d
+e
+take torch. put it in fireplace
+take attic key. put it in fireplace
+drop all. w. d
+x door. x book
+take all
+look up 1792
+unlock hatch with attic key
+open hatch. look
+d
+e. turn wheel. enter waiter. pull rope. g
+out. w. s.
+s. se.
+e. n
+put all in sack. take sack. take all
+s. w. nw.
+n. n. 
+w. w
+take box chocolates. give it to Jemima
+say yellow
+e. e.
+s. s.
+se. s. s
+x projector
+take Ace. put Ace in slot. turn on projector
+turn dial
+n
+s. s
+x crates
+x bottle. take it
+x door
+open door
+x ship. pull anchor
+put sticks in mounted bottle
+x ship
+look. fore
+take branch. aft. up
+x flag. take it
+x pole
+port
+look. take spar and flag. x spar
+aft
+turn wheel
+climb chain
+take Ace
+n. n. e.
+s. s
+take flag. put flag on bed
+get on bed. sleep
+i
+x green
+n
+x barrier
+e
+e
+x hieroglyphics
+turn wheel
+pinch me
+out. n. n.
+w. nw
+n. n. w. w
+z
+x chain. e
+take spar. wave it
+x rod
+e. e
+enter waiter. pull rope. g
+out. wear mask. n
+unlock door with attic key
+open door. n
+s
+e. e
+remove mask
+x sketch. take it
+open frame. look
+take sketch
+take letter. read it
+take scroll. x it
+x vent
+x coffin
+i
+
+open coffin
+take rod. put rod in coffin
+close coffin. open coffin
+take Returning
+take sooty stick. wave it
+put it in coffin. close coffin
+open coffin. take Fire
+take clover. wave it
+put it in coffin. close coffin
+open coffin. take Luck
+se
+look in stand. take sceptre. x it
+wave it
+take Isaac. put Isaac on hook
+s. u
+w. s. se.
+s. s
+take Fool. put it in slot. n
+s. s
+take Fool
+take Sailor. put it in slot. n
+s. s
+take Sailor
+take Reaper. put it in slot. n
+s. s
+take Reaper
+n. n. e. s
+e
+ne. n
+x memorial. look up Gerard in History
+x church
+x pub
+x Evans. x mascot
+x newspaper
+ask Evans about mascot
+s. d
+x bird. x nuts
+blow whistle
+wave branch
+take nuts
+nw
+w. w. se
+s. e. e
+se. ne
+e
+blow whistle
+n
+take mallet
+x gold chain
+blow whistle
+s
+e
+x peg
+take ball. drop ball
+hit ball with mallet
+nw
+x squirrel. x crack
+pull board
+show nuts to squirrel
+put nuts in crack
+s
+blow whistle
+take watch. x watch
+n. w
+take Returning. strike it
+point it at me
+nw. n. n
+s. s. se. e
+s. e. ne. n
+take watch. hypnotise Evans
+ask Evans for Moon
+strike Returning. point it at me
+nw. n. n
+s. s. se
+s. s
+put Moon in slot. n
+s. s
+x moonstone
+open it
+w
+x statue. e. e
+x Diana. look up Diana in dictionary
+w. u
+pull ropes
+d. s
+x Evans
+s. sw. u
+n. w
+s. s
+take Moon
+get miniature. put it in slot. n
+s. s
+x pole. x folly
+e. e. e. e
+e. e. e. e
+s. s. s. s
+w
+take weed killer. squeeze it
+n. n. n. n
+w. w. w. w
+w. w. w
+take Returning. strike it
+take bean pole
+point Returning at me
+nw. n. n
+s. s. se
+s. s
+take miniature
+take map. look up 1420 in map
+x publicity poster
+ne
+push door
+sw
+s
+push door
+ne
+x beach ball. take it
+push beach ball sw
+push beach ball south
+x still life
+take Tarot box. open it
+x castle. x star. x wands. x maiden
+w
+x matchbook. take it
+d
+listen. look up Eumenides in dictionary
+e. e
+x cabinet. x stone
+break cabinet. take all from cabinet
+x stone
+x fragment
+take Returning. strike it
+eat red tablet. take crook
+point Returning at me
+nw. n. n
+s. s. se
+s. s
+n. n. e
+s. e
+ne. d
+nw. w. w
+u
+x maze
+d
+get in roller. turn it on
+n. n. e. e. e
+turn off roller. out
+x rose. take it
+d
+x mural
+mural, lagach
+w. u
+take wands. put it on deck
+take maiden. put it on deck
+take star. put it on deck
+push bell
+x staff
+n. u
+take all cards
+d. e
+mural, lagach
+still life, lagach
+nw
+take bean pole. wave it
+put it in coffin. close coffin. open it
+take Stalking
+take crook. wave it
+put it in coffin. close coffin. open it
+take Husbandry
+take staff. wave it
+put it in coffin. close coffin. open it
+take Bronze
+se
+painting, lagach
+w. w
+strike Stalking. point it at tree
+w. s
+strike Stalking. point it at plant
+
+u. n
+x angel
+s. d. n
+e. se. e
+strike Stalking. point it at shrub
+w. nw. e. e
+mosaic, lagach
+u
+get in roller. turn it on
+w. w. w
+s. s. w. w
+turn off roller
+out. e. e. e. e
+mosaic, lagach
+take Rod of Bronze. strike it
+point it at mural
+d
+take key. x it
+e. e
+x tombstone
+look up Henri in History
+w. w. s
+smell. smell
+d
+x dial
+x switch
+turn switch off
+u. w
+x sheet
+x panel
+slide I. slide K. slide C
+slide A. slide N. slide E
+slide L. slide O. slide S
+slide T
+strike bronze rod
+point it at metal wall
+n
+x panel
+e
+s. e
+n. n
+mural, lagach
+mural, lagach
+still life, lagach
+painting, lagach
+w
+take orb
+x it
+take Returning. strike it. point it at me
+nw. n. n
+s. s. se
+s. s
+get Castle. put it in slot. n
+s. s
+look under table
+x wire
+pull blue wire
+pull green wire
+pull black wire
+pull red wire
+z. z. z. z. z
+take Returning. strike it. point it at me
+nw. n. n
+s. s. se
+s. s
+take Castle
+take Maiden. put it in slot. n
+s. s
+x Andromeda
+ask Andromeda about hairband
+x hairband
+look up Andromeda in dictionary
+u. e. s
+get Fire. strike it. point it at thorns
+s
+get Luck. strike it. point it at me
+s
+x coin. take it
+sw
+x symbol
+se
+x Homer. look up Homer in dictionary
+look up syrinx in dictionary
+ne
+x pumice. take it
+sw. n
+x inscriptions
+nw
+look up Dionysus in dictionary
+se. ne
+look up Demeter in dictionary
+sw. se
+look up Ares in dictionary
+nw. sw
+look up Poseidon in dictionary
+push Poseidon ne. g
+push Demeter sw. push Demeter nw
+push Dionysus se. push Dionysus sw
+ne
+put pumice in opening. d
+x gem. take it
+look up Galita in dictionary
+u
+take pumice. s
+wake Homer
+say Agamemnon
+say Ptolemy
+say yellow
+nw. ne. n. n. n
+e
+take Husbandry. strike it. point it at goats
+e
+x tree. x fig. take fig
+s
+x dessert. x bartender
+give coin to bartender. take dessert
+n. w. w. d
+give dessert to Andromeda
+u. sw
+x stone
+look up Omphalos in dictionary
+play pipes
+put fig in urn. ask Oracle about me
+
+--------------------------------------------------
+| Remember the number of paces, two numbers (<X> |
+| and <Y>).                                      |
+--------------------------------------------------
+
+ne. e. e
+take fig
+w. w. sw
+put fig in urn. ask Oracle about me
+ne. e. e
+take fig
+w. w. sw
+put fig in urn. ask Oracle about me
+get Returning. strike it. point it at me
+nw. n. n
+s. s. se
+s. s
+take Maiden
+take Wands. put it in slot. n
+s. s
+take Wands. take Star. put Star in slot. n
+s. s
+x device
+d
+x frieze
+u
+take flash. open it
+take red battery. put it in flash
+take timer. put it in flash
+set timer. close flash
+put flash in device
+z. z. z
+z. z. z
+z. z
+i
+e. e
+mosaic, lagach
+mural, lagach
+mural, lagach
+still life, lagach
+painting, lagach
+u
+take sack. wear gloves. take all
+take Returning. strike it. point it at me
+nw. n. n
+s. s. se
+s. s
+take Star
+n. n. nw
+n. e. d
+d. nw
+take hairband. wave it
+put it in coffin. close coffin. open it
+take Sacrifice
+take Wands. wave it
+put it in coffin. close coffin. open it
+take Infinity
+se. ne. e. e
+take spade. go to peg
+
+--------------------------------------------------
+| Use values for FIRST-NUMBER and SECOND-NUMBER  |
+| from earlier.                                  |
+--------------------------------------------------
+pace FIRST-NUMBER east
+pace SECOND-NUMBER north
+dig
+pace 2xSECOND-NUMBER south
+dig
+pace 2xFIRST-NUMBER west
+dig
+pace 2xSECOND-NUMBER north
+dig
+
+--------------------------------------------------
+| Continue...                                    |
+--------------------------------------------------
+
+look in hole. take strongbox
+unlock it with gothic key
+open it. x astrolabe
+take astrolabe
+look in astrolabe
+take Returning. strike it. point it at me
+s. s. se
+s. s
+take sketch. put it in slot. n
+s. s
+se
+sw
+s
+x writings
+smell
+n
+blow whistle
+x tombstone
+look. take cloak. x cloak
+take gem. put gem in mouth
+d
+x couch. x sphinxes
+w
+x animal. take it
+e
+get on couch. sleep
+get on couch. sleep
+get on couch. sleep
+get on couch. sleep
+z. z. z. z
+x officers
+z. z. z
+stand. w
+stand. w
+stand. w
+stand. w
+stand. turn nose
+w. w
+x coffin. x painting
+ne. look. take oak. x it
+x first socket
+x second
+x third
+e. e. u
+ne. se
+open door
+knock on door
+turn cloak
+wear it
+open door. u
+x Madame
+take oak. put it on table
+i
+
+x keepsake
+nw. nw. n
+x grating. x key
+take smooth stone. put it on grating
+z. z. z
+s. se
+ne
+remove cloak. turn it
+wear cloak. ne
+se
+x reliefs
+ne
+sw. n
+w
+take stone and key
+x die. roll die
+g. g. g
+e. s. sw
+nw. n
+unlock grating with rusty key
+open grating. d
+enter skiff
+take heart
+sail. z. z
+out
+take Returning. strike it. point it at me
+nw. n. n
+s. s. se
+s
+
+--------------------------------------------------
+| Austin should probaly be here, but if he isn't |
+| you will have to wait until he appears or go   |
+| looking for him and push him here.             |
+--------------------------------------------------
+
+x Austin
+push Austin south
+jump
+n. w
+read poetry
+n. e
+mural, lagach
+still life, lagach
+n. ne. nw
+se. ne
+se
+x pigeonhole. s
+oil me
+n
+z
+
+--------------------------------------------------
+| A messenger-boy puts some tubes into the       |
+| pigeonhole. If you haven't seen him yet, wait  |
+| until he shows up.                             |
+--------------------------------------------------
+
+take all from hole
+look in alpha
+read epic
+look in kappa
+read short poem
+se
+x globe. take spindle. x spindle
+nw. e
+look up Callimachus in dictionary
+take short poem. put it in alpha
+take epic. put it in kappa
+give kappa to Callimachus
+look up Apollonius in dictionary
+s
+give alpha to Apollonius
+look. take mystic scroll. take sash
+x mystic scroll. x sash. wear sash
+n. w. nw
+sw. sw. d
+w. w
+take sceptre. put it in first socket
+turn it
+
+--------------------------------------------------
+| If necessary, repeat until it rests at 'si'.   | 
+--------------------------------------------------
+
+take sceptre. put it in second
+turn it
+
+--------------------------------------------------
+| If necessary, repeat until it rests at 'huth'. | 
+--------------------------------------------------
+
+take sceptre
+enter coffin. close it. close it
+u
+i
+
+x skull
+w. w. n
+mural, lagach
+mural, lagach
+still life, lagach
+writings, lagach
+nw
+take spindle. wave it
+put it in coffin. close coffin. open it
+take Ice
+se
+painting, lagach
+frieze, lagach
+mosaic, lagach
+mural, lagach
+mural, lagach
+still life, lagach
+n. ne. ne
+n. n
+remove cloak. n
+x slave
+ne. e. s
+anoppe
+take astrolabe. put it on mounting
+look through astrolabe
+x clock
+x hand. take it
+d. d. w
+put heart in statue
+take wrench
+put hand in statue. tighten hand
+put skull in statue. tighten skull
+look
+take Fire. strike it. point it at statue
+point east
+e
+point east. e
+give rose to knight
+show locket to knight
+point west. w
+point down. point at moonstone
+knight, open moonstone
+d
+point down
+look
+x life rod. x love rod. x death rod
+take Life
+take Ice. strike it. point it at Life
+take Life
+take Life
+s
+take Moon. give it to Evans
+take orb. rub orb
+x images. g. g
+take Sacrifice. strike it
+z
+point Sacrifice at board
+s. sw. u
+n. w. s
+w
+take poetry
+e. n. e
+s. e. ne
+d. nw. w
+w. se. e
+d. w. w
+unlock door with wrought key
+open door. nw
+take returning. put it in arc
+take fire. put it in arc
+take ice. put it in arc
+take stalking. put it in arc
+take sacrifice. put it in arc
+take luck. put it in arc
+take husbandry. put it in arc
+take bronze. put it in arc
+take life. put it in arc
+take orb. put it in opening
+take infinity rod. strike it
+point it at lemniscus
+i
+x pamphlet
+take torch. w. d
+take daisy
+swing rope. take daisy
+wear daisy
+u. e. ne. e. e
+u
+w. s
+take horn. wave it
+strike Rod. point it at me
+s
+e
+take all
+x die. x sandals. wear sandals
+w. w
+open cover. x well
+put die in well
+z. z
+e. s
+n. w. d
+e
+z. z. z
+z. z. z
+z. z. z
+z
+w. u
+i. n. x pole. take it
+x spy. take pole
+wave pole
+e
+take stone
+strike rod. point rod at me
+wave bluish
+take sack. take all
+wear daisy chain. wear gloves
+read poetry
+e. d
+give franc to man
+say carte
+x Paris
+u. w. w. enter boat
+say time
+take poetry
+se. e. turn wheel
+enter waiter. pull rope. g
+out. w. s
+s. se. e
+s. s
+take model animal. x mirror
+n. e. ne. n
+s. sw. u
+n. w. nw
+n
+n. w. w
+give chocolate to jemima
+e. e. s. d

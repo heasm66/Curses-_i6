@@ -1,0 +1,1137 @@
+n
+w
+s
+x sheets
+push radio n
+turn on radio
+w
+z
+z
+z
+z
+z
+get gloves
+wear them
+e
+e
+open demijohn
+s
+s
+se
+e
+x rolls
+get battery
+open torch
+empty it
+put new battery in torch
+close torch
+s
+get rucksack
+n
+open cupboard
+n
+get painting
+get mask
+s
+w
+nw
+n
+n
+get red battery, map
+e
+get wrench
+enter dumbwaiter
+get wishbone
+pull rope
+get out
+get mouse
+s
+drop mouse
+mouse, w
+hole, w
+hole, w
+hole, w
+hole, n
+hole, w
+hole, n
+hole, s
+hole, e
+hole, s
+hole, e
+hole, e
+hole, e
+hole, e
+get key
+n
+enter dumbwaiter
+pull rope
+get out
+wear mask
+n
+unlock door with brass key
+open door
+s
+enter dumbwaiter
+pull rope
+get out
+w
+s
+x teachests
+look inside them
+e
+lie down
+sleep
+e
+n
+get mascot
+drop mascot
+s
+w
+sw
+e
+get up
+get all
+w
+s
+get all from cupboard
+open parcel
+n
+n
+w
+x calendar
+turn calendar
+g
+g
+g
+g
+g
+g
+g
+w
+give chocolate to jemima
+remove mask
+say yellow
+e
+e
+s
+s
+se
+w
+pull cord
+x postcard
+get flash
+open flash
+get nasty battery
+put nasty battery in flash
+close flash
+x photograph
+read about roger in history book
+e
+e
+n
+turn crank
+u
+nw
+get key
+give wishbone to ghost
+se
+d
+get brass key
+put torch, brass key in fireplace
+drop all
+enter fireplace
+d
+get all
+unlock hatch with brass key
+open hatch
+d
+e
+turn off wheel
+turn wheel
+enter dumbwaiter
+pull rope
+pull rope
+get out
+w
+s
+s
+se
+e
+n
+drop all
+get rucksack
+get all
+s
+w
+nw
+n
+n
+w
+w
+e
+e
+e
+turn off wheel
+turn wheel
+get bottle
+drop bottle in shaft
+turn wheel
+enter dumbwaiter
+get tablet
+get out
+w
+s
+s
+se
+d
+clean glass ball
+w
+get wrench
+fix pipe
+get books
+read romance novel
+read poetry book
+n
+u
+push bell
+say even
+n
+u
+get tarot cards
+d
+e
+x mural
+w
+s
+w
+get handkerchief
+wave it
+board boat
+say time
+nw
+climb tree
+x maze
+d
+w
+w
+get all
+board roller
+turn it on
+e
+e
+e
+w
+n
+n
+w
+w
+n
+n
+n
+n
+w
+w
+w
+get off
+get miniature
+board roller
+e
+e
+e
+s
+s
+s
+s
+e
+e
+s
+s
+turn off roller
+get off
+wear mask
+se
+s
+s
+d
+turn wheel
+enter dumbwaiter
+pull rope
+pull rope
+get out
+w
+s
+s
+se
+s
+s
+turn on projector
+turn dial
+get ace of cups
+put it in slot
+s
+search crates
+get bottle
+pull anchor
+put ship in mounted bottle
+x ship
+climb mast
+get flag
+go port
+get all
+go fore
+get branch
+go aft
+go aft
+turn wheel
+d
+get ace of cups
+get fool
+put fool in slot
+n
+n
+e
+s
+e
+ne
+n
+x cross
+read about alison in history book
+s
+sw
+w
+push south wall
+s
+get flag
+put flag on bed
+lie down
+sleep
+z
+e
+e
+turn wheel
+pinch me
+get out
+get stick
+wave stick
+break window
+s
+look under window
+get gold key
+n
+n
+n
+w
+nw
+n
+close door
+get box
+open door
+unlock box with gold key
+open box
+get clover
+n
+e
+enter dumbwaiter
+pull rope
+pull rope
+get out
+n
+e
+e
+get sketch
+break frame
+get letter, sketch
+open coffin
+wear gloves
+read inscription
+read letter
+get rod
+put rod in coffin
+close coffin
+open coffin
+get fire
+get spar
+wave it
+put it in coffin
+close coffin
+open coffin
+get returning
+get clover
+wave it
+put it in coffin
+close coffin
+open coffin
+get luck
+get scroll
+se
+get painting
+hang it on hook
+look in umbrella stand
+get sceptre
+u
+u
+read about 1420 in map
+turn door
+ne
+push ball sw
+push ball s
+get tarot box
+open it
+e
+remove mask
+break cabinet
+get all from cabinet
+get tablet, returning
+strike returning
+z
+z
+eat tablet
+get crook
+point returning at me
+nw
+n
+n
+s
+s
+se
+s
+s
+get fool
+get miniature
+put it in slot
+get returning
+strike it
+s
+e
+e
+e
+e
+e
+s
+e
+s
+e
+e
+s
+s
+w
+get weed bottle
+squeeze it
+e
+n
+n
+w
+w
+n
+w
+n
+w
+w
+w
+w
+w
+get bean pole
+point returning at me
+nw
+n
+n
+s
+s
+se
+s
+w
+get book
+e
+n
+nw
+n
+n
+e
+turn wheel
+enter dumbwaiter
+pull rope
+pull rope
+get out
+n
+n
+nw
+board roller
+turn on roller
+n
+n
+e
+e
+e
+get off
+get rose
+d
+x mural
+read poetry book
+get tarot cards from tarot box
+n
+u
+put wands on deck
+put maiden on deck
+put star on deck
+push bell
+n
+u
+get cards
+d
+s
+w
+board boat
+say time
+s
+e
+e
+get quarterstaff
+wave it
+put it in coffin
+close coffin
+open it
+get bronze
+get crook
+wave it
+put it in coffin
+close coffin
+open it
+get husbandry
+get bean pole
+wave it
+put it in coffin
+close coffin
+open it
+get stalking
+get wands
+wave it
+put it in coffin
+close coffin
+open it
+get infinity
+se
+painting, lagach
+get poetry book
+get bronze rod
+strike it
+point it at mural
+d
+get key
+e
+e
+read tombstone
+w
+w
+s
+smell
+smell
+d
+x switch
+turn switch off
+u
+w
+x panel
+x bronze wall
+strike bronze rod
+point it at bronze wall
+n
+x panel
+slide i
+slide k
+slide c
+slide a
+slide n
+slide e
+slide l
+slide o
+slide s
+slide t
+s
+slide k
+slide k
+e
+u
+u
+u
+board roller
+w
+w
+w
+s
+s
+e
+turn off roller
+get off
+get orb
+w
+se
+s
+e
+e
+se
+u
+u
+w
+s
+se
+s
+s
+get miniature
+get maiden
+put it in slot
+s
+u
+e
+s
+get fire
+strike it
+point it at thorns
+get luck
+strike it
+point it at me
+s
+s
+get coin
+se
+get stone
+x it
+sw
+wake homer
+say agamemnon
+say ptolemy
+say yellow
+d
+sw
+push statue ne
+nw
+push dionysus se
+push dionysus sw
+ne
+ne
+push demeter sw
+push demeter nw
+se
+push poseidon ne
+sw
+put inscribed stone in opening
+d
+get gem
+u
+u
+ne
+nw
+n
+n
+n
+get husbandry
+strike it
+point it at goats
+e
+get fig
+s
+give coin to bartender
+get dessert
+n
+w
+w
+d
+give dessert to andromeda
+u
+sw
+play syrinx
+put fig in urn
+priestess, tell me about fig 
+
+--------------------------------------------------
+| Remember the number of paces, two numbers (<X> |
+| and <Y>).                                      |
+--------------------------------------------------
+
+get returning
+strike it
+point it at me
+nw
+n
+n
+s
+s
+se
+s
+s
+get maiden
+get castle
+put it in slot
+s
+look under table
+x scarf
+pull blue wire
+pull green wire
+pull black wire
+pull red wire
+z
+z
+z
+z
+get returning
+strike it
+point it at me
+nw
+n
+n
+s
+s
+se
+s
+s
+get castle
+get star
+put it in slide
+s
+d
+x frieze
+u
+get flash
+open flash
+set timer
+put timer in flash
+close flash
+put flash in device
+z
+z
+z
+z
+z
+z
+z
+e
+e
+mosaic, lagach
+mural, lagach
+mural, lagach
+painting, lagach
+painting, lagach
+u
+get rucksack
+get all
+get returning
+strike it
+point it at me
+nw
+n
+n
+s
+s
+se
+s
+s
+get star
+get sketch
+put it in slide
+n
+
+--------------------------------------------------
+| Austin should probaly be here, but if he isn't |
+| you will have to wait until he appears or go   |
+| looking for him and push him here.             |
+--------------------------------------------------
+
+push austin s
+jump
+s
+n
+get smooth stone
+drop it in grating
+s
+se
+sw
+s
+x writings
+n
+blow bird whistle
+get cloak
+wear it
+ne
+ne
+se
+s
+anoint me
+n
+se
+get spindle
+nw
+z
+get tubes
+look in alpha
+look in kappa
+get short poem, epic poem
+put short poem in alpha
+put epic poem in kappa
+e
+give kappa to callimachus
+s
+give alpha to apollonius
+get all
+n
+w
+nw
+n
+w
+get stone
+get key
+e
+s
+sw
+nw
+n
+unlock grating with key
+open grating
+d
+get heart
+board skiff
+sail
+sail
+sail
+get off
+s
+e
+e
+wear gloves
+get spindle
+wave it
+put it in coffin
+close coffin
+open it
+get ice
+get hairband
+wave it
+put it in coffin
+close coffin
+open it
+get sacrifice
+se
+u
+u
+w
+s
+se
+e
+s
+e
+ne
+d
+wave green branch
+get nuts
+nw
+x mosaic
+get ball
+mosaic, lagach
+mural, lagach
+painting, lagach
+painting, lagach
+writings, lagach
+ne
+e
+n
+get mallet
+s
+e
+get implement
+x it
+
+--------------------------------------------------
+| Use values for <X> and <Y> from earlier.       |
+--------------------------------------------------
+
+walk <X> paces east
+walk <Y> paces north
+dig
+walk 2x<Y> paces south
+dig
+walk 2x<X> paces west
+dig
+walk 2x<Y> paces north
+dig
+
+--------------------------------------------------
+| Continue...                                    |
+--------------------------------------------------
+
+unlock strongbox with gothic key
+open it
+get astrolabe
+fill hole
+get ball
+drop it
+hit it with mallet
+nw
+get nuts
+put nuts in crack
+s
+blow bird whistle
+get watch
+s
+w
+sw
+painting, lagach
+frieze, lagach
+mosaic, lagach
+mural, lagach
+mural, lagach
+painting, lagach
+n
+get gem
+put gem in socket
+d
+lie down on couch
+sleep
+lie down on couch
+sleep
+lie down on couch
+sleep
+lie down on couch
+sleep
+z
+z
+z
+z
+z
+z
+z
+z
+w
+get up
+w
+get up
+w
+get up
+w
+get up
+twist nose
+w
+get model
+w
+n 
+e
+w
+get oak
+get sceptre
+put it in first socket
+turn it 
+
+--------------------------------------------------
+| If necessary, repeat until it rests at 'si'.   | 
+--------------------------------------------------
+
+get sceptre
+put it in second socket
+turn it 
+
+--------------------------------------------------
+| If necessary, repeat until it rests at 'huth'. |
+--------------------------------------------------
+
+get sceptre
+put it in third socket
+turn it 
+
+--------------------------------------------------
+| If necessary, repeat until it rests at 'thu'.  | 
+--------------------------------------------------
+
+enter coffin
+close lid
+close lid
+u
+w
+w
+u
+mural, lagach
+mural, lagach
+painting, lagach
+n
+ne
+se
+remove cloak
+turn it
+wear it
+open door
+u
+put oak on table
+nw
+remove cloak
+turn it
+wear it
+ne
+n
+n
+remove cloak
+wear sash
+n
+ne
+e
+s
+anoppe
+get astrolabe
+put it on mounting
+look in eyepiece
+get hand
+d
+d
+w
+put hand on statue
+tighten hand
+get skull
+put it on statue
+tighten it
+get heart
+put it in statue
+get fire
+strike it
+point it at statue
+point e
+e
+point e
+e
+get rose
+give it to knight
+get keepsake
+show it to knight
+point w
+w
+knight, open moonstone
+point d
+get ice
+strike it
+point it at love
+get love
+get love
+s
+get watch
+hypnotize evans
+evans, give me mascot
+s
+sw
+w
+s
+get model
+look in mirror
+n
+e
+ne
+n
+get orb
+clean it
+get sacrifice
+strike it
+point it at black
+s
+sw
+w
+n
+w
+nw
+n
+n
+e
+turn wheel
+enter dumbwaiter
+pull rope
+get out
+w
+get wrought iron key
+unlock door with it
+open door
+nw
+get sacrifice
+put it in socket
+get ice
+put it in socket
+get love
+put it in socket
+get fire
+put it in socket
+get returning
+put it in socket
+get husbandry
+put it in socket
+get luck
+put it in socket
+get bronze
+put it in socket
+get stalking
+put it in socket
+put orb in opening
+get infinity rod
+strike it
+point it at lemniscus
+get torch
+w
+d
+swing rope
+get daisy
+wear it
+u
+e
+ne
+e
+s
+get horn
+s
+e
+wear sandals
+w
+s
+n
+w
+open cover
+put torch in well
+d
+e
+wave horn
+strike rod
+point it at me
+z
+z
+z
+z
+z
+w
+u
+z
+z
+z
+z
+get pole
+e
+get blue stone
+wave pole
+strike rod
+point it at me
+get rucksack
+get all
+read poetry book
+e
+d
+get blue stone
+wave it
+give note to man
+say carte
+u
+w
+w
+board boat
+say time
+se
+e
+enter dumbwaiter
+pull rope
+pull rope
+get out
+w
+w
+w
+kiss her
+e
+e
+s
+d
