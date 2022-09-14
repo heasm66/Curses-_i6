@@ -418,13 +418,14 @@ Object -> flock_of_sparrows "flock of sparrows"
 
 GRoom  Summer_House "Summer House"      
   with  after [;
-            if( flock_of_sparrows hasnt general ) {
-                    print "^Sparrows chirp happily away to themselves around the high gutter.^";   
-                } else {
-                    print "^Startled sparrows circle high in the sky, showing no signs of calming down.^";
-                }
-                rfalse;
-        ],
+			Look:
+				if( flock_of_sparrows hasnt general ) {
+						print "^Sparrows chirp happily away to themselves around the high gutter.^";   
+					} else {
+						print "^Startled sparrows circle high in the sky, showing no signs of calming down.^";
+					}
+				rfalse;
+		],
         n_to nothing,
         s_to [;
             if( flock_of_sparrows has general ) {
