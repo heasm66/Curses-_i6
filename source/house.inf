@@ -74,7 +74,7 @@ Object  electric_torch "electric torch"
                 }
                 ".";
         ],
-        list_together TORCH_GROUP,,
+        list_together TORCH_GROUP,
         description "The torch has a battery compartment which can be reached by opening it up.",
         article "an",
         number 0,
@@ -100,7 +100,7 @@ Object  electric_torch "electric torch"
 
 Object  -> old_smudged_battery "old smudged battery"     
   with  name 'old' 'smudged' 'battery',
-        list_together TORCH_GROUP,,
+        list_together TORCH_GROUP,
         article "an",
         number 200,
   has   battery_flag;
@@ -776,7 +776,7 @@ Object  -> Austin "Austin"
         newroom = Over_the_East_Wing;
     }
     if( env == Disused_Observatory ) {
-        if( slide_projector has on && ball_polished ~= false && to_current == false ) {
+        if( slide_projector has on && projector_reversed ~= false && to_current == false ) {
             if( location == Disused_Observatory ) {
                 "^Austin seems fascinated by the beam of light.";
             }
@@ -963,7 +963,7 @@ Object  -> photographers_flash "photographer's flash"
                     "There is already a battery inside, and there's only room now for a timer."; 
                 rfalse;
         ],
-        list_together TORCH_GROUP,,
+        list_together TORCH_GROUP,
         initial "A rather more modern photographer's flash lies on a shelf to one side.",
         description "The kind of black box which often sits on top of a camera, used to illuminate otherwise dim scenes. It has an openable compartment on the side, with room left inside for a battery and a timer mechanism (which seem to be optional extras).",
         angel_hint "When you can get this working, perhaps you should take it somewhere prominent.",
@@ -1182,6 +1182,7 @@ Object  -> book_of_Twenties_poetry "book of Twenties poetry"
                     somehow you have arrived in the...^";
                 move book_of_Twenties_poetry to location;
                 PlayerTo(Unreal_City);
+				rtrue;
         ],
         list_together BOOK_GROUP,
         devil_hint "My my, a golden age for clear, simple poetry. At last, an end to the dreary obscurity of 
@@ -1422,7 +1423,7 @@ Object  -> insulation_rolls "insulation rolls"
 
 Object  -> -> new_battery "new-looking battery"  
   with  name 'new' 'battery',
-        list_together TORCH_GROUP,,
+        list_together TORCH_GROUP,
         number 300,
         devil_hint "That is a difficult puzzle, yes.",
   has   battery_flag;
@@ -1969,7 +1970,7 @@ Object  -> demijohn "labelled glass demijohn"
 
 Object  -> -> nasty_battery "nasty-looking red battery"       
   with  name 'nasty' 'red' 'battery',
-        list_together TORCH_GROUP,,
+        list_together TORCH_GROUP,
         description "On the side is the word ~Achtung~.",
         devil_hint "It's provided for your torch, and not for anything else.",
   has   battery_flag;
