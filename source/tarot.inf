@@ -200,7 +200,6 @@ Object  -> timer_detonator "timer-detonator"
                         give photographers_flash general;
                         print "Consequently you can only hear as the smudge on the horizon rises from the waves, becomes an enormous Kraken 
 						    sea monster and lunges for the stone tower. (Considering this is supposed to be a Greek myth it feels surprisingly 
-																																												 
 							like a Japanese 1960s creature film.)  The Kraken swipes at you, overreaches itself and falls over forward, 
 							impaling itself extremely messily on the pharos. Your eyes just about recover by the time the rest of your body is
                             crushed by its weight.^^Up on Mount Olympus, Zeus is still cross. ~Take me to your Leda~, you wittily demand, but 
@@ -431,6 +430,7 @@ Object  -> Andromeda "Andromeda"
                 if( noun has edible ) {
                     if( noun == Ekmek_Special ) {
                         remove noun;
+						give amber_hairband ~concealed;									  
                         give amber_hairband ~static;
                         give amber_hairband moved;
                         move amber_hairband to player;
