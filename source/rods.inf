@@ -29,7 +29,7 @@
 
 Class   Rod
   with  name 'rod' 'of' 'mahogany' 'featureless' 'plaque',
-        list_together 0
+        list_together 0,
 		plural "featureless mahogany rods",
         before [;
             Examine:
