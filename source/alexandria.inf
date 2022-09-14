@@ -1054,13 +1054,12 @@ Object  -> spindle_from_the_globe "spindle from the globe"
   with  name 'spindle' 'axis' 'globe' 'earth',
         before [; Pull: << Take self >>; ],
         after [;
-            if( spindle_from_the_globe hasnt general ) {
-                    give spindle_from_the_globe general;
-                    spindle_from_the_globe.description = "Once the polar axis of a globe.";
-                    "As you pull out its polar axis, the spindle, the Earth collapses altogether in a possibly 
-                     symbolic, certainly dusty shambles.";
-                }
-                rfalse;
+            Take: 	if( spindle_from_the_globe hasnt general ) {
+						give spindle_from_the_globe general;
+						spindle_from_the_globe.description = "Once the polar axis of a globe.";
+						"As you pull out its polar axis, the spindle, the Earth collapses altogether in a possibly symbolic, certainly dusty shambles.";
+					}
+					rfalse;
         ],
         initial "Protruding from a broken globe of the Earth (marked with very tentative and approximate maps) 
             is the spindle, the only thing holding it together.",
