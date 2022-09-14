@@ -396,8 +396,8 @@ Object Triclinium "Triclinium"
              the walls until finally...";
         ],
         description "What was once the villa's triclinium, or kitchen, is now deserted and long since ransacked for 
-            metal. (Nobody lives on their own in this century, and this villa wouldn't be easy to defend.)
-            A doorway to the east gives onto the atrium.",
+            metal. (Nobody lives on their own in this century, and this villa wouldn't be easy to defend.)  A doorway 
+			to the east gives onto the atrium.",
         section T_ANCIENT_BRITAIN,
   has   light;
 
