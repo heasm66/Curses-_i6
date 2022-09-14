@@ -154,12 +154,11 @@ Object Murky_Cave "Murky Cave"
                     new_line;
                     rtrue;
                 }
-                "~This is what must be done. They will forget, so we must give them a substitute. We shall accurse 
-                 them to always seek after this magical stone, which it will be all but impossible for them to
-                 find. It will take the form of whatever they most desire. In six hundred years, by my prophecy,
-                 religious wars in the East will capture men's hearts, and then they will think it is the Holy
-                 Grail, the cup which held the blood of Christ. A thousand years later they will think it is -~
-                 But at this moment the voices move away.";
+                "~This is what must be done. They will forget, so we must give them a substitute. We shall accurse them to always 
+				 seek after this magical stone, which it will be all but impossible for them to find. It will take the form of 
+				 whatever they most desire. In six hundred years, by my prophecy, religious wars in the East will capture men's 
+				 hearts, and then they will think it is the Holy Grail, the cup which held the blood of Christ. A thousand years 
+				 later they will think it is -~  But at this moment the voices move away.";
             }
             rfalse;
         ],
