@@ -93,76 +93,10 @@ Constant BOOK_GROUP = 2;
 Constant TORCH_GROUP = 3;
 Constant TASKS_PROVIDED;
 Constant NUMBER_TASKS = 45;
-Array task_scores -> 3 7 7 10 3 3 5 5 2 2 3 50 3 4 6 6 15 10 1
-    8 4 0 0 3 3 6 5 10 7 7 3 3 3 6 3 8 3 3 7 3 3 15 15 3 1;
 
+Array task_scores -> 3 7 7 10 3 3 5 5 2 2 3 50 3 4 6 6 15 10 1 8 4 0 0 3 3 6 5 10 7 7 3 3 3 6 3 8 3 3 7 3 3 15 15 3 1;
 Array quote_line --> 10;
-
-Array garden_array ->
-    49
-    49
-    49
-    49
-    49
-    49
-    49
-    49
-    49
-    48
-    48
-    48
-    48
-    48
-    49
-    48
-    48
-    49
-    49
-    49
-    48
-    49
-    48
-    48
-    49
-    48
-    49
-    49
-    48
-    48
-    48
-    49
-    48
-    48
-    48
-    49
-    49
-    49
-    48
-    49
-    49
-    49
-    49
-    49
-    49
-    49
-    48
-    48
-    48
-    48
-    48
-    49
-    48
-    49
-    49
-    49
-    49
-    49
-    48
-    49
-    49
-    49
-    49
-;
+Array garden_array -> "111111111000001001110100101100010001110111111100000101111101111";
 
 Global dig_cnt;
 Global number_paces;
@@ -219,45 +153,13 @@ Global good_try_bonus;
 Global one_time_try_bonus;
 Global redraw_statusline;
 
-Array henri_post_array ->
-    8
-    2
-    16
-    14
-    5
-    12
-    1
-    3
-    15
-    18
-    11
-    19
-    0
-    9
-    20
-;
-Array henry_post_initial_layout ->
-    8
-    2
-    16
-    5
-    12
-    15
-    14
-    1
-    19
-    18
-    3
-    20
-    9
-    11
-    0
-;
+Array henri_post_array -> 8 2 16 14 5 12 1 3 15 18 11 19 0 9 20;
+Array henry_post_initial_layout -> 8 2 16 5 12 15 14 1 19 18 3 20 9 11 0;
 
 Array bomb_wires --> 4;
 
 Array rank_levels -->
-    48
+     48
     500 "happy Tourist."
     499 "very nearly happy Tourist."
     450 "master Druid."
@@ -273,15 +175,15 @@ Array rank_levels -->
     150 "Connoisseur."
     125 "Jack-of-all-trades."
     100 "amateur Adventurer."
-    75 "Dilettante."
-    50 "cynical Tourist."
-    35 "experienced Tourist."
-    20 "seasoned Tourist."
-    10 "casual Tourist."
-    1 "gauche Tourist."
-    0 "hapless Tourist."
-    65438 "accursed Tourist."
-    64536 "irresponsible deity."
+     75 "Dilettante."
+     50 "cynical Tourist."
+     35 "experienced Tourist."
+     20 "seasoned Tourist."
+     10 "casual Tourist."
+      1 "gauche Tourist."
+      0 "hapless Tourist."
+  (-98) "accursed Tourist."
+(-1000) "irresponsible deity."
 ;
 
 Array card_deck --> 10;
@@ -449,12 +351,8 @@ Object LibraryMessages
                     trigger_quotation(16);
                 rfalse;
             Jump:
-                if( Austin notin location ) {
-                    rfalse;
-                }
-                if( game_section == T_ALEXANDRIA ) {
-                    "Austin is quite unruffled.";
-                }
+                if( Austin notin location ) rfalse;
+                if( game_section == T_ALEXANDRIA ) "Austin is quite unruffled.";
                 print "For some reason, Austin is startled and springs for his life ";
                 trigger_quotation(7);
                 if( location == Souvenirs_Room && charcoal_sketch in slide_projector && south_wall hasnt concealed ) {
@@ -509,30 +407,14 @@ Class LagachObj
                     return WindBlows();
                 r = carbolic_soap;
                 while( r hasnt visited || (r == White_Hallway && flag == false) ) {
-                    if( i++ == 8 ) {
-                        i = 1;
-                    }
-                    if( i == 1 ) {
-                        r = Greek_Frieze1;
-                    }
-                    if( i == 2 ) {
-                        r = Mosaic;
-                    }
-                    if( i == 3 ) {
-                        r = Crypt;
-                    }
-                    if( i == 4 ) {
-                        r = Bohemia;
-                    }
-                    if( i == 5 ) {
-                        r = Hall_of_Exhibits;
-                    }
-                    if( i == 6 ) {
-                        r = XIIth_Dynasty_Pyramid;
-                    }
-                    if( i == 7 ) {
-                        r = White_Hallway;
-                    }
+                    if( i++ == 8 ) i = 1;
+                    if( i == 1 ) r = Greek_Frieze1;
+                    if( i == 2 ) r = Mosaic;
+                    if( i == 3 ) r = Crypt;
+                    if( i == 4 ) r = Bohemia;
+                    if( i == 5 ) r = Hall_of_Exhibits;
+                    if( i == 6 ) r = XIIth_Dynasty_Pyramid;
+                    if( i == 7 ) r = White_Hallway;
                 }
                 if( r == location )
                     return WindBlows();
@@ -546,7 +428,6 @@ Class LagachObj
         
 Include "rods.inf";
 Include "cards.inf";
-
 Include "house.inf";
 Include "garden.inf";
 Include "maze.inf";
@@ -595,9 +476,7 @@ Include "afterlife.inf";
 ];
 
 [ GoodTry ;
-    if( one_time_try_bonus == true ) {
-        rtrue;
-    }
+    if( one_time_try_bonus == true ) rtrue;
     one_time_try_bonus = true;
     redraw_statusline = true;
     StartTimer(Old_Winery,4);
@@ -630,7 +509,6 @@ Include "afterlife.inf";
      tourist map.";
 ];
 
-
 Object carbolic_soap "carbolic soap"
   with  name 'soap' 'carbolic',
         before [; Eat: << Wash self >>; ],
@@ -643,9 +521,7 @@ Object carbolic_soap "carbolic soap"
 [ PrintRank s ndx ;     
     print ", giving you the rank of ";
     s = score;
-    if (s ~= 65437 && task_done->11 ~= 0) {
-        s = s - 50;
-    }
+    if (s ~= -99 && task_done->11 ~= 0) s = s - 50;
     ndx = 1;
     while (ndx <= rank_levels-->0 * 2) {
         if (s >= rank_levels-->ndx) {
@@ -659,169 +535,63 @@ Object carbolic_soap "carbolic soap"
 ];
 
 [ PrintTaskName n ;
-    if( n == SCORE_HAMBURG ) {
-        "reading postcard";
-    }
-    if( n == SCORE_TORCH ) {
-        "recharging torch";
-    }
-    if( n == SCORE_JOSHUA ) {
-        "exorcism";
-    }
-    if( n == SCORE_SECRETDOOR ) {
-        "opening secret door";
-    }
-    if( n == SCORE_DEMIJOHN ) {
-        "opening demijohn";
-    }
-    if( n == SCORE_WAITER ) {
-        "using dumbwaiter";
-    }
-    if( n == SCORE_WAND ) {
-        "charging a rod";
-    }
-    if( n == SCORE_AIMWAND ) {
-        "firing a rod";
-    }
-    if( n == SCORE_WIRELESS ) {
-        "exposing radio";
-    }
-    if( n == SCORE_DAISY ) {
-        "sporting a daisy chain";
-    }
-    if( n == SCORE_CHOCOLATE ) {
-        "placating Aunt Jemima";
-    }
-    if( n == SCORE_ANDROMEDA ) {
-        "rescuing Andromeda";
-    }
-    if( n == SCORE_BATTERY ) {
-        "uncovering battery";
-    }
-    if( n == SCORE_PLUMBING ) {
-        "mending the plumbing";
-    }
-    if( n == SCORE_SMELL ) {
-        "scenting a passage";
-    }
-    if( n == SCORE_REFLECTING ) {
-        "reflecting";
-    }
-    if( n == SCORE_HENRIPOST ) {
-        "solving the grid";
-    }
-    if( n == SCORE_ORB ) {
-        "winning the orb";
-    }
-    if( n == SCORE_MAP ) {
-        "buying map of Paris";
-    }
-    if( n == SCORE_ARC ) {
-        "filling the arc";
-    }
-    if( n == SCORE_WELL ) {
-        "getting into the well";
-    }
-    if( n == SCORE_MASCOT ) {
-        "acquiring the mascot";
-    }
-    if( n == SCORE_BISCUIT ) {
-        "eating between meals";
-    }
-    if( n == SCORE_SMOKE ) {
-        "smoke detecting";
-    }
-    if( n == SCORE_SHIP ) {
-        "putting a ship in a bottle";
-    }
-    if( n == SCORE_FLAG ) {
-        "parachuting on deck";
-    }
-    if( n == SCORE_SLEEP ) {
-        "sleeping in Alison's bed";
-    }
-    if( n == SCORE_SECRET_PASS ) {
-        "opening sandstone crevice";
-    }
-    if( n == SCORE_ROD_IDENT ) {
-        "identifying a rod";
-    }
-    if( n == SCORE_WATCH ) {
-        "dislodging the watch";
-    }
-    if( n == SCORE_HYPNOSIS ) {
-        "hypnosis";
-    }
-    if( n == SCORE_SECURITY ) {
-        "passing security";
-    }
-    if( n == SCORE_TEMPLE ) {
-        "restoring the Temple";
-    }
-    if( n == SCORE_HOMER ) {
-        "answering Homer";
-    }
-    if( n == SCORE_ORACLE ) {
-        "summoning the oracle";
-    }
-    if( n == SCORE_STRONGBOX ) {
-        "unearthing strongbox";
-    }
-    if( n == SCORE_AUSTIN ) {
-        "startling Austin";
-    }
-    if( n == SCORE_WASH ) {
-        "washing away the stone";
-    }
-    if( n == SCORE_LIBRARY ) {
-        "provoking the librarians";
-    }
-    if( n == SCORE_SPHINX ) {
-        "twisting the sphinx's nose";
-    }
-    if( n == SCORE_QUARTERSTAFF ) {
-        "depositing the quarterstaff";
-    }
-    if( n == SCORE_AFTERLIFE ) {
-        "rising in the afterlife";
-    }
-    if( n == SCORE_KNIGHT ) {
-        "reviving the knight";
-    }
-    if( n == SCORE_KNIGHT_ENCOURAGE ) {
-        "encouraging the knight";
-    }
-    if( n == SCORE_HIGHROD ) {
-        "choosing a High Rod";
-    }
+    if( n == SCORE_HAMBURG ) "reading postcard";
+    if( n == SCORE_TORCH ) "recharging torch";
+    if( n == SCORE_JOSHUA ) "exorcism";
+    if( n == SCORE_SECRETDOOR ) "opening secret door";
+    if( n == SCORE_DEMIJOHN ) "opening demijohn";
+    if( n == SCORE_WAITER ) "using dumbwaiter";
+    if( n == SCORE_WAND ) "charging a rod";
+    if( n == SCORE_AIMWAND ) "firing a rod";
+    if( n == SCORE_WIRELESS ) "exposing radio";
+    if( n == SCORE_DAISY ) "sporting a daisy chain";
+    if( n == SCORE_CHOCOLATE ) "placating Aunt Jemima";
+    if( n == SCORE_ANDROMEDA ) "rescuing Andromeda";
+    if( n == SCORE_BATTERY ) "uncovering battery";
+    if( n == SCORE_PLUMBING ) "mending the plumbing";
+    if( n == SCORE_SMELL ) "scenting a passage";
+    if( n == SCORE_REFLECTING ) "reflecting";
+    if( n == SCORE_HENRIPOST ) "solving the grid";
+    if( n == SCORE_ORB ) "winning the orb";
+    if( n == SCORE_MAP ) "buying map of Paris";
+    if( n == SCORE_ARC ) "filling the arc";
+    if( n == SCORE_WELL ) "getting into the well";
+    if( n == SCORE_MASCOT ) "acquiring the mascot";
+    if( n == SCORE_BISCUIT ) "eating between meals";
+    if( n == SCORE_SMOKE ) "smoke detecting";
+    if( n == SCORE_SHIP ) "putting a ship in a bottle";
+    if( n == SCORE_FLAG ) "parachuting on deck";
+    if( n == SCORE_SLEEP ) "sleeping in Alison's bed";
+    if( n == SCORE_SECRET_PASS ) "opening sandstone crevice";
+    if( n == SCORE_ROD_IDENT ) "identifying a rod";
+    if( n == SCORE_WATCH ) "dislodging the watch";
+    if( n == SCORE_HYPNOSIS ) "hypnosis";
+    if( n == SCORE_SECURITY ) "passing security";
+    if( n == SCORE_TEMPLE ) "restoring the Temple";
+    if( n == SCORE_HOMER ) "answering Homer";
+    if( n == SCORE_ORACLE ) "summoning the oracle";
+    if( n == SCORE_STRONGBOX ) "unearthing strongbox";
+    if( n == SCORE_AUSTIN ) "startling Austin";
+    if( n == SCORE_WASH ) "washing away the stone";
+    if( n == SCORE_LIBRARY ) "provoking the librarians";
+    if( n == SCORE_SPHINX ) "twisting the sphinx's nose";
+    if( n == SCORE_QUARTERSTAFF ) "depositing the quarterstaff";
+    if( n == SCORE_AFTERLIFE ) "rising in the afterlife";
+    if( n == SCORE_KNIGHT ) "reviving the knight";
+    if( n == SCORE_KNIGHT_ENCOURAGE ) "encouraging the knight";
+    if( n == SCORE_HIGHROD ) "choosing a High Rod";
     "** Nameless task **";
 ];
 
 [ DeathMessage ;
-    if( deadflag == FAILED ) {
-        print "You have missed the point entirely";
-    }
-    if( deadflag == DESTROYED_UNIVERSE ) {
-        print "You have disembodied the entire universe";
-    }
-    if( deadflag == AUSTRALIA ) {
-        print "You have been transported to Australia";
-    }
-    if( deadflag == PARADOX ) {
-        print "You have been annihilated by a temporal paradox";
-    }
-    if( deadflag == MYTH ) {
-        print "You have become a constellation";
-    }
-    if( deadflag == PRISON ) {
-        print "You have been imprisoned as a terrorist";
-    }
-    if( deadflag == CHECKMATED ) {
-        print "You have been checkmated";
-    }
-    if( deadflag == SPOOKED ) {
-        print "You have been spooked";
-    }
+    if( deadflag == FAILED ) print "You have missed the point entirely";
+    if( deadflag == DESTROYED_UNIVERSE ) print "You have disembodied the entire universe";
+    if( deadflag == AUSTRALIA ) print "You have been transported to Australia";
+    if( deadflag == PARADOX ) print "You have been annihilated by a temporal paradox";
+    if( deadflag == MYTH ) print "You have become a constellation";
+    if( deadflag == PRISON ) print "You have been imprisoned as a terrorist";
+    if( deadflag == CHECKMATED ) print "You have been checkmated";
+    if( deadflag == SPOOKED ) print "You have been spooked";
     rtrue;
 ];
 
@@ -1218,9 +988,7 @@ Object carbolic_soap "carbolic soap"
     @erase_window 65535;
     print "^^^^^^^^^^^^^";
     i = 0->33;
-    if( i == 0 ) {
-        i = 80;
-    }
+    if( i == 0 ) i = 80;
     i = (i - 50) / 2;
     style bold;
     0-->8 = 2 | 0-->8;
@@ -1276,25 +1044,15 @@ Object carbolic_soap "carbolic soap"
 
 [ DrawStatusLine columns c2 tmpvar ;
     columns = 0->33;
-    if (columns == 0) {
-        columns = 80;
-    }
+    if (columns == 0) columns = 80;
     0-->8 = 2 | 0-->8;
-    if (pretty_flag == true) {
-        @split_window 2;
-    } else {
-        @split_window 1;
-    }
+    if (pretty_flag == true) @split_window 2; else @split_window 1;
     @buffer_mode false;
     @set_window 1;
     style reverse;
-    if (current_game_sec ~= location.section) {
-        redraw_statusline = true;
-    }
+    if (current_game_sec ~= location.section) redraw_statusline = true;
     current_game_sec = location.section;
-    if (deadflag > 0 || just_undone == 1) {
-        redraw_statusline = true;
-    }
+    if (deadflag > 0 || just_undone == 1) redraw_statusline = true;
     if (redraw_statusline == true) {
         @set_cursor 1 1;
         tmpvar = columns;
@@ -1324,97 +1082,45 @@ Object carbolic_soap "carbolic soap"
         if (redraw_statusline == true) {
             c2 = columns - 35;
             @set_cursor 1 c2;
-            if (deadflag > 0) {
-                print "Final score: ";
-            } else {
-                print "Score: ";
-            }
+            if (deadflag > 0) print "Final score: "; else print "Score: ";
         } else {
             c2 = columns - 28;
             @set_cursor 1 c2;
         }
         if (redraw_statusline == true || save_score ~= score) {
             print score;
-            if (deadflag > 0) {
-                print "/550";
-            }
+            if (deadflag > 0) print "/550";
         }
         @set_cursor 2 c2;
-        if (redraw_statusline == true) {
-            print "Turns: ";
-        }
+        if (redraw_statusline == true) print "Turns: ";
         print turns;
         if (redraw_statusline == true || save_game_sec ~= game_section) {
             game_section = location.section;
             c2 = columns - 20;
             @set_cursor 2 c2;
-            if (game_section == T_MODERN) {
-                print "    June 3rd, 1993";
-            }
-            if (game_section == T_UNREAL) {
-                print " October 5th, 1922";
-            }
-            if (game_section == T_HAMBURG) {
-                print "October 31st, 1988";
-            }
-            if (game_section == T_GARDEN) {
-                print "    June 3rd, 1993";
-            }
-            if (game_section == T_GARDEN_PAST) {
-                print "  March 14th, 1808";
-            }
-            if (game_section == T_ANCIENT_BRITAIN) {
-                print "  Sixth century AD";
-            }
-            if (game_section == T_CATACOMBS) {
-                print "    June 3rd, 1993";
-            }
-            if (game_section == T_ALEXANDRIA) {
-                print "  Winter of 275 BC";
-            }
-            if (game_section == T_NE_OF_HOME) {
-                print "    June 3rd, 1993";
-            }
-            if (game_section == T_EGYPT_DREAMING or T_SPIRIT_WORLD or T_TAROT or T_AFTERLIFE) {
-                print "                  ";
-            }
+            if (game_section == T_MODERN) print "    June 3rd, 1993";
+            if (game_section == T_UNREAL) print " October 5th, 1922";
+            if (game_section == T_HAMBURG) print "October 31st, 1988";
+            if (game_section == T_GARDEN) print "    June 3rd, 1993";
+            if (game_section == T_GARDEN_PAST) print "  March 14th, 1808";
+            if (game_section == T_ANCIENT_BRITAIN) print "  Sixth century AD";
+            if (game_section == T_CATACOMBS) print "    June 3rd, 1993";
+            if (game_section == T_ALEXANDRIA) print "  Winter of 275 BC";
+            if (game_section == T_NE_OF_HOME) print "    June 3rd, 1993";
+            if (game_section == T_EGYPT_DREAMING or T_SPIRIT_WORLD or T_TAROT or T_AFTERLIFE) print "                  ";
             @set_cursor 2 2;
-            if (game_section == T_MODERN) {
-                print "(in Meldrew Hall)       ";
-            }
-            if (game_section == T_UNREAL) {
-                print "(in the Unreal City)    ";
-            }
-            if (game_section == T_HAMBURG) {
-                print "(Hamburg by night)      ";
-            }
-            if (game_section == T_TAROT) {
-                print "(in the Tarot box)      ";
-            }
-            if (game_section == T_GARDEN) {
-                print "(in the gardens)        ";
-            }
-            if (game_section == T_GARDEN_PAST) {
-                print "(in the gardens)        ";
-            }
-            if (game_section == T_ANCIENT_BRITAIN) {
-                print "(in the Master Game)    ";
-            }
-            if (game_section == T_DREAMING or T_EGYPT_DREAMING) {
-                print "(dreaming?)             ";
-            }
-            if (game_section == T_CATACOMBS) {
-                print "(in the catacombs)      ";
-            }
-            if (game_section == T_ALEXANDRIA) {
-                print "(in Alexandria)         ";
-            }
-            if (game_section == T_NE_OF_HOME) {
-                print "(northeast of the House)";
-            }
-            if (game_section == T_SPIRIT_WORLD or T_AFTERLIFE) {
-                print "                        ";
-            }
+            if (game_section == T_MODERN) print "(in Meldrew Hall)       ";
+            if (game_section == T_UNREAL) print "(in the Unreal City)    ";
+            if (game_section == T_HAMBURG) print "(Hamburg by night)      ";
+            if (game_section == T_TAROT) print "(in the Tarot box)      ";
+            if (game_section == T_GARDEN) print "(in the gardens)        ";
+            if (game_section == T_GARDEN_PAST) print "(in the gardens)        ";
+            if (game_section == T_ANCIENT_BRITAIN) print "(in the Master Game)    ";
+            if (game_section == T_DREAMING or T_EGYPT_DREAMING) print "(dreaming?)             ";
+            if (game_section == T_CATACOMBS) print "(in the catacombs)      ";
+            if (game_section == T_ALEXANDRIA) print "(in Alexandria)         ";
+            if (game_section == T_NE_OF_HOME) print "(northeast of the House)";
+            if (game_section == T_SPIRIT_WORLD or T_AFTERLIFE) print "                        ";
         }
     }
     style roman;
@@ -1435,9 +1141,7 @@ Object carbolic_soap "carbolic soap"
     @split_window i;
     @set_window 1;
     columns = 0->33;
-    if (columns == 0) {
-        columns = 80;
-    }
+    if (columns == 0) columns = 80;
     center = (columns - margin) / 2;
     style reverse;
     columns = center - 2;
@@ -1460,9 +1164,7 @@ Object carbolic_soap "carbolic soap"
         }
         @set_cursor cursor center;
         l = lines_arr-->i;
-        if (l ~= 0) {
-            print (string) l;
-        }
+        if (l ~= 0) print (string) l;
         ++cursor;
         ++i;
     } until (i == lines);
@@ -1482,9 +1184,7 @@ Object carbolic_soap "carbolic soap"
     i = 0;
   .label186748;
     columns = lines_arr-->i;
-    if (columns ~= 0) {
-        print (string) columns;
-    }
+    if (columns ~= 0) print (string) columns;
     ++i;
     if (i == lines) {
         print "]^^";
@@ -1502,15 +1202,9 @@ Object carbolic_soap "carbolic soap"
         "You're going nowhere until you make amends for that nasty bad language.";
     }
     if( gas_mask has worn ) {
-        if( action == ##Smell ) {
-            "With the gas mask on all you can smell is old cork and rubber.";
-        }
-        if( action == ##Eat ) {
-            "Not with a gas mask on!";
-        }
-        if( action == ##Order or ##Answer or ##Ask ) {
-            "Your speech is muffled into silence by the gas mask.";
-        }
+        if( action == ##Smell ) "With the gas mask on all you can smell is old cork and rubber.";
+        if( action == ##Eat ) "Not with a gas mask on!";
+        if( action == ##Order or ##Answer or ##Ask ) "Your speech is muffled into silence by the gas mask.";
     }
     rfalse;
 ];
