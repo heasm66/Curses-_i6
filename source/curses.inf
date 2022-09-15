@@ -9,7 +9,7 @@ Release 18;
 #ifdef VN_1636;
 Include "abbreviations.inf";
 #endif;
-CONSTANT AMUSING_PROVIDED;								
+CONSTANT AMUSING_PROVIDED;                              
 Constant SACK_OBJECT = rucksack;
 Constant MAX_CARRIED = 5;
 Constant MAX_SCORE = 550;
@@ -29,7 +29,7 @@ Constant T_NE_OF_HOME = 12;
 Constant T_SPIRIT_WORLD = 13;
 Constant T_AFTERLIFE = 14;
 
-Property section T_AFTERLIFE;		! Assign a default value to this property
+Property section T_AFTERLIFE;       ! Assign a default value to this property
 
 Constant DIED = 1;
 Constant WON = 2;
@@ -88,7 +88,7 @@ Constant SCORE_KNIGHT = 42;
 Constant SCORE_KNIGHT_ENCOURAGE = 43;
 Constant SCORE_HIGHROD = 44;
 
-Constant KEY_GROUP = 1;		! Identified from DM4
+Constant KEY_GROUP = 1;     ! Identified from DM4
 Constant BOOK_GROUP = 2;
 Constant TORCH_GROUP = 3;
 Constant TASKS_PROVIDED;
@@ -339,13 +339,13 @@ Object LibraryMessages
                 }
                 rfalse;
             Inv: ! r18
-				if ( lm_n > 2 ) rfalse;
+                if ( lm_n > 2 ) rfalse;
                 trigger_quotation(0);
                 print "You are ";
                 if( location == Inside_the_Orb ) print "bathed in a curious white light, and ";
-				print "carrying";
-				if( lm_n == 1 ) " nothing.";
-				rtrue;
+                print "carrying";
+                if( lm_n == 1 ) " nothing.";
+                rtrue;
             Drop:
                 if( noun has rod_attr )
                     trigger_quotation(16);
@@ -387,7 +387,7 @@ Include "VerbLib";
 Class LagachObj
   with  orders [ i r flag;
             Lagach:
-				flag = true;
+                flag = true;
                 if( painting_of_Mad_Isaac_Meldrewe notin White_Hallway || painting_of_Mad_Isaac_Meldrewe has moved )
                     flag = false;
                 if( self == painting_of_Mad_Isaac_Meldrewe && flag == false )
@@ -498,9 +498,9 @@ Include "afterlife.inf";
          fireplace of the lounge downstairs. Fortunately your family is on hand to clean you up and put you back
          to work packing.";
     if( real_location == Dark_Shaft || real_location == Dark_Passage || real_location == Cellars ||
-		real_location == Wine_Cellars || real_location == Cellars_South || real_location == Cellar_West || 
-		real_location == Infinity_Symbol || real_location == Sandstone_Passage || 
-		real_location == The_Octagon || real_location == White_Hallway ) 
+        real_location == Wine_Cellars || real_location == Cellars_South || real_location == Cellar_West || 
+        real_location == Infinity_Symbol || real_location == Sandstone_Passage || 
+        real_location == The_Octagon || real_location == White_Hallway ) 
         "miss your footing, trip over and bang your head... Some time later you wake up in hospital, 
          very confused and not on holiday. Fortunately Aunt Jemima comes to visit you every afternoon with plenty
          of things for you to do...";
