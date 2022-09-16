@@ -1,15 +1,13 @@
 class   TarotCard 
   with  before [;
             Examine:
-                if( self.door_to ~= nothing )
-                    print "A beautifully realistic picture. ";
+                if( self.door_to ~= nothing ) print "A beautifully realistic picture. ";
                 rfalse;
         ],
         list_together "Tarot cards",
         parse_name [ i j w len cnt;
             if( parser_action==##TheSame ) {   
-                 if( (parser_one.&name)-->0 == (parser_two.&name)-->0 ) 
-                     return -1;
+                 if( (parser_one.&name)-->0 == (parser_two.&name)-->0 ) return -1;
                  return -2;
             }
             len = (self.#name)/2;
@@ -19,8 +17,8 @@ class   TarotCard
                 for( i=0: i < len : i++ ) {
                     if( w == 'cards' ) {
                         parser_action = ##PluralFound;
-						j = true;
-					}
+                        j = true;
+                    }
                     else if( w == self.&name-->i or 'card' or 'tarot' )
                         j = true;
                 }
@@ -31,18 +29,14 @@ class   TarotCard
             }
             return cnt;
         ],
-		short_name [ ;
-			if (listing_together has card && c_style & 4096 == 0) {
-				c_style = c_style | (4096 + 8);
-				if (c_style & 2 ~= 0) {
-					c_style = c_style - 2;
-				}
-				if (c_style & 1 ~= 0) {
-					c_style = c_style - 1;
-				}
-			}
-			rfalse;
-		],
+        short_name [ ;
+            if (listing_together has card && c_style & 4096 == 0) {
+                c_style = c_style | (4096 + 8);
+                if (c_style & 2 ~= 0) c_style = c_style - 2;
+                if (c_style & 1 ~= 0) c_style = c_style - 1;
+            }
+            rfalse;
+        ],
         article "the",
   has   card;
 
@@ -63,4 +57,3 @@ TarotCard Drowned_Sailor_card "Drowned Sailor"
         door_to Ruined_Castle_Cafe,
         description "Those are pearls that were his eyes...",
         devil_hint "He's one of my colleagues now, of course.";
-
