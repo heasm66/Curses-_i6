@@ -19,8 +19,7 @@ Object ghost_of_yourself "ghost of yourself"
                 else
                     "It doesn't seem to be that easy.";
             Attack:
-                if( game_section == T_DREAMING )
-                    rfalse;
+                if( game_section == T_DREAMING ) rfalse;
                 print "Ouch!  You wake up, smarting.^";
                 ChangePlayer(selfobj);
                 <<Look>>;
@@ -41,9 +40,9 @@ Object Premonition "Premonition"
         ],
         sw_to Camp_Fire,
         description "It is a frosty, clear night, but there is a scent of camp-fires burning in the distance. You 
-            are passing through the landscape as if a ghost, and all seems faintly unreal. To the east is one side
-            of an animal-hide tent, but there is no way in from here. To southwest, some soldiers sit around the
-            embers of a fire. There is a terrible sense of something about to happen.",
+                     are passing through the landscape as if a ghost, and all seems faintly unreal. To the east is one side
+                     of an animal-hide tent, but there is no way in from here. To southwest, some soldiers sit around the
+                     embers of a fire. There is a terrible sense of something about to happen.",
         cant_go DreamCantGo,
         section T_DREAMING,
   has   light;
@@ -55,9 +54,9 @@ Object The_Generals_Tent "The General's Tent"
             return Premonition;
         ],
         description "This is the tent of a thin, reedy man who wears no uniform but has an obvious and commanding 
-            presence. He has an aquiline, patrician nose and, at five feet four, is taller than anyone else
-            present. The others are advisers, junior officers, scheming politicians and their like. They are
-            keeping their distance from a trestle table at the north end of the tent.",
+                     presence. He has an aquiline, patrician nose and, at five feet four, is taller than anyone else
+                     present. The others are advisers, junior officers, scheming politicians and their like. They are
+                     keeping their distance from a trestle table at the north end of the tent.",
         cant_go DreamCantGo,
         section T_DREAMING,
   has   light;
@@ -65,8 +64,8 @@ Object The_Generals_Tent "The General's Tent"
 Object Beside_Table "Shrine of the Bear"        
   with  s_to The_Generals_Tent,
         description "This is a kind of improvised shrine. A trestle table bears entrails, crude drawings sketched 
-            out on hide, and caged animals: draped beside it is a primitive tapestry of a bear reared up on its
-            hind legs.",
+                     out on hide, and caged animals: draped beside it is a primitive tapestry of a bear reared up on its
+                     hind legs.",
         cant_go DreamCantGo,
         section T_DREAMING,
   has   light;
@@ -126,11 +125,10 @@ Object -> heavy_iron_mascot "heavy iron mascot"
             }
             if( i == 10 ) "^You feel very nervous indeed, for some reason.";
             if( i == 7 ) {
-                if( player notin servants_bed ) {
+                if( player notin servants_bed )
                     "^You stub your toe painfully, and trip over.";
-                } else {
+                else
                     "^You feel bed-sores coming on.";
-                }
             }
             if( i == 5 ) "^You scratch yourself, unable to get rid of an itching sensation.";
             if( i == 2 ) "^Something feels very wrong indeed. Your hand begins to burn.^";
@@ -144,19 +142,19 @@ Object -> Druid "Druid"
             Order, Ask, Answer: "This is one of those dreams where you find you cannot speak.";
         ],
         initial "Beside the table is a more substantial adviser, as if she too walks in this strange spirit 
-            plane. She is wearing frightening druidical robes, of strange pelts and furs, with nasty-looking
-            charms around her neck. Every so often, she seems to catch sight of you out of the corner of her eye,
-            but then look round and see nothing. The military men do not believe in her power, and yet... they
-            treat her with respect.",
+                 plane. She is wearing frightening druidical robes, of strange pelts and furs, with nasty-looking
+                 charms around her neck. Every so often, she seems to catch sight of you out of the corner of her eye,
+                 but then look round and see nothing. The military men do not believe in her power, and yet... they
+                 treat her with respect.",
   has   animate proper;
 
 Object Camp_Fire "Camp Fire"    
   with  e_to Near_Dolmen,
         ne_to Premonition,
         description "You can almost smell fear here. A motley platoon of soldiers are sitting about the embers 
-            of a fire. None are talking or sleeping, and the false good humour of the evening has died away. At
-            first light, you realise, there will be a battle. It isn't a risk you'd like to run in their place. And
-            there is a strange light already in the east... not yet a dawn, for the soldiers seem unaware of it.",
+                     of a fire. None are talking or sleeping, and the false good humour of the evening has died away. At
+                     first light, you realise, there will be a battle. It isn't a risk you'd like to run in their place. And
+                     there is a strange light already in the east... not yet a dawn, for the soldiers seem unaware of it.",
         cant_go DreamCantGo,
         section T_DREAMING,
   has   light;
@@ -175,8 +173,8 @@ Object Near_Dolmen "Near Dolmen"
                 "^You awaken, shivering with dread.";
         ],
         description "A standing stone, perhaps a glacial erratic, stands here and on top of it is a shining 
-            blue stone, whose brightness almost blinds you. You feel irresistably drawn to it, and your hand
-            reaches out...",
+                     blue stone, whose brightness almost blinds you. You feel irresistably drawn to it, and your hand
+                     reaches out...",
         cant_go DreamCantGo,
         section T_DREAMING,
   has   light;
@@ -185,7 +183,7 @@ Object Melancholy_Dream "Melancholy Dream"
   with  e_to nothing,
         d_to nothing,
         description "A strangely familiar, dusty passage, sloping down from a southern end bathed in hostile 
-            light to some kind of metal barrier in the north.",
+                     light to some kind of metal barrier in the north.",
         cant_go DreamCantGo,
         each_turn [;
             ++DreamCnt;
@@ -216,7 +214,7 @@ Object green_luminescence "flurries of green luminescence"
         ],
         initial "Flurries of green luminescence whirl endlessly around you, west to east and over.",
         description "The flurries have almost endless fascination... but you manage to tear your eyes away after, 
-            oh, an hour?",
+                     oh, an hour?",
   has   static;
 
 Object Solid_Sand "Solid Sand"  
@@ -225,7 +223,7 @@ Object Solid_Sand "Solid Sand"
         u_to Melancholy_Dream,
         d_to Octagonal_Tomb,
         description "Your ghostly self is embedded in a diagonal downward shaft (descending to the east) entirely 
-            filled with dry sand. Solid flagstones line the walls.",
+                     filled with dry sand. Solid flagstones line the walls.",
         cant_go DreamCantGo,
         section (T_DREAMING|T_UNREAL),
   has   light;
@@ -235,9 +233,9 @@ Object Octagonal_Tomb "Octagonal Tomb"
         w_to Solid_Sand,
         u_to Solid_Sand,
         description "Flaming torches bracketed in the wall gutter as the last oxygen in the air is consumed, 
-            and the flicker of flame plays across the yellow-orange glaze of the tomb walls.^^This octagonal
-            chamber is lined with Egyptian hieroglyphics. Sand spills across the floor from under the sole entrance,
-            sealed by an ingenious stone slab.",
+                     and the flicker of flame plays across the yellow-orange glaze of the tomb walls.^^This octagonal
+                     chamber is lined with Egyptian hieroglyphics. Sand spills across the floor from under the sole entrance,
+                     sealed by an ingenious stone slab.",
         cant_go DreamCantGo,
         section (T_DREAMING|T_UNREAL),
   has   light;
