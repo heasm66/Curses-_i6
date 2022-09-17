@@ -3,7 +3,8 @@ Object Crypt "Crypt"
         u_to Patio_in_Maze,
         d_to bronze_mural,
         initial [; MazeX = 7; MazeY = 5; rfalse; ],
-        description "A dismal crypt, disused, rainswept and strewn with leaves. Light streams in from the square hole in the roof. There are no bones or urns on show.",
+        description "A dismal crypt, disused, rainswept and strewn with leaves. Light streams in from 
+                     the square hole in the roof. There are no bones or urns on show.",
         section T_CATACOMBS,
   has   light;
 
@@ -13,7 +14,10 @@ LagachObj -> bronze_mural "bronze mural"
         when_closed "The south wall forms a giant bronze mural, which has stood the test of time.",
         door_dir d_to,
         when_open "The mural stands slightly to one side, revealing a passage leading downward.",
-        description "The mural depicts an old bearded wise man following a star in the western sky. He has his right arm around an attractive young woman and holds a bundle of wands with his left hand. Around the border are astrological symbols of all kinds, from Tarot suits to zodiacal constellations.",
+        description "The mural depicts an old bearded wise man following a star in the western sky. He 
+                     has his right arm around an attractive young woman and holds a bundle of wands 
+                     with his left hand. Around the border are astrological symbols of all kinds, 
+                     from Tarot suits to zodiacal constellations.",
   has   door static;
 
 [ CryptRoomBefore i ;   
@@ -30,7 +34,8 @@ LagachObj -> bronze_mural "bronze mural"
             The_Catacombs.d_to = Universe_Maintenance_Room;
             OzoneSmelled = true;
             Achieved(SCORE_SMELL);
-            "Ozone!  That's what it's called. Funny sort of odour for a cave - especially since, on investigating further, you find that it's drifting up from a concealed aluminium staircase.";
+            "Ozone!  That's what it's called. Funny sort of odour for a cave - especially since, on investigating 
+             further, you find that it's drifting up from a concealed aluminium staircase.";
         }
         "Definitely ozone.";
     }
@@ -45,7 +50,9 @@ Object Jagged_Passage "Jagged Passage"
         e_to Charnel_Passage,
         u_to Crypt,
         d_to The_Catacombs,
-        description "An eerie passage, running down from an opening at the north to murky depths in the south. The walls are jagged, uneven and decorated with bones. An unpleasantly stale, charnel odour drifts in through a gap to the east.",
+        description "An eerie passage, running down from an opening at the north to murky depths in the south. The 
+                     walls are jagged, uneven and decorated with bones. An unpleasantly stale, charnel odour drifts 
+                     in through a gap to the east.",
         section T_CATACOMBS,
   has   ;
 
@@ -67,7 +74,9 @@ Object Charnel_Passage "Charnel Passage"
 Object Sarcophagus "Sarcophagus"
   with  before CryptRoomBefore,
         w_to Charnel_Passage,
-        description "Well, perhaps ~sarcophagus~ is a little melodramatic, but it's that kind of moment. This must be somewhere under the old parish church. You are stooped over inside a stone tomb, stained and crumbled with decay, broken only by a crevice you crawled in by. It is a nightmarish place.",
+        description "Well, perhaps ~sarcophagus~ is a little melodramatic, but it's that kind of moment. This must be 
+                     somewhere under the old parish church. You are stooped over inside a stone tomb, stained and crumbled 
+                     with decay, broken only by a crevice you crawled in by. It is a nightmarish place.",
         section T_CATACOMBS,
   has   ;
 
@@ -83,7 +92,9 @@ Object The_Catacombs "Catacombs"
         w_to CR,
         u_to Jagged_Passage,
         d_to nothing,
-        description "A large, grisly cave, deep under the garden, dimly lit and eerie. Darkness curls around the natural pillars of rock like a mist: and there is a peculiar, vaguely familiar odour to it. The only obvious routes out are an uneven passage climbing to the north and a crawl west.",
+        description "A large, grisly cave, deep under the garden, dimly lit and eerie. Darkness curls around the natural 
+                     pillars of rock like a mist: and there is a peculiar, vaguely familiar odour to it. The only obvious 
+                     routes out are an uneven passage climbing to the north and a crawl west.",
         cant_go "You bumped into something unpleasant there.",
         time_left 0,
         section T_CATACOMBS,
@@ -170,30 +181,29 @@ Object CR "CR"
                     AdjustSlide(12,14);
                 }
                 rfalse;
-			Look:
-				if (self has general) {
-					print "^The lower basket contains a cannonball, and the upper is empty.^";
-					rfalse;
-				}
-				if (child(hanging_cord) ~= nothing) {
-					print "^The lower basket contains ";
-					WriteListFrom(child(hanging_cord),8 + 64);
-					".";
-				}
-				rfalse;
-		],
+            Look:
+                if (self has general) {
+                    print "^The lower basket contains a cannonball, and the upper is empty.^";
+                    rfalse;
+                }
+                if (child(hanging_cord) ~= nothing) {
+                    print "^The lower basket contains ";
+                    WriteListFrom(child(hanging_cord),8 + 64);
+                    ".";
+                }
+                rfalse;
+        ],
         n_to metal_wall,
         s_to nothing,
         e_to [;
-            if( self.time_left == 3 )
-                "You bump into an invisible barrier - perhaps the edge of the reflection.";
+            if( self.time_left == 3 ) "You bump into an invisible barrier - perhaps the edge of the reflection.";
             return The_Catacombs;
         ],
         description "The cartoonist Heath Robinson used to specialise in drawings of fantastically complicated 
-            machines of string, pulleys, levers, counterweights, cogs, mice running about on wheels and the
-            like. Just such a contraption fills the west end of this room, though most of the workings are behind
-            a glass wall which, although running with age, is as solid as the day it was built. The parts are very
-            old (hand-made, not machined) but uncorroded.^^The only way out appears to be via the crawl to the east.",
+                     machines of string, pulleys, levers, counterweights, cogs, mice running about on wheels and the
+                     like. Just such a contraption fills the west end of this room, though most of the workings are behind
+                     a glass wall which, although running with age, is as solid as the day it was built. The parts are very
+                     old (hand-made, not machined) but uncorroded.^^The only way out appears to be via the crawl to the east.",
         time_left 2,
         short_name [;
             if( self.time_left == 3 ) 
@@ -215,11 +225,10 @@ Object -> metal_wall "metal wall"
         door_dir n_to,
         when_open [;
             print "The whole "; 
-            if( CR.time_left == 2 ) {
+            if( CR.time_left == 2 )
                 print "north";
-            } else {
+            else
                 print "south";
-            } 
             " wall is occupied by a bronze mirror, reflecting the room.";
         ],
         description "Someone rather good-looking (you can't help thinking) is reflected in the metal surface.",
@@ -228,23 +237,20 @@ Object -> metal_wall "metal wall"
 Object -> iron_grid "iron grid"
   with  name 'iron' 'grid' 'contraption' 'panel',
         initial [;
-            print "Amid the glass wall is an iron panel divided into a three-by-five grid.^^Behind the glass is a kind of see-saw of two leather baskets at opposite ends of an oak pivot. ", "In one corner of the roof, above the far end of the see-saw, is a ";
-            if( ancient_well notin nothing ) {
+            print "Amid the glass wall is an iron panel divided into a three-by-five grid.^^Behind the glass is a 
+                   kind of see-saw of two leather baskets at opposite ends of an oak pivot. ", "In one corner of 
+                   the roof, above the far end of the see-saw, is a ";
+            if( ancient_well notin nothing )
                 print "hole through which dim natural light emanates.^^";
-            } else {
+            else
                 print "dark hole.^^";
-            }
             print "Projecting out of the back of the panel mechanism at the near end is a metal hand, which ";
-            if( CR has general ) {
-                "grasps empty air.";
-            }
+            if( CR has general ) "grasps empty air.";
             "grasps a cannonball in mid-air.";
         ],
         description [;
             print "There are fourteen pieces in the grid, and one gap. The pieces have letters upon them ";
-            if( CR.time_left == 3 ) {
-                print "(in reflected script) ";
-            }
+            if( CR.time_left == 3 ) print "(in reflected script) ";
             print "and are arranged as follows:^^";
             DisplayWholeGrid();
             "^[Try ~slide b~, for instance, to move a piece into the gap.]";
@@ -268,7 +274,10 @@ Object -> cannonball "cannonball"
 Object Universe_Maintenance_Room "Universe Maintenance Room"
   with  name 'gauges' 'machines' 'cube' 'dials',
         u_to The_Catacombs,
-        description "You really should try to be more awestruck, for this is Merlin's cave, the hub of Creation. Every visitor perceives this place differently, according to his or her own myths and beliefs. Your particular creed being science, there is only a black metal one-metre cube with an unimpressive collection of gauges and dials. An aluminium staircase leads up.",
+        description "You really should try to be more awestruck, for this is Merlin's cave, the hub of Creation. 
+                     Every visitor perceives this place differently, according to his or her own myths and beliefs. 
+                     Your particular creed being science, there is only a black metal one-metre cube with an 
+                     unimpressive collection of gauges and dials. An aluminium staircase leads up.",
         section T_CATACOMBS,
   has   scored;
 
@@ -292,10 +301,14 @@ Object -> large_dial "large dial"
                 }
                 deadflag = DESTROYED_UNIVERSE;
                 score = 65437;
-                "Mmm. On the whole, it's probably best not to alter one of the fundamental constants of the physical universe while still inside it. On the bright side, for once you are unlikely to get the blame.";
+                "Mmm. On the whole, it's probably best not to alter one of the fundamental constants of the 
+                 physical universe while still inside it. On the bright side, for once you are unlikely to 
+                 get the blame.";
         ],
-        initial "Particularly prominent are a large dial, like the volume control on an expensive hi-fi amplifier, and a big electrician's switch. Both are labelled in small print.",
-        description "Above the dial is a lower-case letter h with a slashed line through it. It is currently turned to 1.055 or thereabouts. There is something worryingly dangerous about its matter-of-factness.",
+        initial "Particularly prominent are a large dial, like the volume control on an expensive hi-fi amplifier, 
+                 and a big electrician's switch. Both are labelled in small print.",
+        description "Above the dial is a lower-case letter h with a slashed line through it. It is currently turned 
+                     to 1.055 or thereabouts. There is something worryingly dangerous about its matter-of-factness.",
   has   static;
 
 Object Inside_the_Orb "Inside the Orb"
@@ -303,48 +316,33 @@ Object Inside_the_Orb "Inside the Orb"
         after [;
             Strike: "The sphere rings with a hollow noise, but the rod charges up.";
         ],
-        description "You half-stand, half-float in a golden, misty sphere perhaps ten yards across, which slowly spins. The centre, out of reach and somehow insubstantial, is an eight-by-eight lattice of oblong crystals, bathed in warm pearly light.",
+        description "You half-stand, half-float in a golden, misty sphere perhaps ten yards across, which slowly spins. 
+                     The centre, out of reach and somehow insubstantial, is an eight-by-eight lattice of oblong 
+                     crystals, bathed in warm pearly light.",
         number 0,
         each_turn [ i j;
             i = Inside_the_Orb.number + 1;
             Inside_the_Orb.number = i;
-            if( i == 1 ) {
-                rtrue;
-            }
-            if( i == 2 ) {
-                print "^The sphere rotates, giving you a fresh view of the images: stylised Kings and Queens?^";
-            }
-            if( i == 4 ) {
-                print "^The sphere rotates, giving you another look: humble tokens of warriors.^";
-            }
-            if( i == 6 ) {
-                print "^The sphere rotates, giving you another look: carved horse-heads and Bishops' mitres.^";
-            }
-            if( i == 8 ) {
-                print "^(The sphere rotates.)  It's a chess game!  Now you understand. But you still can't puzzle out the actual solution.^";
-            }
+            if( i == 1 ) rtrue;
+            if( i == 2 ) print "^The sphere rotates, giving you a fresh view of the images: stylised Kings and Queens?^";
+            if( i == 4 ) print "^The sphere rotates, giving you another look: humble tokens of warriors.^";
+            if( i == 6 ) print "^The sphere rotates, giving you another look: carved horse-heads and Bishops' mitres.^";
+            if( i == 8 ) print "^(The sphere rotates.)  It's a chess game!  Now you understand. But you still can't puzzle out the actual solution.^";
             if( i == 10 ) {
                 print "^(The sphere rotates.)  You have some impression that White is trying to make an attack, having plenty of spare pieces.^";
                 trigger_quotation(26);
             }
-            if( i == 12 ) {
-                print "^(The sphere rotates.)  Seeing the board from Black's point of view, the defence looks solid.^";
-            }
-            if( i == 14 ) {
-                print "^(The sphere rotates.)  Back to White's side. You definitely need to smash through somehow, all that cautious exchanging of pieces hasn't worked. If you want White to win, that is.^";
-            }
+            if( i == 12 ) print "^(The sphere rotates.)  Seeing the board from Black's point of view, the defence looks solid.^";
+            if( i == 14 ) print "^(The sphere rotates.)  Back to White's side. You definitely need to smash through somehow, 
+                                  all that cautious exchanging of pieces hasn't worked. If you want White to win, that is.^";
             j = i % 4;
             if( j == 0 ) {
                 give Inside_the_Orb ~general;
-                if( i > 12 ) {
-                    "^(The sphere rotates.)  Black still looks safe.";
-                }
+                if( i > 12 ) "^(The sphere rotates.)  Black still looks safe.";
             }
             if( j == 2 ) {
                 give Inside_the_Orb general;
-                if( i > 14 ) {
-                    "^(The sphere rotates.)  White must break out somehow.";
-                }
+                if( i > 14 ) "^(The sphere rotates.)  White must break out somehow.";
             }
         ],
         section T_CATACOMBS,
