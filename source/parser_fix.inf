@@ -1347,3 +1347,14 @@ global wipe_end_2;
     jump GiveError;
 
 ]; ! end of Parser__parse
+
+
+[ AllowPushDir i;
+    if (parent(second) ~= compass) return L__M(##PushDir, 2, noun);
+    if (second == u_obj or d_obj)  return L__M(##PushDir, 3, noun);
+    AfterRoutines(); i = noun; move i to player;
+    <Go second>;
+    if (location == thedark) move i to real_location;
+    else                     move i to location;
+	PronounNotice(i); 	!r18: Fixes that, for example, "push radio north" maintains the radio as "it"-object.
+];

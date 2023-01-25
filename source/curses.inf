@@ -326,6 +326,7 @@ Replace Dword__No;
 Replace No__Dword;
 Replace Parser__parse;
 Replace ParseToken__;
+Replace AllowPushDir;		! r18
 
 Include "Parser";
 Include "parser_fix.inf";
