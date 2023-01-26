@@ -5,6 +5,11 @@
 Constant Story "CURSES";
 Constant Headline "^An Interactive Diversion^Copyright (c) 1993, 1994, 1995 by Graham Nelson.^";
 Release 18;
+!Serial "230428"	! Date for 30 year anniversary
+
+! This IFID is unique for this port -- see http://babel.ifarchive.org/
+Array UUID_ARRAY string "UUID://F8E04F39-A71B-47E4-88CF-E73BF35775FE//";
+#Ifdef UUID_ARRAY;#Endif;
 
 #ifdef VN_1636;
 Include "abbreviations.inf";
@@ -1044,6 +1049,7 @@ Object carbolic_soap "carbolic soap"
 ];
 
 [ DrawStatusLine columns c2 tmpvar ;
+	if (lightflag == 0 && DEADFLAG > 0) location = thedark; 	!r18: Let statusline remain as "Darkness" when you're dead.
     columns = 0->33;
     if (columns == 0) columns = 80;
     0-->8 = 2 | 0-->8;
