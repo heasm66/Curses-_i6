@@ -34,7 +34,13 @@ Constant T_NE_OF_HOME = 12;
 Constant T_SPIRIT_WORLD = 13;
 Constant T_AFTERLIFE = 14;
 
+!r18: Define some properties as common and assign default values (slightly faster and save some space).
 Property section T_AFTERLIFE;       ! Assign a default value to this property
+Property devil_hint -1;
+Property angel_hint -1; 
+Property rod_assoc;
+Property rod_word;
+Property rod_action;
 
 Constant DIED = 1;
 Constant WON = 2;
@@ -1216,7 +1222,54 @@ Object carbolic_soap "carbolic soap"
     rfalse;
 ];
 
+! r18: Create floating wall-objects in house (Souvenirs_Room has its own "south wall").
+Class Wall
+    with
+		before	 [;
+			Enter:	"You can't go that way.";
+		],
+		found_in [;
+			if ( self == Souvenirs_Room ) rfalse;
+			if ( location.section == T_MODERN ) rtrue;
+		],
+        has scenery concealed;
+
+Wall 	sw_wall "southwest wall"
+        with name 'sw//' 'southwest' 'wall';
+
+Wall 	nw_wall "northwest wall"
+        with name 'nw//' 'northwest' 'wall';
+
+Wall 	se_wall "southeast wall"
+        with name 'se//' 'southeast' 'wall';
+
+Wall 	ne_wall "northeast wall"
+        with name 'ne//' 'northeast' 'wall';
+
+Wall 	w_wall "west wall"
+        with name 'w//' 'west' 'wall';
+
+Wall 	e_wall "east wall"
+        with name 'e//' 'east' 'wall';
+
+Wall 	s_wall "south wall"
+        with 
+			name 's//' 'south' 'wall',
+			before [;
+				Enter:	"You can't go that way.";
+				Knock: 	if ( location == Dead_End ) "The south wall rings curiously hollow.";
+				Push:	if ( location == Dead_End ) {
+							if( secret_door hasnt concealed ) rfalse;
+							give secret_door ~concealed;
+							move secret_door to Dead_End;
+							Achieved(SCORE_SECRETDOOR);
+							"A secret door springs open!";
+						}
+			];
+
+Wall 	n_wall "north wall"
+        with name 'n//' 'north' 'wall';
+
 Include "Grammar";
 Include "newverbs.inf";
 Include "help.inf";
-

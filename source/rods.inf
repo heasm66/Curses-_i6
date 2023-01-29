@@ -52,7 +52,7 @@ Class   Rod
                 print "featureless mahogany rod";
                 rtrue; 
             }
-			if (listing_together hasnt rod_attr) {
+			if (listing_together ~= nothing && listing_together hasnt rod_attr) {
 				if( self has high_rod )
 					print "High ";
 				print "Rod of ";

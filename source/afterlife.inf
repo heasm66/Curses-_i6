@@ -274,8 +274,8 @@ Object -> demon "demon"
                     print "Mmm... delicious!~  Sloth and gluttony... two deadly sins in one minute. His boss will be pleased. ~";
                 }
                 i = noun.devil_hint;
-                if( i == -1 || i == nothing ) {
-                    if( noun.angel_hint ~= "" ) "I know about that, but my counterpart doesn't.~";
+                if( i == -1 ) {
+                    if( noun.angel_hint ~= -1 ) "I know about that, but my counterpart doesn't.~";
                     "I know just what that's for.~";
                 }
                 print_ret (string) i, "~";
@@ -344,8 +344,8 @@ Object -> angel "angel"
                 print "The angel looks keenly at ", (the) noun, " and rouses himself to say: ~";
                 give angel ~general;
                 i = noun.angel_hint;
-                if( i == -1 || i == nothing ) {
-                    if( noun.devil_hint ~= "" ) "I suppose you could ask, um, that tailed gentleman.~";
+                if( i == -1 ) {
+                    if( noun.devil_hint ~= -1 ) "I suppose you could ask, um, that tailed gentleman.~";
                     "I'm afraid I can't help you there.~";
                 }
                 print_ret (string) i, "~";

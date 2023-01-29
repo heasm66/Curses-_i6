@@ -1342,7 +1342,7 @@ Object  -> slide_projector "slide projector"
 ];
 
 Object  -> south_wall "south wall"       
- with name 'south' 'wall',
+ with name 's//' 'south' 'wall',
 	  before [ o;
             Enter:
                 o = child(slide_projector);
@@ -1454,20 +1454,6 @@ HRoom   Dead_End "Dead End"
         d_to nothing,
         description "The winding attic comes to a dead end here, and particularly dirty it is too, what with soot everywhere from the broken old chimney sweeping gear.",
   has   ;
-
-! this is not in the original, which gives the compass objects names 'wall'. I'm just going to add it for simplicity
-Object  -> south_wall2 "south wall"
-        with name 'south' 'wall',
-        before [;
-            Knock: "The south wall rings curiously hollow.";
-            Push:
-                if( secret_door hasnt concealed ) rfalse;
-                give secret_door ~concealed;
-                move secret_door to Dead_End;
-                Achieved(SCORE_SECRETDOOR);
-                "A secret door springs open!";
-        ],
-        has scenery;
 
 Object  -> rucksack "canvas rucksack"     
   with  name 'canvas' 'rucksack' 'sack',

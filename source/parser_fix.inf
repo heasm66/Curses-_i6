@@ -1120,7 +1120,10 @@ global wipe_end_2;
                 ! ...explain any inferences made (using the pattern)...
 
                 if (inferfrom ~= 0) {
-                    print "("; PrintCommand(inferfrom); print ")^";
+					i = pattern-->inferfrom;
+                    if (i >= REPARSE_CODE || i notin compass) {			!r18: Don't print infered directions 
+						print "("; PrintCommand(inferfrom); print ")^"; 
+					}
                 }
 
                 ! ...copy the action number, and the number of parameters...
