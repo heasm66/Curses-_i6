@@ -342,6 +342,16 @@ Replace AllowPushDir;		! r18
 Include "Parser";
 Include "parser_fix.inf";
 
+!r18: Help parser resolve disambiguity (see DM4, page 239).
+!     STRIKE   prioritize rods
+!     TAKE ALL prioritize objects in the same location as actor.
+[ ChooseObjects o i ;   
+    if (i < 2) rfalse;
+    if (action_to_be == ##Strike && o has rod_attr) return 2;
+    if (action_to_be == ##Take && parent(o) == parent(actor)) return 2;
+    return 1;
+];
+
 Object LibraryMessages
   with  before [;
             Score:
