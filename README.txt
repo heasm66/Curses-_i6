@@ -1,5 +1,5 @@
 This is an attempt to reconstruct Curses, release 16 in Inform 6.
-This work draws heavily on the recreation done by Allen Gervin, see:
+This work draws heavily on the recreation done by Allen Garvin, see:
 
 https://github.com/allengarvin/curses
 
