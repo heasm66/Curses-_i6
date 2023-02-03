@@ -61,6 +61,8 @@
     "Try ~get all~ and then ~put all in...~.";
 ];
 [ LieSub ;      
+    if( location == Servants_Room ) << Enter servants_bed >>; 
+    if( location == Alisons_Writing_Room ) << Enter comfortable_bed >>;
     "Whatever happened to truthfulness...";
 ];
 
@@ -1066,9 +1068,11 @@ Verb 'lay'
 Verb 'start' 'stop'
     * noun                                              -> Start;
 
-Extend 'lie' last
+extend 'lie' replace
+    *                                                   -> Lie
+    * 'on'/'in'/'inside' noun                           -> Enter
     * 'down'                                            -> LieDown
-    * 'down' 'on' noun                                  -> Enter; 
+    * 'down' 'on' noun                                  -> Enter;
 
 Extend 'dig' last
     * 'with' held                                       -> DigWith;
@@ -1131,12 +1135,6 @@ Extend 'turn' last
 Extend 'turn' last
     * noun 'to' topic	                                -> Consult;
 	
-Extend 'lie' first
-    *                                                   -> Lie;
-
-Extend 'lie' last
-    * 'down' 'on' noun                                  -> Enter;
-
 Verb meta 'pretty'
     *                                                   -> Pretty;
 
