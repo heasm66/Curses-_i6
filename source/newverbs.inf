@@ -674,6 +674,7 @@
     if( i == 0 ) 
         "Failed.";
     print "Ok.^";
+	redraw_statusline = true;
     rtrue;
 ];
 
