@@ -1,16 +1,8 @@
 [ SeaBefore ;
+    if( action == ##Drink ) "Drink warm salty water?  No.";
     if( action == ##Swim ) "The waters are deceptively treacherous. Best not.";
     rfalse;
 ];
-
-! adding this:
-Object  "seawater"
-  with  name 'sea' 'salt' 'water',
-        before [;
-            Drink: "Drink warm salty water?  No.";
-        ],
-        found_in Causeway Island_of_Pharos Jetty Warehouses_and_Port Harbour_Mouth,
-  has   scenery;
 
 Object  Causeway "Causeway"      
   with  before SeaBefore,
