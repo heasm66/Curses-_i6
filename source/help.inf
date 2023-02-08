@@ -94,7 +94,7 @@
     }
     if (menu_item == 4) {
         Banner();
-        "^Release 16 / 951024 is the eighth public release of ~Curses~. Its major previous releases were as follows:^^", "   Release 7 / 930428   (the original and still the worst)^   Release 8 / 930603   (much enhanced, slightly larger)^   Release 9 / 931111   (extended by about 20%)^   Release 10 / 940120  (tidied up a little)^   Release 12 / 940601  (a major extension)^   Release 14 / 950522  (first edition of the rewrite)^^", "For Release 14 the entire source code was ~digitally remastered~, so to speak: rewritten and tidied up into Inform 5 code which properly uses the Library. Since then, the author has only been maintaining and correcting.^^This release is an attempt to recreate the believed lost source of release 16. The source was recreated with Reform and compiles with Inform 6 and Inform Standard Library 6/11.";
+        "^Release 16 / 951024 is the eighth public release of ~Curses~. Its major previous releases were as follows:^^", "   Release 7 / 930428   (the original and still the worst)^   Release 8 / 930603   (much enhanced, slightly larger)^   Release 9 / 931111   (extended by about 20%)^   Release 10 / 940120  (tidied up a little)^   Release 12 / 940601  (a major extension)^   Release 14 / 950522  (first edition of the rewrite)^^", "For Release 14 the entire source code was ~digitally remastered~, so to speak: rewritten and tidied up into Inform 5 code which properly uses the Library. Since then, the author has only been maintaining and correcting.";
     }
     if (menu_item == 5) {
         Banner();
