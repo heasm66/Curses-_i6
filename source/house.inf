@@ -434,7 +434,7 @@ Object  tight_door "tight door"
   with  name 'tight' 'door',
         initial "A tight door stands open in the northern wall, giving onto the servants' staircase.",
 		before [;
-			Open: "That's already open.";
+			Open: "It's already open.";
 			Close: "Better to leave it open.";	
 		],
   has   static;

@@ -389,6 +389,18 @@ Object LibraryMessages
                 if( antiquated_wireless has general && (antiquated_wireless in location || (antiquated_wireless in Conservatory && location == Potting_Room)) )
                     "You feel your brain turning to rice pudding.";
                 rfalse;
+			Open:
+				if( lm_n == 3 && lm_o hasnt pluralname ) "It's already open.";
+				rfalse;
+			Close:
+				if( lm_n == 2 && lm_o hasnt pluralname ) "It's already closed.";
+				rfalse;
+			Lock:
+				if( lm_n == 2 && lm_o hasnt pluralname ) "It's locked at the moment.";
+				rfalse;
+			Unlock:
+				if( lm_n == 2 && lm_o hasnt pluralname ) "It's unlocked at the moment.";
+				rfalse;
         ]
   has   scenery;
 
