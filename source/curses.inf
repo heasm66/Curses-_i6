@@ -390,16 +390,27 @@ Object LibraryMessages
                     "You feel your brain turning to rice pudding.";
                 rfalse;
 			Open:
+				! Replace That's with It's
 				if( lm_n == 3 && lm_o hasnt pluralname ) "It's already open.";
 				rfalse;
 			Close:
+				! Replace That's with It's
 				if( lm_n == 2 && lm_o hasnt pluralname ) "It's already closed.";
 				rfalse;
 			Lock:
+				! Replace That's with It's
 				if( lm_n == 2 && lm_o hasnt pluralname ) "It's locked at the moment.";
 				rfalse;
 			Unlock:
+				! Replace That's with It's
 				if( lm_n == 2 && lm_o hasnt pluralname ) "It's unlocked at the moment.";
+				rfalse;
+			SwitchOn:
+				! Replace That's with It's
+				if( lm_n == 2 && lm_o hasnt pluralname ) "It's already on.";
+				rfalse;
+			SwitchOff:
+				if( lm_n == 2 && lm_o hasnt pluralname ) "It's already off.";
 				rfalse;
         ]
   has   scenery;
