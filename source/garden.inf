@@ -31,9 +31,10 @@ Object  -> coal_bunker "coal bunker"
         ],
         door_to Dark_Passage,
         when_closed "On the house wall is a coal bunker, whose loading door is shut.",
+        with_key small_brass_key,
         door_dir s_to,
         when_open "On the house wall is a coal bunker, whose door stands open.",
-  has   door locked openable static;
+  has   door lockable locked openable static;
 
 Object  -> stream "stream"       
   with  name 'stream' 'water' 'gurgling',
