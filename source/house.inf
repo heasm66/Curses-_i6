@@ -129,7 +129,7 @@ HRoom   Attic "Attic"
 Object  -> hinged_trapdoor "hinged trapdoor"     
   with  name 'hinged' 'trap' 'door' 'trapdoor',
         before [;
-            Open:
+            LookUnder:
                 if( antique_jewellery_box hasnt concealed )
                     rfalse;
                 give antique_jewellery_box ~concealed;
@@ -433,6 +433,9 @@ Object  -> old_striped_scarf "old striped scarf"
 Object  tight_door "tight door"  
   with  name 'tight' 'door',
         initial "A tight door stands open in the northern wall, giving onto the servants' staircase.",
+		before [;
+			Close: "You think better of it.";	
+		],
   has   static;
 
 HRoom   Old_Furniture "Old Furniture"    
