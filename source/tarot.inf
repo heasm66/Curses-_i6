@@ -133,8 +133,8 @@ Object  complicated_looking_bomb "complicated-looking bomb"
                     print "^Click!  The timer runs out, but the bomb was disarmed. You pocket the timer and hide the rest of the evidence under the table.^";
                     move timer_detonator to player;
                     give timer_detonator ~static;
-					give complicated_looking_bomb concealed;
-					give complicated_looking_bomb general;
+                    give complicated_looking_bomb concealed;
+                    give complicated_looking_bomb general;
                     remove complicated_looking_bomb;
                     rtrue;
                 }
@@ -199,12 +199,12 @@ Object  -> timer_detonator "timer-detonator"
                     if( k == mirrored_device && photographers_flash hasnt general ) {
                         give photographers_flash general;
                         print "Consequently you can only hear as the smudge on the horizon rises from the waves, becomes an enormous Kraken 
-						    sea monster and lunges for the stone tower. (Considering this is supposed to be a Greek myth it feels surprisingly 
-							like a Japanese 1960s creature film.)  The Kraken swipes at you, overreaches itself and falls over forward, 
-							impaling itself extremely messily on the pharos. Your eyes just about recover by the time the rest of your body is
+                            sea monster and lunges for the stone tower. (Considering this is supposed to be a Greek myth it feels surprisingly 
+                            like a Japanese 1960s creature film.)  The Kraken swipes at you, overreaches itself and falls over forward, 
+                            impaling itself extremely messily on the pharos. Your eyes just about recover by the time the rest of your body is
                             crushed by its weight.^^Up on Mount Olympus, Zeus is still cross. ~Take me to your Leda~, you wittily demand, but 
-							this does not seem to improve matters. Poseidon also looks rather fed up, but luckily a sizeable faction of goddesses 
-							takes your side and arranges to have you resurrected...^";
+                            this does not seem to improve matters. Poseidon also looks rather fed up, but luckily a sizeable faction of goddesses 
+                            takes your side and arranges to have you resurrected...^";
 
                         Achieved(SCORE_ANDROMEDA);
                         remove photographers_flash;
@@ -430,7 +430,7 @@ Object  -> Andromeda "Andromeda"
                 if( noun has edible ) {
                     if( noun == Ekmek_Special ) {
                         remove noun;
-						give amber_hairband ~concealed;									  
+                        give amber_hairband ~concealed;                                   
                         give amber_hairband ~static;
                         give amber_hairband moved;
                         move amber_hairband to player;
@@ -670,12 +670,12 @@ Object  -> symbol "symbol"
   with  name 'symbol' 'symbols',
         initial "A curious symbol is repeated along the top of the relief.",
         description [ ;
-			0-->8 = 2 | 0-->8; 
-			print "   (---)  (---)  (---)  (---)^";
-			0-->8 = 65533 & 0-->8;
-			rtrue;
-		],
-		has   static;
+            0-->8 = 2 | 0-->8; 
+            print "   (---)  (---)  (---)  (---)^";
+            0-->8 = 65533 & 0-->8;
+            rtrue;
+        ],
+        has   static;
 
 TRoom   Inner_Sanctum "Inner Sanctum"    
   with  n_to Cross_Centre,

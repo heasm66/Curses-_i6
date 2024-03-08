@@ -454,7 +454,7 @@
 
 [ WhichMenu ;   
     if (menu_item == 1) {
-		EndMenuDisplay();
+        EndMenuDisplay();
         return 2;
     }
     if (menu_item == 2) {

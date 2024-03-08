@@ -155,10 +155,10 @@ Object Murky_Cave "Murky Cave"
                     rtrue;
                 }
                 "~This is what must be done. They will forget, so we must give them a substitute. We shall accurse them to always 
-				 seek after this magical stone, which it will be all but impossible for them to find. It will take the form of 
-				 whatever they most desire. In six hundred years, by my prophecy, religious wars in the East will capture men's 
-				 hearts, and then they will think it is the Holy Grail, the cup which held the blood of Christ. A thousand years 
-				 later they will think it is -~  But at this moment the voices move away.";
+                 seek after this magical stone, which it will be all but impossible for them to find. It will take the form of 
+                 whatever they most desire. In six hundred years, by my prophecy, religious wars in the East will capture men's 
+                 hearts, and then they will think it is the Holy Grail, the cup which held the blood of Christ. A thousand years 
+                 later they will think it is -~  But at this moment the voices move away.";
             }
             rfalse;
         ],
@@ -245,22 +245,22 @@ Object -> yellow_daisy "yellow daisy"
                 }
                 rfalse;
         ],
-		invent [ o sib; 
-				if (self has worn && inventory_stage == 2) {
-					o = child(player);
-					while( o ~= nothing ) {
-						sib = sibling(o);
-						if (o has hidden_rod) {
-							print " (twitching behind your ear)";
-							rtrue;
-						}
-						o = sib;
-					}
-					print " (tucked behind your ear)";
-					rtrue;
-				}
-				rfalse;	
-		],
+        invent [ o sib; 
+                if (self has worn && inventory_stage == 2) {
+                    o = child(player);
+                    while( o ~= nothing ) {
+                        sib = sibling(o);
+                        if (o has hidden_rod) {
+                            print " (twitching behind your ear)";
+                            rtrue;
+                        }
+                        o = sib;
+                    }
+                    print " (tucked behind your ear)";
+                    rtrue;
+                }
+                rfalse; 
+        ],
         initial "A single yellow daisy grows from a little tuft of grass on the crags.",
   has   clothing scored;
 
@@ -397,7 +397,7 @@ Object Triclinium "Triclinium"
         ],
         description "What was once the villa's triclinium, or kitchen, is now deserted and long since ransacked for 
             metal. (Nobody lives on their own in this century, and this villa wouldn't be easy to defend.)  A doorway 
-			to the east gives onto the atrium.",
+            to the east gives onto the atrium.",
         section T_ANCIENT_BRITAIN,
   has   light;
 

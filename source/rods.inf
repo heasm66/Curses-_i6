@@ -30,7 +30,7 @@
 Class   Rod
   with  name 'rod' 'of' 'mahogany' 'featureless' 'plaque',
         list_together 0,
-		plural "featureless mahogany rods",
+        plural "featureless mahogany rods",
         before [;
             Examine:
                 if( self has unidentifed_rod )
@@ -43,20 +43,20 @@ Class   Rod
                 new_line;
                 rtrue;
         ],
-		invent [ ;  
-			if (inventory_stage == 2 && self has charged) print " (charged)";
-			rfalse;
-		],
+        invent [ ;  
+            if (inventory_stage == 2 && self has charged) print " (charged)";
+            rfalse;
+        ],
         short_name [;
             if( self has unidentifed_rod ) {
                 print "featureless mahogany rod";
                 rtrue; 
             }
-			if (listing_together ~= nothing && listing_together hasnt rod_attr) {
-				if( self has high_rod )
-					print "High ";
-				print "Rod of ";
-			}
+            if (listing_together ~= nothing && listing_together hasnt rod_attr) {
+                if( self has high_rod )
+                    print "High ";
+                print "Rod of ";
+            }
             rfalse;
         ],
         parse_name [ i j w len cnt;
@@ -73,8 +73,8 @@ Class   Rod
                 for( i=0: i < len : i++ ) {
                     if( w == 'rods' ) {
                         parser_action = ##PluralFound;
-						j = true;
-					}
+                        j = true;
+                    }
                     else if( w == self.&name-->i ) {
                         if( self hasnt unidentifed_rod && w == 'featureless' )
                             j = false;
