@@ -112,7 +112,7 @@ Object  chocolate_biscuit "chocolate biscuit"
         ],
         description "Oatmeal covered with plain chocolate, since you ask.",
         devil_hint "I bet you didn't know that chocolate biscuit manufacturers are damned in perpetuity?  I'm afraid the 
-			chapters about that in the Old Testaments were lost, though, and now no-one can remember why.",
+            chapters about that in the Old Testaments were lost, though, and now no-one can remember why.",
   has   edible moved;
 
 HRoom   Attic "Attic"    
@@ -433,10 +433,10 @@ Object  -> old_striped_scarf "old striped scarf"
 Object  tight_door "tight door"  
   with  name 'tight' 'door',
         initial "A tight door stands open in the northern wall, giving onto the servants' staircase.",
-		before [;
-			Open: "It's already open.";
-			Close: "Better to leave it open.";	
-		],
+        before [;
+            Open: "It's already open.";
+            Close: "Better to leave it open.";  
+        ],
   has   static;
 
 HRoom   Old_Furniture "Old Furniture"    
@@ -1185,7 +1185,7 @@ Object  -> book_of_Twenties_poetry "book of Twenties poetry"
                     somehow you have arrived in the...^";
                 move book_of_Twenties_poetry to location;
                 PlayerTo(Unreal_City);
-				rtrue;
+                rtrue;
         ],
         list_together BOOK_GROUP,
         devil_hint "My my, a golden age for clear, simple poetry. At last, an end to the dreary obscurity of 
@@ -1347,7 +1347,7 @@ Object  -> slide_projector "slide projector"
 
 Object  -> south_wall "south wall"       
  with name 's//' 'south' 'wall',
-	  before [ o;
+      before [ o;
             Enter:
                 o = child(slide_projector);
                 if( o == nothing ) 
@@ -1606,8 +1606,8 @@ Object  -> Sir_Joshua_Meldrewe "Sir Joshua Meldrewe"
             Give, ThrowAt:
                 remove noun;
                  if( noun == chicken_wishbone ) {
-					StopDaemon(self);
-					move iron_key to Priests_Hole;
+                    StopDaemon(self);
+                    move iron_key to Priests_Hole;
                     give iron_key general;
                     remove Sir_Joshua_Meldrewe;
                     Achieved(SCORE_JOSHUA);
@@ -1651,22 +1651,22 @@ Object  -> Sir_Joshua_Meldrewe "Sir Joshua Meldrewe"
 
 HRoom  Chimney "Chimney"        
   with  before [ o;
-			Exit, Look, Inv: rfalse;
-			Go:
-				if (noun == d_obj) {
-					objectloop( o in player )
-						if( o hasnt worn || o == rucksack )
-							"It's too narrow a squeeze for you at present.";
-					print "You squeeze awkwardly down the chimney. Lucky your best clothes are all packed, because 
-						you're getting filthy.^";
-				}
-				rfalse;
-			default: "There's not enough room in this confined space to do anything much!";
-		],
-		e_to Inside_Cupboard,
-		d_to Priests_Hole,
+            Exit, Look, Inv: rfalse;
+            Go:
+                if (noun == d_obj) {
+                    objectloop( o in player )
+                        if( o hasnt worn || o == rucksack )
+                            "It's too narrow a squeeze for you at present.";
+                    print "You squeeze awkwardly down the chimney. Lucky your best clothes are all packed, because 
+                        you're getting filthy.^";
+                }
+                rfalse;
+            default: "There's not enough room in this confined space to do anything much!";
+        ],
+        e_to Inside_Cupboard,
+        d_to Priests_Hole,
         description "The chimney is cramped, sooty, unpleasant and has no floor to speak of, so you are held up only by jamming your feet against the walls. To the east, through the fireplace, is the cupboard.",
-		cant_go "Not a chance!",
+        cant_go "Not a chance!",
   has   ;
 
 Object  -> sooty_old_stick "sooty old stick"     
@@ -2209,7 +2209,7 @@ Object  -> old_gardeners__gloves "old gardeners' gloves"
 
 Object  -> Jemima "Jemima"       
   with  name 'aunt' 'jemima',
-		life [ i;
+        life [ i;
             Give:
                 if( noun == box_of_chocolates ) {
                     remove box_of_chocolates;
@@ -2360,30 +2360,30 @@ Object  daisy_chain "daisy chain"
         before [;
             Examine:
                 print "A delicate, pretty chain of ";
-				DaisyType(self.number);
-				" daisies.";
+                DaisyType(self.number);
+                " daisies.";
             Drop:
                 remove self;
                 give self ~worn;
                 "The daisychain falls to pieces in your hands!  Cheer up, though, perhaps Jemima might give 
                  you another.";
         ],
-		invent [ o sib; 
-				if (self has worn && inventory_stage == 2) {
-					o = child(player);
-					while( o ~= nothing ) {
-						sib = sibling(o);
-						if (o has hidden_rod) {
-							print " (which rustles as if with a magical wind)";
-							rtrue;
-						}
-						o = sib;
-					}
-					print " (around your neck)";
-					rtrue;
-				}
-				rfalse;	
-		],
+        invent [ o sib; 
+                if (self has worn && inventory_stage == 2) {
+                    o = child(player);
+                    while( o ~= nothing ) {
+                        sib = sibling(o);
+                        if (o has hidden_rod) {
+                            print " (which rustles as if with a magical wind)";
+                            rtrue;
+                        }
+                        o = sib;
+                    }
+                    print " (around your neck)";
+                    rtrue;
+                }
+                rfalse; 
+        ],
         number 11,
         devil_hint "Dangerous to wear. But at least any sort of daisies will do.",
   has   clothing;

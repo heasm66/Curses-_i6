@@ -674,7 +674,7 @@
     if( i == 0 ) 
         "Failed.";
     print "Ok.^";
-	redraw_statusline = true;
+    redraw_statusline = true;
     rtrue;
 ];
 
@@ -1091,13 +1091,13 @@ Verb 'kick'
     * noun                                              -> Attack;
 
 Extend 'dig' first
-	* 													-> Dig;
+    *                                                   -> Dig;
 
 Extend 'dig' last
     * special                                           -> Dig;
-	
+    
 Extend 'drink' first
-    *                                           		-> Drink;
+    *                                                   -> Drink;
 
 Extend 'buy' first
     * special                                           -> Buy;
@@ -1107,19 +1107,19 @@ Extend 'answer' first
 
 Extend 'answer' first
     *                                                   -> Shout;
-	
+    
 Extend 'turn' last
     * noun 'inside' 'out'                               -> Turn;
 
 Extend 'turn' last
     * noun 'around'                                     -> Turn;
-	
+    
 Extend 'turn' last
     * 'round' noun                                      -> Turn;
 
 Extend 'turn' last
-    * noun 'to' topic	                                -> Consult;
-	
+    * noun 'to' topic                                   -> Consult;
+    
 Verb meta 'pretty'
     *                                                   -> Pretty;
 
@@ -1131,10 +1131,10 @@ Verb meta 'help'
     * special                                           -> HelpSpecial;
 
 Extend 'look' last
-    * 'up' topic 'on' noun                          	-> Consult;
+    * 'up' topic 'on' noun                              -> Consult;
 
 Extend 'look' last
-    * 'up' topic                                    	-> LookUp;
+    * 'up' topic                                        -> LookUp;
 
 Extend 'display' last
     * 'off'                                             -> Sing;

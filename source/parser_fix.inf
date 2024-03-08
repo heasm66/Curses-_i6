@@ -1,17 +1,17 @@
 ! ----------------------------------------------------------------------------
 !   Includes fixes for:
-!		(1) Dword__No and No__Dword to allow variable (smaller) dictionary 
+!       (1) Dword__No and No__Dword to allow variable (smaller) dictionary 
 !           size.
-!		(2) Added to Parser__parse so it prints a new_line between 
-!			multiple actions (seperated by a period or THEN) as in 5/12.
-!		(3) Parser__parse: Moved wiping of buffers to start of routine.
-!			This is to stop phrases like: 
-!				"look up me in book. look up Peter in book."
-!			looking up the wrong topic when using NextWord(). In the above
-!			example, the topic "Peter" originaly gets looked up twice.
-!		(4) ParseToken__: Allow THEN-words to halt a topic-chain. This prevents
-!				"ask Jemima about gloves. ask Jemima about calendar."
-!			from ignoring the second action.
+!       (2) Added to Parser__parse so it prints a new_line between 
+!           multiple actions (seperated by a period or THEN) as in 5/12.
+!       (3) Parser__parse: Moved wiping of buffers to start of routine.
+!           This is to stop phrases like: 
+!               "look up me in book. look up Peter in book."
+!           looking up the wrong topic when using NextWord(). In the above
+!           example, the topic "Peter" originaly gets looked up twice.
+!       (4) ParseToken__: Allow THEN-words to halt a topic-chain. This prevents
+!               "ask Jemima about gloves. ask Jemima about calendar."
+!           from ignoring the second action.
 ! ----------------------------------------------------------------------------
 
 [ Dword__No w; return (w-dict_start)/dict_entry_size; ];
@@ -83,7 +83,7 @@
         }
 
       PREPOSITION_TT:
-		#Iffalse (Grammar__Version == 1);
+        #Iffalse (Grammar__Version == 1);
         ! Is it an unnecessary alternative preposition, when a previous choice
         ! has already been matched?
         if ((token->0) & $10) return GPR_PREPOSITION;
@@ -509,10 +509,10 @@ global wipe_end_2;
 
     if (held_back_mode == 1) {
         held_back_mode = 0;
-		new_line;																						! r18
-        if (wipe_start_1) for (: wipe_start_1<wipe_end_1 : wipe_start_1++) wipe_start_1->0 = ' ';		! r18, wipe buffer
-        if (wipe_start_2) for (: wipe_start_2<wipe_end_2 : wipe_start_2++) buffer3->wipe_start_2 = ' ';	! r18, wipe buffer
-		wipe_start_1 = 0; wipe_start_2 = 0;																! r18
+        new_line;                                                                                       ! r18
+        if (wipe_start_1) for (: wipe_start_1<wipe_end_1 : wipe_start_1++) wipe_start_1->0 = ' ';       ! r18, wipe buffer
+        if (wipe_start_2) for (: wipe_start_2<wipe_end_2 : wipe_start_2++) buffer3->wipe_start_2 = ' '; ! r18, wipe buffer
+        wipe_start_1 = 0; wipe_start_2 = 0;                                                             ! r18
         Tokenise__(buffer, parse);
         jump ReParse;
     }
@@ -1120,10 +1120,10 @@ global wipe_end_2;
                 ! ...explain any inferences made (using the pattern)...
 
                 if (inferfrom ~= 0) {
-					i = pattern-->inferfrom;
-                    if (i >= REPARSE_CODE || i notin compass) {			!r18: Don't print infered directions 
-						print "("; PrintCommand(inferfrom); print ")^"; 
-					}
+                    i = pattern-->inferfrom;
+                    if (i >= REPARSE_CODE || i notin compass) {         !r18: Don't print infered directions 
+                        print "("; PrintCommand(inferfrom); print ")^"; 
+                    }
                 }
 
                 ! ...copy the action number, and the number of parameters...
@@ -1328,21 +1328,21 @@ global wipe_end_2;
            held_back_mode = false;
            return;
         }
-        wipe_start_1 = WordAddress(verb_wordnum);					! r18
-        wipe_end_1 = WordAddress(wn);								! r18
-        !for (: i<j : i++) i->0 = ' ';								! r18, delay wipe
+        wipe_start_1 = WordAddress(verb_wordnum);                   ! r18
+        wipe_end_1 = WordAddress(wn);                               ! r18
+        !for (: i<j : i++) i->0 = ' ';                              ! r18, delay wipe
         i = NextWord();
         if (i == AGAIN1__WD or AGAIN2__WD or AGAIN3__WD) {
             ! Delete the words "then again" from the again buffer,
             ! in which we have just realised that it must occur:
             ! prevents an infinite loop on "i. again"
 
-            wipe_start_2 = WordAddress(wn-2)-buffer;				! r18
-            if (wn > num_words) wipe_end_2 = INPUT_BUFFER_LEN-1;	! r18
-            else wipe_end_2 = WordAddress(wn)-buffer;				! r18
-            !for (: i<j : i++) buffer3->i = ' ';					! r18, delay wipe
+            wipe_start_2 = WordAddress(wn-2)-buffer;                ! r18
+            if (wn > num_words) wipe_end_2 = INPUT_BUFFER_LEN-1;    ! r18
+            else wipe_end_2 = WordAddress(wn)-buffer;               ! r18
+            !for (: i<j : i++) buffer3->i = ' ';                    ! r18, delay wipe
         }
-        !Tokenise__(buffer,parse);									! r18, delay tokenise
+        !Tokenise__(buffer,parse);                                  ! r18, delay tokenise
         held_back_mode = true;
         return;
     }
@@ -1359,5 +1359,5 @@ global wipe_end_2;
     <Go second>;
     if (location == thedark) move i to real_location;
     else                     move i to location;
-	PronounNotice(i); 	!r18: Fixes that, for example, "push radio north" maintains the radio as "it"-object.
+    PronounNotice(i);   !r18: Fixes that, for example, "push radio north" maintains the radio as "it"-object.
 ];

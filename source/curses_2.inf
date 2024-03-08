@@ -5,7 +5,7 @@
 Constant Story "CURSES: 30 Year Anniversary Edition";
 Constant Headline "^An Interactive Diversion^Copyright (c) 1993, 1994, 1995 by Graham Nelson.^Reverse engineered from release 16, remastered and sligtly modified.^See 'help about' for more details.^";
 Release 1016;
-!Serial "230428"	! Date for 30 year anniversary
+!Serial "230428"    ! Date for 30 year anniversary
 
 ! This IFID is unique for this port -- see http://babel.ifarchive.org/
 Array UUID_ARRAY string "UUID://F8E04F39-A71B-47E4-88CF-E73BF35775FE//";
@@ -337,7 +337,7 @@ Replace Dword__No;
 Replace No__Dword;
 Replace Parser__parse;
 Replace ParseToken__;
-Replace AllowPushDir;		! r18
+Replace AllowPushDir;       ! r18
 
 Include "Parser";
 Include "parser_fix.inf";
@@ -1065,7 +1065,7 @@ Object carbolic_soap "carbolic soap"
 ];
 
 [ DrawStatusLine columns c2 tmpvar ;
-	if (lightflag == 0 && DEADFLAG > 0) location = thedark; 	!r18: Let statusline remain as "Darkness" when you're dead.
+    if (lightflag == 0 && DEADFLAG > 0) location = thedark;     !r18: Let statusline remain as "Darkness" when you're dead.
     columns = 0->33;
     if (columns == 0) columns = 80;
     0-->8 = 2 | 0-->8;
@@ -1235,49 +1235,49 @@ Object carbolic_soap "carbolic soap"
 ! r18: Create floating wall-objects in house (Souvenirs_Room has its own "south wall").
 Class Wall
     with
-		before	 [;
-			Enter:	"You can't go that way.";
-		],
-		found_in [;
-			if ( self == Souvenirs_Room ) rfalse;
-			if ( location.section == T_MODERN ) rtrue;
-		],
+        before   [;
+            Enter:  "You can't go that way.";
+        ],
+        found_in [;
+            if ( self == Souvenirs_Room ) rfalse;
+            if ( location.section == T_MODERN ) rtrue;
+        ],
         has scenery concealed;
 
-Wall 	sw_wall "southwest wall"
+Wall    sw_wall "southwest wall"
         with name 'sw//' 'southwest' 'wall';
 
-Wall 	nw_wall "northwest wall"
+Wall    nw_wall "northwest wall"
         with name 'nw//' 'northwest' 'wall';
 
-Wall 	se_wall "southeast wall"
+Wall    se_wall "southeast wall"
         with name 'se//' 'southeast' 'wall';
 
-Wall 	ne_wall "northeast wall"
+Wall    ne_wall "northeast wall"
         with name 'ne//' 'northeast' 'wall';
 
-Wall 	w_wall "west wall"
+Wall    w_wall "west wall"
         with name 'w//' 'west' 'wall';
 
-Wall 	e_wall "east wall"
+Wall    e_wall "east wall"
         with name 'e//' 'east' 'wall';
 
-Wall 	s_wall "south wall"
+Wall    s_wall "south wall"
         with 
-			name 's//' 'south' 'wall',
-			before [;
-				Enter:	"You can't go that way.";
-				Knock: 	if ( location == Dead_End ) "The south wall rings curiously hollow.";
-				Push:	if ( location == Dead_End ) {
-							if( secret_door hasnt concealed ) rfalse;
-							give secret_door ~concealed;
-							move secret_door to Dead_End;
-							Achieved(SCORE_SECRETDOOR);
-							"A secret door springs open!";
-						}
-			];
+            name 's//' 'south' 'wall',
+            before [;
+                Enter:  "You can't go that way.";
+                Knock:  if ( location == Dead_End ) "The south wall rings curiously hollow.";
+                Push:   if ( location == Dead_End ) {
+                            if( secret_door hasnt concealed ) rfalse;
+                            give secret_door ~concealed;
+                            move secret_door to Dead_End;
+                            Achieved(SCORE_SECRETDOOR);
+                            "A secret door springs open!";
+                        }
+            ];
 
-Wall 	n_wall "north wall"
+Wall    n_wall "north wall"
         with name 'n//' 'north' 'wall';
 
 Include "Grammar";

@@ -193,10 +193,10 @@ Object  -> curtain "curtain"
             death by water and then hustles you out onto the street.^";
     } else {
         if( card3 ~= Star || card2 ~= Maiden_card || card1 ~= Eight_of_Wands_card ) {
-			trigger_quotation(18);
-			print "~Curse it, another nobody,~ she hisses in an unguarded moment, as she tidies the pack absentmindedly 
-				with her hands. Then she recovers her poise and advises about handsome strangers, fearing death by
-				water, crossing palms with gold and so on. Eventually she ushers you out.^";
+            trigger_quotation(18);
+            print "~Curse it, another nobody,~ she hisses in an unguarded moment, as she tidies the pack absentmindedly 
+                with her hands. Then she recovers her poise and advises about handsome strangers, fearing death by
+                water, crossing palms with gold and so on. Eventually she ushers you out.^";
         } else {
             print "~You have come!  At last, after all these centuries!  But there is little I can do to ease 
                 your way, save to return the staff you left with me for safe keeping.~  And she shows you out. You
