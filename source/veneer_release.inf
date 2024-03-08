@@ -1,0 +1,942 @@
+! veneer_release.inf
+
+! These are release versions of the veneer routines. They are intended to be
+! used in the final release version of a game and saves up to 2 kB. 
+! This is mostly accomplished by stripping out all run-time printing of error
+! messages and some optimization.
+
+
+#Ifndef DEBUG;
+#Ifndef TARGET_GLULX;
+#Ifndef STRICT_MODE;
+#Ifndef INFIX;
+
+!Box__Routine			Don't call RT_Err, no need
+!R_Process				Don't call RT_Err, no need
+!DefArt					Don't call RT_Err, no need
+!InDefArt				Don't call RT_Err, no need
+!CDefArt				Don't call RT_Err, no need
+!CInDefArt			    Don't call RT_Err, no need
+!EnglishNumber			Don't call RT_Err, no need
+!PrintShortName			Don't call RT_Err, no need
+replace Print__PName; ! Remove printing of symbol names     (- 160 bytes)
+replace WV__Pr;		  ! Remove all calls to Rt__Err			(-  16 bytes, Uncalled in Curses!)
+replace RV__Pr;       ! Remove all calls to Rt__Err         (-  64 bytes) 
+replace CA__Pr;       ! Remove Print and calls to Rt__Err   (- 220 bytes) 
+replace IB__Pr;		  ! Remove all calls to Rt__Err			(-  22 bytes, Uncalled in Curses!)
+replace IA__Pr;		  ! Remove all calls to Rt__Err			(-  22 bytes, Uncalled in Curses!)
+replace DB__Pr;		  ! Remove all calls to Rt__Err			(-  22 bytes, Uncalled in Curses!)
+replace DA__Pr;		  ! Remove all calls to Rt__Err			(-  22 bytes, Uncalled in Curses!)
+replace RA__Pr;		  ! Optimize							(-   4 bytes)
+replace RL__Pr;		  ! Optimize							(-   8 bytes)
+replace RA__Sc;		  ! Remove all calls to Rt__Err			(-  40 bytes, Uncalled in Curses!)
+replace OP__Pr;		  ! Optimize							(-   4 bytes)
+replace OC__Cl;       ! Remove all calls to Rt__Err         (-  20 bytes) 
+!Copy_Primitive		    Don't call RT_Err, no need
+replace RT__Err;      ! Supress all run-time error messages (-1432 bytes) 
+!Z__Region		    	Don't call RT_Err, no need
+!Unsigned__Compare    	Don't call RT_Err, no need
+!Meta__class    		Don't call RT_Err, no need
+!CP__Tab    			Don't call RT_Err, no need
+replace Cl__Ms;		  ! Remove all calls to Rt__Err         (-  92 bytes)
+!RT__ChT				Only used in strict mode
+!RT__ChR				Only used in strict mode
+!RT__ChG				Only used in strict mode
+!RT__ChGt				Only used in strict mode
+!RT__ChPS				Only used in strict mode
+!RT__ChPR				Only used in strict mode
+!RT__TrPS  				Only used in strict mode
+!RT__ChLDB				Only used in strict mode
+!RT__ChLDW				Only used in strict mode
+!RT__ChSTB				Only used in strict mode
+!RT__ChSTW				Only used in strict mode
+!RT__ChPrintC			Only used in strict mode
+!RT__ChPrintA			Only used in strict mode
+!RT__ChPrintS			Only used in strict mode
+!RT__ChPrintO			Only used in strict mode
+
+
+
+!   Box__Routine: the only veneer routine used in the implementation of
+!                 an actual statement ("box", of course), written in a
+!                 hybrid of Inform and assembly language.  Note the
+!                 transcription of the box text to the transcript
+!                 output stream (-1, or $ffff).
+
+![ Box__Routine maxw table n w w2 line lc t;
+! n = table --> 0;
+! @add n 6 -> sp;
+! @split_window sp;
+! @set_window 1;
+! w = 0 -> 33;
+! if (w == 0) w=80;
+! w2 = (w - maxw)/2;
+! if (w2 < 3) w2 = 3;
+! style reverse;
+! @sub w2 2 -> w;
+! line = 5;
+! lc = 1;
+! @set_cursor 4 w;
+! spaces maxw + 4;
+! do
+! {   @set_cursor line w;
+!	 spaces maxw + 4;
+!	 @set_cursor line w2;
+!	 t = table --> lc;
+!	 if (t~=0) print (string) t;
+!	 line++; lc++;
+! } until (lc > n);
+! @set_cursor line w;
+! spaces maxw + 4;
+! @buffer_mode 1;
+! style roman;
+! @set_window 0;
+! @split_window 1;
+! @output_stream $ffff;
+! print \"[ \";
+! lc = 1;
+! do
+! {   w = table --> lc;
+!	 if (w ~= 0) print (string) w;
+!	 lc++;
+!	 if (lc > n)
+!	 {   print \"]^^\";
+!		 break;
+!	 }
+!	 print \"^  \";
+! } until (false);
+! @output_stream 1;
+!];
+
+!  			This batch of routines is expected to be defined (rather better) by
+!        	the Inform library: these minimal forms here are provided to prevent
+!        	tiny non-library-using programs from failing to compile when certain
+!        	legal syntaxes (such as <<Action a b>>;) are used.
+
+![ R_Process a b c d; 
+! print \"Action <\", a, \" \", b, \" \", c;
+! if (d) print \", \", d; print \">^\";
+!];
+
+![ DefArt obj; print \"the \", obj; ];
+
+![ InDefArt obj; print \"a \", obj; ];
+
+![ CDefArt obj; print \"The \", obj; ];
+
+![ CInDefArt obj; print \"A \", obj; ];
+
+![ PrintShortName obj; 
+! switch(metaclass(obj))
+! {   0: print \"nothing\";
+!	 Object: @print_obj obj;
+!	 Class: print \"class \"; @print_obj obj;
+!	 Routine: print \"(routine at \", obj, \")\";
+!	 String: print \"(string at \", obj, \")\";
+! } 
+!];
+
+![ EnglishNumber obj; print obj; ];
+					   
+!   Print__PName: Print the name of a property.
+
+[ Print__PName; ];
+
+!   WV__Pr:  write a value to the property for the given
+!			 object having the given identifier
+
+[ WV__Pr obj identifier value x;
+ x = obj..&identifier;
+ if (x==0) { 
+	!RT__Err(\"write to\", obj, identifier); 
+	return; 
+ }
+ !#ifdef INFIX;
+ !if (obj has infix__watching || (debug_flag & 15)) RT__TrPS(obj,identifier,value);
+ !#ifnot; 
+ !#ifdef DEBUG;
+ !if (debug_flag & 15) RT__TrPS(obj,identifier,value);
+ !#endif; #endif;
+ x-->0 = value;
+];
+
+!   RV__Pr:  read a value from the property for the given
+!	 		 object having the given identifier
+
+[ RV__Pr obj identifier x;
+ x = obj..&identifier;
+ if (x==0) {   
+	!if (identifier >= 1 && identifier < 64 && obj.#identifier <= 2)
+		 @get_prop obj identifier -> sp;
+		 @ret_popped;
+		 !return obj.identifier;
+	 !RT__Err(\"read\", obj, identifier); return; 
+ }
+ #IFV3;
+ !if (obj..#identifier > 2) RT__Err(\"read\", obj, identifier);
+ #IFNOT;
+ !if (obj..#identifier > 2) RT__Err(\"read\", obj, identifier, 2);
+ #ENDIF;
+ return x-->0;
+];
+
+!   CA__Pr:  call, that is, print-or-run-or-read, a property:
+!			 this exactly implements obj..prop(...).  Note that
+!			 classes (members of Class) have 5 built-in properties
+!			 inherited from Class: create, recreate, destroy,
+!			 remaining and copy.  Implementing these here prevents
+!			 the need for a full metaclass inheritance scheme.
+
+#IfV3;
+! This routines are give compile errors for z3, Use the one in puny.h instead
+[ CA__Pr obj id a    x z s s2 n m;
+! print "CA_Pr obj = ", obj,", id = ", id,", a = ", a, "^";
+	if (obj < 1 || obj > #largest_object-255) {
+		switch(Z__Region(obj)) {
+			2:
+			if (id == call) {
+				s = sender; sender = self; self = obj;
+				#ifdef action;sw__var=action;#endif;
+				x = indirect(obj, a);
+				self = sender; sender = s; return x;
+			}
+			jump Call__Error;
+			3:
+			if (id == print) { @print_paddr obj; rtrue; }
+			if (id == print_to_array) {
+				@output_stream 3 a; @print_paddr obj; @output_stream -3;
+				return a-->0;
+			}
+			jump Call__Error;
+		}
+		jump Call__Error;
+	}
+! print "CA_Pr(2) obj = ", obj,", id = ", id,", a = ", a, "^";
+!   @check_arg_count 3 ?~A__x;y++;@check_arg_count 4 ?~A__x;y++;
+!   @check_arg_count 5 ?~A__x;y++;@check_arg_count 6 ?~A__x;y++;
+!   @check_arg_count 7 ?~A__x;y++;@check_arg_count 8 ?~A__x;y++;.A__x;
+!   #ifdef INFIX;if (obj has infix__watching) n=1;#endif;
+	#ifdef DEBUG;if (debug_flag & 1 ~= 0) n=1;#endif;
+!   if (n==1) {
+!     n=debug_flag & 1; debug_flag=debug_flag-n;
+!     print "[ ~", (name) obj, "~.", (property) id, "(";
+!     switch(y) {
+!     1:
+!       print a; 2: print a,",",b; 3: print a,",",b,",",c;
+!     4:
+!       print a,",",b,",",c,",",d;
+!     5:
+!       print a,",",b,",",c,",",d,",",e;
+!     6:
+!       print a,",",b,",",c,",",d,",",e,",",f;
+!     }
+!     print ") ]^"; debug_flag = debug_flag + n;
+!   }
+	if (id > 0 && id < INDIV_PROP_START) {
+!   print "CA_Pr OK obj = ", obj,", id = ", id,", a = ", a, "^";
+		x = obj.&id;
+		if (x==0) {
+			x=$000a-->0 + 2*(id-1); n=2;
+		} else n = obj.#id;
+	} else {
+		if (id>=64 && id<69 && obj in Class) {
+!     print "CA_Pr ERROR0 obj = ", obj,", id = ", id,", a = ", a, "^";
+			RT__Err("Class create etc", obj, id); return;
+!     return Cl__Ms(obj,id,y,a,b,c);
+		}
+!   print "CA_Pr(2.1) obj = ", obj,", id = ", id,", n = ", n, "^";
+		x = obj..&id;
+!   print "CA_Pr(2.2) obj = ", obj,", id = ", id,", x = ", x, "^";
+		if (x == 0) {
+!     print "CA_Pr ERROR1 obj = ", obj,", id = ", id,", a = ", a, "^";
+			.Call__Error;
+			RT__Err("send message", obj, id); return;
+		}
+!   print "Reading n at ", x-1,": ", 0->(x-1), "^";
+		n = 0->(x-1);
+		if (id&$C000==$4000)
+		switch (n&$C0) { 0: n=1; $40: n=2; $80: n=n&$3F; }
+	}
+! print "CA_Pr(3) obj = ", obj,", id = ", id,", a = ", a, "^";
+	for (:2*m<n:m++) {
+!   print "Considering routine at ", x+2*m,": ", x-->m, "^";
+		if (x-->m==$ffff) rfalse;
+		switch(Z__Region(x-->m)) {
+		2:
+			s = sender; sender = self; self = obj; s2 = sw__var;
+!       switch(y) {
+!       0:
+!         z = indirect(x-->m);
+!       1:
+			z = indirect(x-->m, a);
+!       2:
+!         z = indirect(x-->m, a, b);
+!       3:
+!       z = indirect(x-->m, a, b, c);
+!       4:
+!         z = indirect(x-->m, a, b, c, d);
+!       5:
+!         z = indirect(x-->m, a, b, c, d, e);
+!       6:
+!         z = indirect(x-->m, a, b, c, d, e, f);
+!       }
+			self = sender; sender = s; sw__var = s2;
+			if (z ~= 0) return z;
+		3:
+			print_ret (string) x-->m;
+		default:
+			return x-->m;
+		}
+	}
+	rfalse;
+];
+#Ifnot;
+[ CA__Pr obj id a b c d e f x y z s s2 n m;
+ if (obj < 1 || obj > #largest_object-255)
+ {   switch(Z__Region(obj))
+	 { 2: if (id == call) { 
+			s = sender; 
+		    sender = self; 
+			self = obj;
+			#ifdef action;
+			sw__var=action;
+			#endif;
+			x = indirect(obj, a, b, c, d, e, f);
+			self = sender; 
+			sender = s; 
+			return x; 
+		  }
+		  jump Call__Error;
+	   3: if (id == print) { 
+			@print_paddr obj; 
+			rtrue; 
+		  }
+		  if (id == print_to_array) { 
+			@output_stream 3 a; 
+			@print_paddr obj; 
+			@output_stream -3;
+			return a-->0; 
+		  }
+		  jump Call__Error;
+	 }
+	 jump Call__Error;
+ }
+ @check_arg_count 3 ?~A__x;y++;@check_arg_count 4 ?~A__x;y++;
+ @check_arg_count 5 ?~A__x;y++;@check_arg_count 6 ?~A__x;y++;
+ @check_arg_count 7 ?~A__x;y++;@check_arg_count 8 ?~A__x;y++;.A__x;
+ !#ifdef INFIX;if (obj has infix__watching) n=1;#endif;
+ !#ifdef DEBUG;if (debug_flag & 1 ~= 0) n=1;#endif;
+ !if (n==1) {
+	!#ifdef DEBUG;n=debug_flag & 1; debug_flag=debug_flag-n;#endif;
+	!print \"[ ~\", (name) obj, \"~.\", (property) id, \"(\";
+	!switch(y) 
+	!{ 1: print a; 
+	  !2: print a,\",\",b; 
+	  !3: print a,\",\",b,\",\",c;
+	  !4: print a,\",\",b,\",\",c,\",\",d;
+	  !5: print a,\",\",b,\",\",c,\",\",d,\",\",e;
+	  !6: print a,\",\",b,\",\",c,\",\",d,\",\",e,\",\",f; 
+	!}
+	!print \") ]^\";
+   !#ifdef DEBUG;debug_flag = debug_flag + n;#endif;
+ !}
+ if (id > 0 && id < 64) { 
+	!x = obj.&id; 
+	@get_prop_addr obj id -> x;
+	if (x==0) { 
+		x=$000a-->0 + 2*(id-1); 
+		n=2; 
+	} else 
+		!n = obj.#id;
+		@get_prop_len x -> n;
+ } else { 
+	if (id>=64 && id<69 && obj in Class)
+		return Cl__Ms(obj,id,y,a,b,c,d);
+	x = obj..&id;
+	if (x == 0) { 
+		.Call__Error;
+		!RT__Err(\"send message\", obj, id); 
+		return; 
+	}
+	n = 0->(x-1);
+	if (id&$C000==$4000)
+		switch (n&$C0) 
+			{   0: n=1; 
+			  $40: n=2; 
+			  $80: n=n&$3F; 
+			}
+ }
+ for (:2*m<n:m++)
+ {  if (x-->m==$ffff) rfalse;
+	switch(Z__Region(x-->m))
+	{ 2: s = sender; 
+		 sender = self; 
+		 self = obj; 
+		 s2 = sw__var;
+	     #ifdef LibSerial;
+	     if (id==life) sw__var=reason_code; else sw__var=action;
+	     #endif;
+		 switch(y) 
+			{ 0: z = indirect(x-->m); 
+			  1: z = indirect(x-->m, a);
+			  2: z = indirect(x-->m, a, b); 
+			  3: z = indirect(x-->m, a, b, c);
+			  4: z = indirect(x-->m, a, b, c, d); 
+			  5: z = indirect(x-->m, a, b, c, d, e);
+			  6: z = indirect(x-->m, a, b, c, d, e, f); 
+			}
+		 self = sender; 
+		 sender = s; 
+		 sw__var = s2;
+		 if (z ~= 0) return z;
+	  3: print_ret (string) x-->m;
+	  default: return x-->m;
+	}
+ }
+ rfalse;
+];
+#Endif;
+
+!   IB__Pr:  ++(individual property)
+
+[ IB__Pr obj identifier x;
+ x = obj..&identifier;
+ if (x==0) { 
+	!RT__Err(\"increment\", obj, identifier); 
+	return; 
+ }
+ !#ifdef INFIX;
+ !if (obj has infix__watching || (debug_flag & 15)) RT__TrPS(obj,identifier,(x-->0)+1);
+ !#ifnot; #ifdef DEBUG;
+ !if (debug_flag & 15) RT__TrPS(obj,identifier,(x-->0)+1);
+ !#endif; #endif;
+ return ++(x-->0);
+];
+
+!   IA__Pr:  (individual property)++
+
+[ IA__Pr obj identifier x;
+ x = obj..&identifier;
+ if (x==0) { 
+	!RT__Err(\"increment\", obj, identifier); 
+	return; 
+ }
+ !#ifdef INFIX;
+ !if (obj has infix__watching || (debug_flag & 15))
+ !RT__TrPS(obj,identifier,(x-->0)+1);
+ !#ifnot; #ifdef DEBUG;
+ !if (debug_flag & 15) RT__TrPS(obj,identifier,(x-->0)+1);
+ !#endif; #endif;
+ return (x-->0)++;
+];
+
+!   DB__Pr:  --(individual property)
+
+[ DB__Pr obj identifier x;
+ x = obj..&identifier;
+ if (x==0) { 
+	!RT__Err(\"decrement\", obj, identifier); 
+	return; 
+ }
+ !#ifdef INFIX;
+ !if (obj has infix__watching || (debug_flag & 15)) RT__TrPS(obj,identifier,(x-->0)-1);
+ !#ifnot; #ifdef DEBUG;
+ !if (debug_flag & 15) RT__TrPS(obj,identifier,(x-->0)-1);
+ !#endif; #endif;
+ return --(x-->0);
+];
+
+!   DA__Pr:  (individual property)--
+
+[ DA__Pr obj identifier x;
+ x = obj..&identifier;
+ if (x==0) { 
+	!RT__Err(\"decrement\", obj, identifier); 
+	return; 
+ }
+ !#ifdef INFIX;
+ !if (obj has infix__watching || (debug_flag & 15)) RT__TrPS(obj,identifier,(x-->0)-1);
+ !#ifnot; #ifdef DEBUG;
+ !if (debug_flag & 15) RT__TrPS(obj,identifier,(x-->0)-1);
+ !#endif; #endif;
+ return (x-->0)--;
+];
+
+!   RA__Pr:  read the address of a property value for a given object,
+!			 returning 0 if it doesn't provide this individual
+!			 property
+
+[ RA__Pr obj identifier i otherid cla;
+ if (obj==0) rfalse;
+ if (identifier<64 && identifier>0) {
+	 !return obj.&identifier;
+	 @get_prop_addr obj identifier -> sp;
+	 @ret_popped;
+ }
+ if (identifier & $8000 ~= 0)
+ {   cla = #classes_table-->(identifier & $ff);
+	 if (cla.&3 == 0) rfalse;
+	 if (~~(obj ofclass cla)) rfalse;
+	 identifier = (identifier & $7f00) / $100;
+	 i = cla.3;
+	 while (identifier>0)
+	 {   identifier--;
+		 i = i + i->2 + 3;
+	 }
+	 return i+3;
+ }
+ if (identifier & $4000 ~= 0)
+ {   cla = #classes_table-->(identifier & $ff);
+	 identifier = (identifier & $3f00) / $100;
+	 if (~~(obj ofclass cla)) rfalse; i=0-->5;
+	 if (cla == 2) return i+2*identifier-2;
+	 i = 0-->((i+124+cla*14)/2);
+	 i = CP__Tab(i + 2*(0->i) + 1, -1)+6;
+	 return CP__Tab(i, identifier);
+ }
+ if (obj.&3 == 0) rfalse;
+ if (obj in 1)
+ {  	 if (identifier<64 || identifier>=72) rfalse;
+ }
+ if (self == obj)
+	 otherid = identifier | $8000;
+ i = obj.3;
+ while (i-->0 ~= 0)
+ {    if (i-->0 == identifier or otherid)
+		return i+3;
+	 i = i + i->2 + 3;
+ }
+ rfalse;
+];
+
+!   RL__Pr:  read the property length of an individual property value,
+!		 	 returning 0 if it isn't provided by the given object
+
+[ RL__Pr obj identifier x;
+ if (identifier<64 && identifier>0) {
+	!return obj.#identifier;
+	@get_prop_addr obj identifier -> x;
+	@get_prop_len x -> sp;
+	@ret_popped;
+ }
+ x = obj..&identifier;
+ if (x==0) rfalse;
+ if (identifier&$C000==$4000)
+	 switch (((x-1)->0)&$C0)
+	 {    0: return 1;  
+		$40: return 2;  
+		$80: return ((x-1)->0)&$3F; 
+	 }
+ return (x-1)->0;
+];
+
+!   RA__Sc:  implement the "superclass" (::) operator,
+!			 returning an identifier
+
+[ RA__Sc cla identifier otherid i j k;
+ if (cla notin 1 && cla > 4)
+ {   
+	!RT__Err(\"be a '::' superclass\", cla, -1); 
+	rfalse; 
+ }
+ if (self ofclass cla) otherid = identifier | $8000;
+ for (j=0: #classes_table-->j ~= 0: j++)
+ {   if (cla==#classes_table-->j)
+	 {   if (identifier < 64) return $4000 + identifier*$100 + j;
+		 if (cla.&3 == 0) break;
+		 i = cla.3;
+		 while (i-->0 ~= 0)
+		 {   if (i-->0 == identifier or otherid)
+				 return $8000 + k*$100 + j;
+			 i = i + i->2 + 3;
+			 k++;
+		 }
+		 break;
+	 }
+ }
+ !RT__Err(\"make use of\", cla, identifier);
+ rfalse;
+ ];
+
+!   OP__Pr:  test whether or not given object provides individual
+!			 property with the given identifier code
+
+[ OP__Pr obj identifier x;
+ if (obj<1 || obj > (#largest_object-255))
+ {   if (identifier ~= print or print_to_array or call) rfalse;
+	 switch(Z__Region(obj))
+	 {   2: if (identifier == call) rtrue;
+		 3: if (identifier == print or print_to_array) rtrue;
+	 }
+	 rfalse;
+ }
+ if (identifier<64)
+ {   @get_prop_addr obj identifier -> x;
+	 if (x ~= 0) rtrue;
+	 !if (obj.&identifier ~= 0) rtrue;
+	 rfalse;
+ }
+ if (obj..&identifier ~= 0) rtrue;
+ if (identifier<72 && obj in 1) rtrue;
+ rfalse;
+];
+
+!   OC__Cl:  test whether or not given object is of the given class
+
+[ OC__Cl obj cla j a n;
+ if (obj<1 || obj > (#largest_object-255))
+ {   if (cla ~= 3 or 4) rfalse;
+	 if (Z__Region(obj) == cla-1) rtrue;
+	 rfalse;
+ }
+ if (cla == 1) {
+	 if (obj<=4) rtrue;
+	 if (obj in 1) rtrue;
+	 rfalse;
+ } else if (cla == 2) {
+	 if (obj<=4) rfalse;
+	 if (obj in 1) rfalse;
+	 rtrue;
+ } else if (cla == 3 or 4) {
+	 rfalse;
+ }
+ if (cla notin 1) { 
+	!RT__Err(\"apply 'ofclass' for\", cla, -1);
+	rfalse;
+ }
+ @get_prop_addr obj 2 -> a;
+ if (a==0) rfalse;
+ @get_prop_len a -> n;
+ for (j=0: j<n/2: j++) {   
+	if (a-->j == cla) rtrue;
+ }
+ rfalse;
+];
+
+!   Copy__Primitive:  routine to "deep copy" objects
+
+!   RT__Err:  for run-time errors occurring in the above: e.g.,
+!             an attempt to write to a non-existent individual
+!             property
+
+[ RT__Err; ];
+
+!   Z__Region:  Determines whether a value is:
+!                        1  an object number
+!                        2  a code address
+!                        3  a string address
+!                        0  none of the above 
+
+![ Z__Region addr top;
+! if (addr==0 or -1) rfalse;
+! top = addr;
+! #IfV5; #iftrue (#version_number == 6) || (#version_number == 7);
+! @log_shift addr $FFFF -> top; #Endif; #Endif;
+! if (Unsigned__Compare(top, $001A-->0) >= 0) rfalse;
+! if (addr>=1 && addr<=(#largest_object-255)) rtrue;
+! #iftrue #oddeven_packing;
+! @test addr 1 ?~NotString;
+! if (Unsigned__Compare(addr, #strings_offset)<0) rfalse;
+! return 3;
+! .NotString;
+! if (Unsigned__Compare(addr, #code_offset)<0) rfalse;
+! return 2;
+! #ifnot;
+! if (Unsigned__Compare(addr, #strings_offset)>=0) return 3;
+! if (Unsigned__Compare(addr, #code_offset)>=0) return 2;
+! rfalse;
+! #endif;
+!];
+
+!   Unsigned__Compare:  returns 1 if x>y, 0 if x=y, -1 if x<y
+
+![ Unsigned__Compare x y u v;
+! if (x==y) return 0;
+! if (x<0 && y>=0) return 1;
+! if (x>=0 && y<0) return -1;
+! u = x&$7fff; v= y&$7fff;
+! if (u>v) return 1;
+! return -1;
+!];
+
+!   Meta__class:  returns the metaclass of an object
+
+![ Meta__class obj;
+! switch(Z__Region(obj))
+! {   2: return Routine;
+!	 3: return String;
+!	 1: if (obj in 1 || obj <= 4) return Class;
+!		return Object;
+! }
+! rfalse;
+!];
+
+!   CP__Tab: searches a common property table for the given
+!            identifier, thus imitating the get_prop_addr opcode.
+!            Returns 0 if not provided, except:
+!            if the identifier supplied is -1, then returns
+!            the address of the first byte after the table.
+
+![ CP__Tab x id n l;
+! while ((n=0->x) ~= 0)
+! {   if (n & $80) { x++; l = (0->x) & $3f; }
+!	 else { if (n & $40) l=2; else l=1; }
+!	 x++;
+!	 if ((n & $3f) == id) return x;
+!	 x = x + l;
+! }
+! if (id<0) return x+1; rfalse; 
+!];
+
+!   Cl__Ms:   the five message-receiving properties of Classes
+
+#IfV3;
+! This routines are give compile errors for z3, Use the one in puny.h instead
+[ Cl__Ms; rfalse; ];
+#Ifnot;
+[ Cl__Ms obj id y a b c d x;
+ switch(id)
+ {   create:
+		 if (children(obj)<=1) rfalse; 
+		 x=child(obj);
+		 remove x; 
+		 if (x provides create) { 
+			if (y==0) x.create();
+			if (y==1) x.create(a); 
+			if (y==2) x.create(a,b);
+			!if (y>3) RT__Err(1,obj); 
+			if (y>=3) x.create(a,b,c);
+		 }
+		 return x;
+	 recreate:
+		 if (~~(a ofclass obj)) { 
+			!RT__Err(\"recreate\", a, -obj); 
+			rfalse;
+ 		 }
+		 Copy__Primitive(a, child(obj));
+		 if (a provides create) { 
+			if (y==1) a.create();
+			if (y==2) a.create(b); 
+			if (y==3) a.create(b,c);
+			!if (y>4) RT__Err(1,obj); 
+			if (y>=4) a.create(b,c,d);
+		 } 
+		 rfalse;
+	 destroy:
+		 if (~~(a ofclass obj)) { 
+			!RT__Err(\"destroy\", a, -obj); 
+			rfalse; 
+		 }
+		 if (a provides destroy) a.destroy();
+		 Copy__Primitive(a, child(obj));
+		 move a to obj; 
+		 rfalse;
+	 remaining:
+		 return children(obj)-1;
+	 copy:
+		 if (~~(a ofclass obj)) { 
+			!RT__Err(\"copy\", a, -obj); 
+			rfalse;
+		 }
+		 if (~~(b ofclass obj)) { 
+			!RT__Err(\"copy\", b, -obj); 
+			rfalse; 
+		 }
+		 Copy__Primitive(a, b); 
+		 rfalse;
+ }
+];
+#Endif;
+
+!   RT__ChT:  check at run-time that a proposed object move is legal
+!			  cause error and do nothing if not; otherwise move
+
+![ RT__ChT obj1 obj2 x;
+! if (obj1<5 || obj1>(#largest_object-255) || obj1 in 1)
+!	 return RT__Err(16,obj1,obj2);
+! if (obj2<5 || obj2>(#largest_object-255) || obj2 in 1)
+!	 return RT__Err(17,obj1,obj2);
+! x=obj2; while (x~=0) { if (x==obj1) return RT__Err(18,obj1,obj2); 
+! x=parent(x); }
+! #ifdef INFIX;
+! if (obj1 has infix__watching
+!	 || obj2 has infix__watching || (debug_flag & 15))
+! print \"[Moving \", (name) obj1, \" to \", (name) obj2, \"]^\";
+! #ifnot; #ifdef DEBUG;
+! if (debug_flag & 15)
+! print \"[Moving \", (name) obj1, \" to \", (name) obj2, \"]^\";
+! #endif; #endif;
+! @insert_obj obj1 obj2; 
+!];
+
+!   RT__ChR:  check at run-time that a proposed object remove is legal
+!			  cause error and do nothing if not; otherwise remove
+
+![ RT__ChR obj1;
+! if (obj1<5 || obj1>(#largest_object-255) || obj1 in 1)
+!	 return RT__Err(15,obj1);
+! #ifdef INFIX;
+! if (obj1 has infix__watching || (debug_flag & 15))
+! print \"[Removing \", (name) obj1, \"]^\";
+! #ifnot; #ifdef DEBUG;
+! if (debug_flag & 15)
+! print \"[Removing \", (name) obj1, \"]^\";
+! #endif; #endif;
+! @remove_obj obj1; 
+!];
+
+!   RT__ChG:  check at run-time that a proposed attr give is legal
+!			  cause error and do nothing if not; otherwise give
+
+![ RT__ChG obj1 a;
+! if (obj1<5 || obj1>(#largest_object-255) || obj1 in 1)
+! return RT__Err(14,obj1); if (a<0 || a>=48) return RT__Err(19,obj1);
+! if (obj1 has a) return;
+! #ifdef INFIX;
+! if (a ~= workflag && (obj1 has infix__watching || (debug_flag & 15)))
+! print \"[Giving \", (name) obj1, \" \", (DebugAttribute) a, \"]^\";
+! #ifnot; #ifdef DEBUG;
+! if (a ~= workflag && debug_flag & 15)
+! print \"[Giving \", (name) obj1, \" \", (DebugAttribute) a, \"]^\";
+! #endif; #endif;
+! @set_attr obj1 a; 
+!];
+
+!   RT__ChGt:  check at run-time that a proposed attr give ~ is legal
+!			   cause error and do nothing if not; otherwise give
+
+![ RT__ChGt obj1 a;
+! if (obj1<5 || obj1>(#largest_object-255) || obj1 in 1)
+! return RT__Err(14,obj1); if (a<0 || a>=48) return RT__Err(19,obj1);
+! if (obj1 hasnt a) return;
+! #ifdef INFIX;
+! if (a ~= workflag && (obj1 has infix__watching || (debug_flag & 15)))
+! print \"[Giving \",(name) obj1,\" @@126\", (DebugAttribute) a, \"]^\";
+! #ifnot; #ifdef DEBUG;
+! if (a ~= workflag && debug_flag & 15)
+! print \"[Giving \",(name) obj1,\" @@126\", (DebugAttribute) a, \"]^\";
+! #endif; #endif;
+! @clear_attr obj1 a; 
+!];
+
+!   RT__ChPS:  check at run-time that a proposed property set is legal
+!			  cause error and do nothing if not; otherwise make it
+
+![ RT__ChPS obj prop val size
+! if (obj<5 || obj>(#largest_object-255) || obj in 1 || obj.&prop==0 || (size=obj.#prop)>2 )
+! return RT__Err(\"set\", obj, prop, size);
+! @put_prop obj prop val;
+! #ifdef INFIX;
+! if (obj has infix__watching || (debug_flag & 15)) RT__TrPS(obj,prop,val);
+! #ifnot; #ifdef DEBUG;
+! if (debug_flag & 15) RT__TrPS(obj,prop,val);
+! #endif; #endif;
+! return val; 
+!];
+
+!   RT__ChPR:  check at run-time that a proposed property read is legal
+!			  cause error and return 0 if not; otherwise read it
+
+![ RT__ChPR obj prop val size;
+! if (obj<5 || obj>(#largest_object-255) || (size=obj.#prop)>2)
+!   {RT__Err(\"read\", obj, prop, size); obj=2;}
+! @get_prop obj prop -> val;
+! return val; 
+!];
+
+!   RT__TrPS:  trace property settings
+
+![ RT__TrPS obj prop val;
+! print \"[Setting \",(name) obj,\".\",(property) prop,
+! \" to \",val,\"]^\"; 
+!];
+
+!   RT__ChLDB:  check at run-time that it's safe to load a byte
+!				and return the byte
+
+![ RT__ChLDB base offset a val;
+! a=base+offset;if (Unsigned__Compare(a,#readable_memory_offset)>=0)
+! return RT__Err(24);
+! @loadb base offset -> val;return val; 
+!];
+
+!   RT__ChLDW:  check at run-time that it's safe to load a word
+!				and return the word
+
+![ RT__ChLDW base offset a val;
+! a=base+2*offset;if (Unsigned__Compare(a,#readable_memory_offset)>=0)
+! return RT__Err(25);
+! @loadw base offset -> val;return val; 
+!];
+
+!   RT__ChSTB:  check at run-time that it's safe to store a byte
+!				and store it
+
+![ RT__ChSTB base offset val a f;
+! a=base+offset;
+! if (Unsigned__Compare(a,#array__start)>=0
+!	 && Unsigned__Compare(a,#array__end)<0) f=1; else
+! if (Unsigned__Compare(a,#cpv__start)>=0
+!	 && Unsigned__Compare(a,#cpv__end)<0) f=1; else
+! if (Unsigned__Compare(a,#ipv__start)>=0
+!	 && Unsigned__Compare(a,#ipv__end)<0) f=1; else
+! if (a==$0011) f=1;
+! if (f==0) return RT__Err(26);
+! @storeb base offset val; 
+!];
+
+!   RT__ChSTW:  check at run-time that it's safe to store a word
+!				and store it
+
+![ RT__ChSTW base offset val a f;
+! a=base+2*offset;
+! if (Unsigned__Compare(a,#array__start)>=0
+!	 && Unsigned__Compare(a,#array__end)<0) f=1; else
+! if (Unsigned__Compare(a,#cpv__start)>=0
+!	 && Unsigned__Compare(a,#cpv__end)<0) f=1; else
+! if (Unsigned__Compare(a,#ipv__start)>=0
+!	 && Unsigned__Compare(a,#ipv__end)<0) f=1; else
+! if (a==$0010) f=1;
+! if (f==0) return RT__Err(27);
+! @storew base offset val; 
+!];
+
+!   RT__ChPrintC:  check at run-time that it's safe to print (char)
+!				   and do so
+
+![ RT__ChPrintC c fl;
+! if (c==0 or 9 or 11 or 13) fl=1;
+! if (c>=32 && c<=126) fl=1; if (c>=155 && c<=251) fl=1;
+! if (fl==0) return RT__Err(33,c);
+! @print_char c; 
+!];
+
+!   RT__ChPrintA:  check at run-time that it's safe to print (address)
+!				   and do so
+
+![ RT__ChPrintA a;
+! if (Unsigned__Compare(a, #readable_memory_offset)>=0)
+! return RT__Err(34);
+! @print_addr a; 
+!];
+
+!   RT__ChPrintS:  check at run-time that it's safe to print (string)
+!				   and do so
+
+![ RT__ChPrintS a;
+! if (Z__Region(a)~=3) return RT__Err(35);
+! @print_paddr a; 
+!];
+
+!   RT__ChPrintO:  check at run-time that it's safe to print (object)
+!				   and do so
+
+![ RT__ChPrintO a;
+! if (Z__Region(a)~=1) return RT__Err(36);
+! @print_obj a; 
+!];
+
+#Endif;
+#Endif;
+#Endif;
+#Endif;
