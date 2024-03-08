@@ -243,7 +243,7 @@ Object  -> Moonstone "Moonstone"
 Object  West_Side_Chapel "West Side Chapel"      
   with  name 'stained' 'glass' 'windows' 'resurrect',
         before [;
-            Repair, Insert, PutOn:
+            Tie, Insert, PutOn:
                 if( second ~= adamantine_statue ) rfalse;
                 if( noun ~= adamantine_hand or adamantine_skull or adamantine_heart )   
                     "That seems incongruous.";
