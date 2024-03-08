@@ -2,6 +2,9 @@
 ! 
 ! Example of compilation:
 ! inform -v5 -xrs~Se +include_path=inform_library611,.\ $TRANSCRIPT_FORMAT=1 $OMIT_UNUSED_ROUTINES=1 $ZCODE_LESS_DICT_DATA=1 $MAX_ABBREVS=96 curses!.inf curses!.z5
+#ifdef VN_1636;
+Include "abbreviations.inf";
+#endif;
 Constant Story "CURSES";
 Constant Headline "^An Interactive Diversion^Copyright (c) 1993, 1994, 1995 by Graham Nelson.^";
 Release 18;
@@ -11,9 +14,6 @@ Release 18;
 Array UUID_ARRAY string "UUID://F8E04F39-A71B-47E4-88CF-E73BF35775FE//";
 #Ifdef UUID_ARRAY;#Endif;
 
-#ifdef VN_1636;
-Include "abbreviations.inf";
-#endif;
 CONSTANT AMUSING_PROVIDED;                              
 Constant SACK_OBJECT = rucksack;
 Constant MAX_CARRIED = 5;
@@ -1306,3 +1306,4 @@ Wall 	n_wall "north wall"
 Include "Grammar";
 Include "newverbs.inf";
 Include "help.inf";
+Include "veneer_release.inf";
