@@ -365,7 +365,7 @@
      aside a rotten branch and uncovering a tiny gap through the hedge.";
 ];
 
-[ RepairSub; "You would achieve nothing by this."; ];
+![ RepairSub; "You would achieve nothing by this."; ];
 
 [ BeepSub ;
     "Are you feeling quite right?";
@@ -921,9 +921,7 @@ Extend 'turn' last
     * noun 'with' held                                  -> TurnWith;
 
 Verb 'knock'
-    * 'on' noun                                         -> Knock
-    * 'at' noun                                         -> Knock;
-
+    * 'on'/'at' noun                                    -> Knock;
 
 Verb 'wash'
     * 'my' 'mouth' 'with' held                          -> Wash
@@ -945,9 +943,7 @@ Verb 'achetez'
 Verb 'stack'
     * noun                                              -> Stack
     * noun 'with' held                                  -> Stack
-    * held 'on' noun                                    -> Insert
-    * held 'onto' noun                                  -> Insert
-    * held 'in' noun                                    -> Insert;
+    * held 'on'/'onto'/'in' noun                        -> Insert;
 
 Verb 'lagach'
     *                                                   -> Lagach;
@@ -971,8 +967,8 @@ Verb 'bet' 'gamble' 'wager'
     * 'with' noun                                       -> Gamble;
 
 Verb 'add' 'join' 'mend' 'repair'
-    * noun                                              -> Repair
-    * noun 'to' noun                                    -> Repair;
+    * noun                                              -> Tie
+    * noun 'to' noun                                    -> Tie;
 
 Verb 'anoppe' 'eppona'
     *                                                   -> Anoppe;
@@ -1025,7 +1021,6 @@ Verb 'pace'
 Extend 'take' last
     * AnotherCroquetFunc                                -> PaceDir;
 
-
 Verb 'change' 'flip'
     * noun                                              -> SwitchOn;
 
@@ -1058,8 +1053,7 @@ Verb 'roll' 'shoot' 'toss'
     * noun                                              -> Drop;
 
 Verb 'lean' 'prop' 'rest' 'support'
-    * held 'against' noun                               -> Lean
-    * held 'on' noun                                    -> Lean
+    * held 'against'/'on' noun                          -> Lean
     * 'up' noun 'with' held                             -> PropWith
     * noun 'with' held                                  -> PropWith;
 
@@ -1089,12 +1083,9 @@ Verb 'board' 'embark'
     * noun                                              -> Enter;
 
 Verb 'hang' 'mount'
-    * noun 'on' noun                                    -> Insert
-    * noun 'onto' noun                                  -> Insert
-    * 'up' noun 'on' noun                               -> Insert
-    * 'up' noun 'onto' noun                             -> Insert
-    * noun 'up' 'on' noun                               -> Insert
-    * noun 'up' 'onto' noun                             -> Insert;
+    * noun 'on'/'onto' noun                             -> Insert
+    * 'up' noun 'on'/'onto' noun                        -> Insert
+    * noun 'up' 'on'/'onto' noun                        -> Insert;
 
 Verb 'kick'
     * noun                                              -> Attack;
@@ -1108,10 +1099,6 @@ Extend 'dig' last
 Extend 'drink' first
     *                                           		-> Drink;
 
-Extend 'attach' replace
-    * noun                                              -> Repair
-    * noun 'to' noun                                    -> Repair;
-
 Extend 'buy' first
     * special                                           -> Buy;
 
@@ -1121,9 +1108,6 @@ Extend 'answer' first
 Extend 'answer' first
     *                                                   -> Shout;
 	
-Extend 'attack' last
-    * noun 'with' held                                  -> Kill;
-
 Extend 'turn' last
     * noun 'inside' 'out'                               -> Turn;
 

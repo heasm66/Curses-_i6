@@ -1114,7 +1114,7 @@ Object  -> water_pipe "water pipe"
         before [;
             TurnWith:
                 if( second ~= steel_wrench ) print_ret (The) second, " proves inadequate as a plumbing tool.";
-            Turn, Repair:
+            Turn, Tie:
                 if( steel_wrench has general ) 
                     "The joint is fairly safe already.";
                 if( steel_wrench notin player ) {
@@ -2206,9 +2206,10 @@ Object  -> old_gardeners__gloves "old gardeners' gloves"
         devil_hint "Good for nothing. Why would you want gloves on?",
   has   clothing scored pluralname;
 
+
 Object  -> Jemima "Jemima"       
   with  name 'aunt' 'jemima',
-        life [ i;
+		life [ i;
             Give:
                 if( noun == box_of_chocolates ) {
                     remove box_of_chocolates;
