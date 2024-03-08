@@ -1,96 +1,105 @@
-Abbreviate " Meldrew";
-Abbreviate " little ";
-Abbreviate " on the ";
-Abbreviate " of the ";
-Abbreviate " through";
-Abbreviate " in the ";
-Abbreviate "to the ";
-Abbreviate " with ";
-Abbreviate " your ";
-Abbreviate " about";
-Abbreviate ", but ";
-Abbreviate "Austin";
-Abbreviate " is a ";
-Abbreviate ", and ";
-Abbreviate "which ";
-Abbreviate ", the ";
-Abbreviate "ould ";
-Abbreviate "thing";
-Abbreviate " from";
-Abbreviate " down";
-Abbreviate "north";
-Abbreviate " the ";
-Abbreviate " that";
-Abbreviate " seem";
-Abbreviate " are ";
-Abbreviate "have ";
-Abbreviate "There";
-Abbreviate " you ";
-Abbreviate " and ";
-Abbreviate "east";
-Abbreviate "his ";
-Abbreviate "ough";
-Abbreviate "tion";
-Abbreviate "    ";
-Abbreviate " it ";
-Abbreviate " for";
-Abbreviate "side";
-Abbreviate "some";
-Abbreviate "able";
-Abbreviate ", th";
-Abbreviate "ing ";
-Abbreviate " you";
-Abbreviate "The ";
-Abbreviate " in ";
-Abbreviate " to ";
-Abbreviate " of ";
-Abbreviate " is ";
-Abbreviate "You ";
-Abbreviate "one ";
-Abbreviate "here";
-Abbreviate "look";
-Abbreviate "ound";
-Abbreviate "ight";
-Abbreviate "n't ";
-Abbreviate " in";
-Abbreviate "er ";
-Abbreviate "ly ";
-Abbreviate "ed ";
-Abbreviate "ing";
-Abbreviate "'s ";
-Abbreviate "...";
-Abbreviate "all";
-Abbreviate " a ";
-Abbreviate "and";
-Abbreviate " on";
-Abbreviate "ain";
-Abbreviate "ill";
-Abbreviate "est";
-Abbreviate " st";
-Abbreviate " co";
-Abbreviate "way";
-Abbreviate "e, ";
-Abbreviate "al ";
-Abbreviate "re ";
-Abbreviate "s, ";
-Abbreviate "ard";
-Abbreviate "as ";
-Abbreviate "the";
-Abbreviate "ear";
-Abbreviate "st ";
-Abbreviate "out";
-Abbreviate "ver";
-Abbreviate "en ";
-Abbreviate "es ";
-Abbreviate "rea";
-Abbreviate "ter";
-Abbreviate "ous";
-Abbreviate "an ";
-Abbreviate "ent";
-Abbreviate " be";
-Abbreviate ", ";
-Abbreviate "e.";
-Abbreviate "s.";
-Abbreviate ".^";
-Abbreviate ". ";
-Abbreviate "^^";
+! Custom-made alphabet. Insert at beginning of game file (see DM4, §36).
+! (Note! Custom-made alphabet are only defined for versions 5 onward.
+!        Intrepreters may or may not accept it in earlier versions.
+!        (see Z-Machine Standards Document, §3.5.5.))
+Zcharacter
+    "abcdefghi.klmnop,rstuvwTy'"
+    "ABCDEFGHIJKLMNOPQRSxUVWjYZ"
+    "0123456789qz!?*;>/[-:()";
+
+Abbreviate " into the ";                    !    83x10, saved   652
+Abbreviate " Meldrew";                      !    41x9, saved   278
+Abbreviate " to the ";                      !   169x8, saved  1005
+Abbreviate " little ";                      !    56x8, saved   327
+Abbreviate " of the ";                      !   356x8, saved  2127
+Abbreviate " in the ";                      !   208x8, saved  1239
+Abbreviate " through";                      !    87x8, saved   513
+Abbreviate " to be ";                       !    83x7, saved   406
+Abbreviate " across";                       !    45x7, saved   216
+Abbreviate " about ";                       !    97x7, saved   476
+Abbreviate " which ";                       !   143x7, saved   706
+Abbreviate ", but ";                        !   169x6, saved   670
+Abbreviate " with ";                        !   280x6, saved  1114
+Abbreviate " this ";                        !   129x6, saved   510
+Abbreviate "Austin";                        !    54x7, saved   261
+Abbreviate " your ";                        !   196x6, saved   778
+Abbreviate " is a ";                        !   139x6, saved   550
+Abbreviate ", and ";                        !   267x6, saved  1062
+Abbreviate " from ";                        !   191x6, saved   758
+Abbreviate " and ";                         !   515x5, saved  1539
+Abbreviate " down";                         !   136x5, saved   402
+Abbreviate "thing";                         !   251x5, saved   747
+Abbreviate " are ";                         !   222x5, saved   660
+Abbreviate "have ";                         !   161x5, saved   477
+Abbreviate " that";                         !   200x5, saved   594
+Abbreviate "round";                         !    95x5, saved   279
+Abbreviate " you ";                         !   562x5, saved  1680
+Abbreviate " some";                         !   202x5, saved   600
+Abbreviate "south";                         !   105x5, saved   309
+Abbreviate "just ";                         !    87x6, saved   342
+Abbreviate " the ";                         !  1389x5, saved  4161
+Abbreviate "north";                         !   103x5, saved   303
+Abbreviate "ould ";                         !   104x5, saved   306
+Abbreviate "the ";                          !   439x4, saved   872
+Abbreviate " not";                          !   182x4, saved   358
+Abbreviate " out";                          !   201x4, saved   396
+Abbreviate "look";                          !   141x4, saved   276
+Abbreviate "tion";                          !   247x4, saved   488
+Abbreviate "ough";                          !   140x4, saved   274
+Abbreviate "n't ";                          !   230x4, saved   454
+Abbreviate "his ";                          !   155x4, saved   304
+Abbreviate " for";                          !   314x4, saved   622
+Abbreviate "one ";                          !   169x4, saved   332
+Abbreviate "ight";                          !   389x4, saved   772
+Abbreviate "here";                          !   445x4, saved   884
+Abbreviate "    ";                          !   188x4, saved   370
+Abbreviate " in ";                          !   299x4, saved   592
+Abbreviate " is ";                          !   529x4, saved  1052
+Abbreviate " to ";                          !   690x4, saved  1374
+Abbreviate "seem";                          !   122x4, saved   238
+Abbreviate "The ";                          !   608x4, saved  1210
+Abbreviate "ing ";                          !   831x4, saved  1656
+Abbreviate " you";                          !   249x4, saved   492
+Abbreviate "able";                          !   160x4, saved   314
+Abbreviate "You ";                          !   412x5, saved  1230
+Abbreviate "side";                          !   178x4, saved   350
+Abbreviate " of ";                          !   770x4, saved  1534
+Abbreviate "er ";                           !   507x3, saved   504
+Abbreviate "e, ";                           !   210x3, saved   207
+Abbreviate "ill";                           !   225x3, saved   222
+Abbreviate " in";                           !   346x3, saved   343
+Abbreviate " on";                           !   512x3, saved   509
+Abbreviate "our";                           !   247x3, saved   244
+Abbreviate "ed ";                           !   570x3, saved   567
+Abbreviate "ly ";                           !   619x3, saved   616
+Abbreviate "ind";                           !   212x3, saved   209
+Abbreviate "hat";                           !   225x3, saved   222
+Abbreviate "all";                           !   554x3, saved   551
+Abbreviate " a ";                           !   651x3, saved   648
+Abbreviate " st";                           !   309x3, saved   306
+Abbreviate "ing";                           !   545x3, saved   542
+Abbreviate "al ";                           !   253x3, saved   250
+Abbreviate "ear";                           !   302x3, saved   299
+Abbreviate "est";                           !   292x3, saved   289
+Abbreviate "es ";                           !   278x3, saved   275
+Abbreviate "ain";                           !   301x3, saved   298
+Abbreviate "ous";                           !   303x3, saved   300
+Abbreviate "ver";                           !   307x3, saved   304
+Abbreviate " co";                           !   327x3, saved   324
+Abbreviate "en ";                           !   331x3, saved   328
+Abbreviate "rea";                           !   314x3, saved   311
+Abbreviate "ast";                           !   276x3, saved   273
+Abbreviate "ter";                           !   371x3, saved   368
+Abbreviate "ard";                           !   272x3, saved   269
+Abbreviate "way";                           !   256x3, saved   253
+Abbreviate " it";                           !   368x3, saved   365
+Abbreviate "as ";                           !   266x3, saved   263
+Abbreviate "'s ";                           !   279x3, saved   276
+Abbreviate "an ";                           !   398x3, saved   395
+Abbreviate "and";                           !   444x3, saved   441
+Abbreviate "the";                           !   353x3, saved   350
+Abbreviate " be";                           !   426x3, saved   423
+Abbreviate "ent";                           !   477x3, saved   474
+Abbreviate "re ";                           !   250x3, saved   247
+Abbreviate "ex";                            !   221x3, saved   218
+Abbreviate "^^";                            !   203x4, saved   400
