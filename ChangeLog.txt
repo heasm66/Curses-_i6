@@ -1,0 +1,35 @@
+Changes between r16 to r18
+==========================
+
+* r18 use a never version of the parser library, 6/11 instead of 5/12. This leads to some minor differences.
+	THEM instead of IT for objects with attribute pluralname.
+	Some small differences in how words are inferred.
+	
+* The turns counter in the statusline starts at 0 instead of 1.
+
+* Only rooms inside the house have walls (that can be pushed...).
+
+* LIE outside of Servant's Room and Allison's Writing Room now prints "Whatever happened to truthfulness...".
+
+* Only giving Joshua Meldrewe the wishbone will stop the timer that eventually kills you here (in r16 you could give
+  him anything and get unlimited time).
+  
+* Fixed that you with prety statusline always get the "death by bear" message when stumbling around in darkness.
+
+* Fixed missing CR in message when returning back up through the chimney from the priest's hole.
+
+* You only get points for picking up the smooth round stone the first time. In r16 you could get 554 points because
+  you got awarded points for the stone two times.
+  
+* In r16 you can ask Old Evans (when he's hypnotized) for the cresent moon over and over again and he obediently 
+  hands you the Moon each time.
+  
+* In r16, even when the bomb is defused and hidden under the table, the message that the timer is ticking down is
+  still repeated every turn you are in the ruined castle cafe.
+  
+* Added an IFID for this version, F8E04F39-A71B-47E4-88CF-E73BF35775FE.
+  
+* The coal bunker door/metal door now also can be locked/unlocked from the outside.
+
+* The tight door in the servant's room now have messages when player is trying to open or close it.
+
