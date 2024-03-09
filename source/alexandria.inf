@@ -505,6 +505,8 @@ Object  -> marble_wall "marble wall"
         when_open "The passage opens out onto the burial chamber below.",
   has   door static;
 
+Constant MUMMY_CASE_DISTRACTION = "(You are so distracted that common sense takes over and you clamber out of the mummy case.)^";
+
 Object  Quite_an_Undertaking "Quite an Undertaking"      
   with  before [;
             Exit:
@@ -515,7 +517,7 @@ Object  Quite_an_Undertaking "Quite an Undertaking"
                 rfalse;
             Go:
                 if( player in mummy_case ) {
-                    print "(You are so distracted that common sense takes over and you clamber out of the mummy case.)^";
+                    print MUMMY_CASE_DISTRACTION;
                     << Exit >>;
                 }
                 if( noun == n_obj or ne_obj ) {
@@ -532,8 +534,7 @@ Object  Quite_an_Undertaking "Quite an Undertaking"
             default: 
                 if( player notin mummy_case )
                     rfalse;
-                print "(You are so distracted that common sense takes over and you clamber out of the mummy 
-                    case.)^";
+                print MUMMY_CASE_DISTRACTION;
                 move player to parent(mummy_case);
                 location = parent(player);
         ],
