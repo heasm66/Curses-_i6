@@ -80,17 +80,21 @@ Object  Stone_Cross "Stone Cross"
         section T_NE_OF_HOME,
   has   light;
 
+Constant EVANS_HYPNOTIC_DAZE = "He looks at you in a hypnotic daze,";
+Constant EVANS_HOW_HEARTLESS = " and before you can say ~How heartless I am~ he obediently hands you the Moon.";
+Constant EVANS_HAT_IS_EMPTY  = "Old Evans' hat is empty. You feel terribly guilty.";
+
 [ OldEvansLife ;
     if( action == ##Order or ##Ask ) {
         if( self hasnt general ) {
             "~Just a minute, I'm doing my form.~";
         }
-        print "He looks at you in a hypnotic daze,";
+        print EVANS_HYPNOTIC_DAZE;
         if( action == ##Give && noun == Crescent_Moon && second == player && Crescent_Moon in Old_Evans ) {
             move Crescent_Moon to player;
             Achieved(SCORE_HYPNOSIS);
-            self.description = "Old Evans' hat is empty. You feel terribly guilty.";
-            " and before you can say ~How heartless I am~ he obediently hands you the Moon.";
+            self.description = EVANS_HAT_IS_EMPTY;
+            print_ret EVANS_HOW_HEARTLESS;
         }
         " unable to follow your perfectly clear instruction.";
     }
@@ -110,13 +114,13 @@ Object  -> Old_Evans "Old Evans"
   with  name 'racing' 'enthusiast' 'old' 'evans',
         life OldEvansLife,
         orders [;
-            print "He looks at you in a hypnotic daze,";
+            print EVANS_HYPNOTIC_DAZE;
             Give:
                 if( noun == Crescent_Moon && second == player && Crescent_Moon in Old_Evans ) {
                     move Crescent_Moon to player;
                     Achieved(SCORE_HYPNOSIS);
-                    self.description = "Old Evans' hat is empty. You feel terribly guilty.";
-                    " and before you can say ~How heartless I am~ he obediently hands you the Moon.";
+                    self.description = EVANS_HAT_IS_EMPTY;
+                    print_ret EVANS_HOW_HEARTLESS;
                 }
             " unable to follow your perfectly clear instruction.";
         ],
