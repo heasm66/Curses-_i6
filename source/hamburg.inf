@@ -50,13 +50,17 @@ Object  -> publicity_poster "publicity poster"
             task:^^~Cults of the Druids - a Major Retrospective, October-November 1988~.",
   has   static;
 
+Constant REVOLVING_DOOR_E_TO    = "The door only turns clockwise.";
+Constant REVOLVING_DOOR_DESC    = "Inside one quarter of the cramped revolving door, which is blocked off from the world outside
+                                   and opens only onto the foyer, southwest.";
+Constant REVOLVING_DOOR_CANT_GO = "To north and east are the walls of the door.";
+
 DERoom  Revolving_Door1 "Revolving Door" 
   with  n_to [; << Push door1 >>; ],
-        e_to "The door only turns clockwise.",
+        e_to REVOLVING_DOOR_E_TO,
         sw_to Museum_Foyer,
-        description "Inside one quarter of the cramped revolving door, which is blocked off from the world outside 
-            and opens only onto the foyer, southwest.",
-        cant_go "To north and east are the walls of the door.",
+        description REVOLVING_DOOR_DESC,
+        cant_go REVOLVING_DOOR_CANT_GO,
   has   light;
 
 Object  -> door1 "door"  
@@ -70,11 +74,10 @@ Object  -> door1 "door"
 
 DERoom  Revolving_Door2 "Revolving Door" 
   with  n_to [; << Push door1 >>; ],
-        e_to "The door only turns clockwise.",
+        e_to REVOLVING_DOOR_E_TO,
         sw_to Museum_Foyer,
-        description "Inside one quarter of the cramped revolving door, which is blocked off from the world outside 
-            and opens only onto the foyer, southwest.",
-        cant_go "To north and east are the walls of the door.",
+        description REVOLVING_DOOR_DESC,
+        cant_go REVOLVING_DOOR_CANT_GO,
   has   light;
 
 Object  -> beach_ball "beach ball"       
