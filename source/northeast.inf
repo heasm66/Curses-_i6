@@ -338,6 +338,8 @@ Object  -> adamantine_statue "adamantine statue"
         article "an",
   has   concealed static;
 
+Constant CONFUSED_KNIGHT = "The knight is confused. Perhaps you were a little rough with the skull.";
+
 Object  adamantine_knight "adamantine knight"    
   with  name 'adamantine' 'statue' 'adamant' 'knight',
         life [;
@@ -381,7 +383,7 @@ Object  adamantine_knight "adamantine knight"
                      effortless, but by the time he's finished you can almost see ghostly perspiration bead on
                      the ghostly sinews around his adamantine body.";
                 }
-                "The knight is confused. Perhaps you were a little rough with the skull.";
+                print_ret CONFUSED_KNIGHT;
             Go:
                 "The knight just about understands that he is to go somewhere, but cannot quite comprehend the 
                  direction. You'll have to indicate it somehow. (Shame there were no adamantine ears, really.)";
@@ -451,9 +453,9 @@ Object  adamantine_knight "adamantine knight"
             Give, Insert:
                 if( second == statue_of_Diana && noun == marble_rose ) 
                     "The knight likes the idea but is confused.";
-                "The knight is confused. Perhaps you were a little rough with the skull.";
+                print_ret CONFUSED_KNIGHT;
             default: 
-                "The knight is confused. Perhaps you were a little rough with the skull.";
+                print_ret CONFUSED_KNIGHT;
         ],
         initial "The adamantine knight stands staunchly here.",
         description [  ;
