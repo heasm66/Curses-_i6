@@ -1192,19 +1192,9 @@ Object  -> book_of_Twenties_poetry "book of Twenties poetry"
             Tennyson, Kipling and Hardy.",
   has   concealed consultable;
 
-[ WallDisplay o ;       
-    print "the picture on ", (the) o;
-    if( o.door_to == nothing )
-        ".";
-    ", beautifully magnified and amazingly life-like. Why, you'd hardly know there was a wall there at all.";
-];
-
-! Hmm, yep, there are two functions that do the exact same thing.
 [ DisplayCardDesc o ;
     print "the picture on ", (the) o;
-    if( o.door_to == nothing ) {
-        ".";
-    }
+    if( o.door_to == nothing ) ".";
     ", beautifully magnified and amazingly life-like. Why, you'd hardly know there was a wall there at all.";
 ];
 
@@ -1215,7 +1205,7 @@ HRoom   Souvenirs_Room "Souvenirs Room"
                 if( ( noun == s_obj || noun == south_wall ) && slide_projector has on ) {
                     o = child(slide_projector);
                     if( o == nothing ) "The south wall is lit up by the projector.";
-                    print "The south wall shows "; WallDisplay(o); rtrue;
+                    print "The south wall shows "; DisplayCardDesc(o); rtrue;
                 }
                 rfalse;
         ],
