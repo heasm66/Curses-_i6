@@ -745,7 +745,7 @@ Object  -> defaced_door "defaced door"
 
 Object  Ancient_Consulting_Room "Consulting Room"        
   with  name 'sevenbranched' 'candelabra' 'sticks' 'candles',
-        e_to "Peculiarly, the hanging curtain seems to be solid iron when you walk into it.",
+        e_to THE_HANGING_CURTAIN,
         d_to A_Tower,
         description "The stairs end at a shabby room, with screened windows, lit by incense sticks and sevenbranched candelabra. A doorway 
                      with a hanging bead curtain leads east. In the centre of the room is a table, which is bare.",
