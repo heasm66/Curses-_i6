@@ -162,9 +162,11 @@ Object  -> -> adamantine_heart "adamantine heart"
         angel_hint "There must be more to this marvellous figure somewhere.",
   has   ;
 
+Constant SWIM_MESSAGE = "The sepulchral calm of the ocean overwhelms you, and you can only watch and sail.";
+
 Object  Harbour_Mouth "Harbour Mouth"    
   with  before [;
-            Exit, Swim: "The sepulchral calm of the ocean overwhelms you, and you can only watch and sail.";
+            Exit, Swim: print_ret SWIM_MESSAGE;
         ],
         description "As the skiff passes the jaws of the Royal Harbour, beneath the great Pharos light, you have a 
                      final view of the receding civilisation of Alexandria: ahead lies the vast, oil-calm Mediterranean
@@ -185,7 +187,7 @@ Object  Harbour_Mouth "Harbour Mouth"
 Object  Drifting "Drifting"      
   with  name 'curious' 'fish' 'zephyr' 'sea',
         before [;
-            Exit, Swim: "The sepulchral calm of the ocean overwhelms you, and you can only watch and sail.";
+            Exit, Swim: print_ret SWIM_MESSAGE;
         ],
         description "You drift in the wide, peaceful Lunar sea. Curious fish, their yellow-green eyes gleaming beneath the silver ripples, brush 
                      past your wake: the night zephyr is almost slack but still you drift. Minutes pass like hours in paradise.",
