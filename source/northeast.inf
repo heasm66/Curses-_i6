@@ -523,12 +523,14 @@ Object  Out_on_the_Spire "Out on the Spire"
         section T_NE_OF_HOME,
   has   light;
 
+Constant HINT_MORE_TO_FIGURE = "There must be more to this marvellous figure somewhere.";
+
 Object  -> adamantine_hand "adamantine hand"     
   with  name 'adamantine' 'hand' 'adamant',
         initial "Mounted loosely on the end of the weathervane, an adamantine hand points the way the wind blows.",
         description "Like a solid glove.^^It reminds you oddly of one of the symbolic pieces in Monopoly - the ship, the car and so on.",
         article "an",
-        angel_hint "There must be more to this marvellous figure somewhere.",
+        angel_hint HINT_MORE_TO_FIGURE,
   has   ;
 
 Object  -> old_village_clock "old village clock" 

@@ -161,7 +161,7 @@ Object  -> -> adamantine_heart "adamantine heart"
         description "A cardioid of the kind favoured by Valentine's cards rather than surgeons.^^It reminds you 
                      oddly of one of the symbolic pieces in Monopoly - the ship, the hat and so on.",
         article "an",
-        angel_hint "There must be more to this marvellous figure somewhere.",
+        angel_hint HINT_MORE_TO_FIGURE,
   has   ;
 
 Constant SWIM_MESSAGE = "The sepulchral calm of the ocean overwhelms you, and you can only watch and sail.";
@@ -663,7 +663,7 @@ Object  adamantine_skull "adamantine skull"
         initial "An adamantine skull lies here, as if casually dropped by a god's hand.",
         description "It reminds you oddly of one of the symbolic pieces in Monopoly - the car, the boot and so on.",
         article "an",
-        angel_hint "There must be more to this marvellous figure somewhere.",
+        angel_hint HINT_MORE_TO_FIGURE,
   has   ;
 
 Object  Stadium "Stadium"        
