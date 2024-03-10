@@ -463,7 +463,7 @@ Object  -> -> bird_whistle "bird whistle"
   with  name 'bird' 'whistle' 'harrison',
         before [;
             Blow:
-                if( gas_mask has worn ) "With the gas mask on?";
+                if( gas_mask has worn ) print_ret WITH_THE_GAS_MASK_ON;
                  print "Fweep!  Fweep!^";
                 if( Austin in location ) 
                     print "^Austin is startled, but too lazy to look up.^";
