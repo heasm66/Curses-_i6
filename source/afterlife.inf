@@ -214,6 +214,7 @@ Array angel_topics -->
     rfalse;
 ];
 
+Constant DIRECTION_NOT_FOR_LIVING = "That direction is not for the living.";
 
 Object Hellish_Place "Hellish Place"
   with  name 'desk',
@@ -244,7 +245,7 @@ Object Hellish_Place "Hellish Place"
                      about. Not in this life, anyway.",
         cant_go [;
             trigger_quotation(37);
-            "That direction is not for the living.";
+            print_ret DIRECTION_NOT_FOR_LIVING;
         ],
         each_turn [;
             switch( random(10) ) {
@@ -320,7 +321,7 @@ Object Heavenly_Place "Heavenly Place"
                      enough for you to hear properly. Not in this life, anyway.",
         cant_go [;
             trigger_quotation(27);
-            "That direction is not for the living.";
+            print_ret DIRECTION_NOT_FOR_LIVING;
         ],
         each_turn [;
             switch( random(10) ) {
