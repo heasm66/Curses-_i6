@@ -120,11 +120,13 @@ Object  -> rusty_iron_grating "rusty iron grating"
         when_open "A rusty seaweed-wreathed iron grating lies open here.",
   has   door lockable locked openable static;
 
+Constant OBJECT_OUT_OF_REACH = "Reach down the grating as you may, it remains just beyond reach.";
+
 Object  -> rusty_iron_key "rusty iron key"       
   with  name 'rusty' 'iron' 'key',
         before [;
             Take:
-                if( rusty_iron_key hasnt general ) "Reach down the grating as you may, it remains just beyond reach.";
+                if( rusty_iron_key hasnt general ) print_ret OBJECT_OUT_OF_REACH;
                 rfalse;
         ],
         list_together KEY_GROUP,

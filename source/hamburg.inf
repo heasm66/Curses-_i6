@@ -303,7 +303,7 @@ Object  -> glass_cabinet "glass cabinet"
 Object  -> -> smooth_round_stone "smooth round stone"    
   with  name 'smooth' 'round' 'pumice' 'metal' 'stone',
         before [;
-            Take: if( self has general ) "Reach down the grating as you may, it remains just beyond reach.";
+            Take: if( self has general ) print_ret OBJECT_OUT_OF_REACH;
         ],
         initial nothing,
         description "A smooth palm-sized disc, perhaps of pumice stone, painted in yellows and browns with a single 
