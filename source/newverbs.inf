@@ -872,11 +872,11 @@ Constant YOU_ARENT_HOLDING_IT = "But you aren't holding it.";
     << Look >>;
 ];
 
+Constant AUSTIN_IS_UNRUFFLED = "Austin is quite unruffled.";
+
 [ JumpSub ;
     if( Austin in location ) {
-        if( game_section == T_ALEXANDRIA ) {
-            "Austin is quite unruffled.";
-        }
+        if( game_section == T_ALEXANDRIA ) print_ret AUSTIN_IS_UNRUFFLED;
         print AUSTIN_STARTLED;
         trigger_quotation(7);
         if( location == Souvenirs_Room && charcoal_sketch in slide_projector && south_wall hasnt concealed ) {
