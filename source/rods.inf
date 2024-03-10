@@ -482,19 +482,21 @@ Rod     rod_of_returning2 "Returning"
         rod_action RodOfReturningAction,
   has   ;
 
+Constant HINT_HIGH_RODS = "Astonishing!  One of the three high Rods!";
+
 HighRod     rod_of_life "Life"
   with  name 'life' 'high' 'rod' 'of',
         initial "The High Rods of Life, Love and Death lean together in a pyramid at the top of the steep slope, balanced rather delicately.",
-        angel_hint "Astonishing!  One of the three high Rods!";
+        angel_hint HINT_HIGH_RODS;
 
 HighRod     rod_of_death "Death"
   with  name 'death' 'high' 'rod' 'of',
-        angel_hint "Astonishing!  One of the three high Rods!",
+        angel_hint HINT_HIGH_RODS,
   has   concealed;
 
 HighRod     rod_of_love "Love"
   with  name 'love' 'high' 'rod' 'of',
-        angel_hint "Astonishing!  One of the three high Rods!",
+        angel_hint HINT_HIGH_RODS,
   has   concealed;
 
 
