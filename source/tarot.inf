@@ -1223,14 +1223,16 @@ Object  -> flagpole "flagpole"
         description "The flagpole juts out to port with the prevailing... wind?",
   has   static;
 
+Constant FLAG_SEEMS_PERFECT = "The flag seems perfect for the bed as it is.";
+
 Object  -> british_flag "flag of the British Merchant Navy" 
   with  name 'flag' 'ensign' 'navy' 'british' 'merchant' 'of' 'tassels',
         before [;
             Remove:
-                if( self in comfortable_bed ) "The flag seems perfect for the bed as it is.";
+                if( self in comfortable_bed ) print_ret FLAG_SEEMS_PERFECT;
                 rfalse;
             Take, Pull:
-                if( self in comfortable_bed ) "The flag seems perfect for the bed as it is.";
+                if( self in comfortable_bed ) print_ret FLAG_SEEMS_PERFECT;
                 if( self notin Up_the_Mast ) rfalse;
                 give british_flag general;
                 "You take hold of the tassels of the flag in one hand (though it won't pull away from the pole).";
