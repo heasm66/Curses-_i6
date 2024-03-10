@@ -353,6 +353,7 @@ Include "parser_fix.inf";
 ];
 
 Constant AUSTIN_STARTLED = "For some reason, Austin is startled and springs for his life ";
+Constant AUSTIN_JUMPS_TO_ALEXANDRIA = "right up through the south wall and into Alexandria!";
 
 Object LibraryMessages
   with  before [;
@@ -383,7 +384,7 @@ Object LibraryMessages
                     move Austin to Causeway;
                     Achieved(SCORE_AUSTIN);
                     StartDaemon(Outside_the_Royal_Museum);
-                    "right up through the south wall and into Alexandria!";
+                    print_ret AUSTIN_JUMPS_TO_ALEXANDRIA;
                 }
                 AustinMovements(true);
                 rfalse;
