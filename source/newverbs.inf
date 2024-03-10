@@ -680,7 +680,7 @@
 
 [ RamSub ;
     if( game_section == T_MODERN ) "For heaven's sake, this is your own house.";
-    if( location == Coven_Cell ) "No, this is a goat. A ~ram~ is a kind of sheep.";
+    if( location == Coven_Cell ) print_ret RAM_IS_KIND_OF_SHEEP;
     "Please don't ram anything. This computer only has limited RAM.";
 ];
 
