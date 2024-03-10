@@ -310,6 +310,8 @@ HRoom   House "House"
         ],
   has   light;
 
+Constant YOU_DOZE_AWHILE = "You doze awhile, but that's all.";
+
 HRoom   Servants_Room "Servant's Room"   
   with  name 'bedside' 'table',
         before [;
@@ -321,8 +323,7 @@ HRoom   Servants_Room "Servant's Room"
                 if( Austin in location ) 
                     "Austin leaps up onto the bed, jumps around for a bit, and then falls back onto the floor. 
                      You are unable to get any sleep.";
-                if( servants_bed has general ) 
-                    "You doze awhile, but that's all.";
+                if( servants_bed has general ) print_ret YOU_DOZE_AWHILE;
                 give servants_bed general;
                 print "You sleep unexpectedly deeply, but just as you think you are starting to wake up, you 
                     experience a sudden...^";
@@ -1757,7 +1758,7 @@ HRoom   Alisons_Writing_Room "Alison's Writing Room"
                     "Awareness that something important is happening tugs at your subconscious.^^But you feel too exposed to sleep with only a sheet on the bed, and can't get comfortable.";
 
                 Achieved(SCORE_SLEEP);
-                if( comfortable_bed has general ) "You doze awhile, but that's all.";
+                if( comfortable_bed has general ) print_ret YOU_DOZE_AWHILE;
                 give comfortable_bed general;
                 print "You sleep uneasily, fancying you can see Miss Alison writing at her table, trying to see 
                     the words, and always on the edge of a...^";
