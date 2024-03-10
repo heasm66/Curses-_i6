@@ -1561,11 +1561,13 @@ HRoom   Roof "Roof"
         cant_go "William Wordsworth once described poetry as emotion recollected in tranquillity. If so, hospitals must be full of people turning out verses about what it was like to fall off the roof of a high building. Perhaps it might be better not to join them.",
   has   light;
 
+Constant DANGEROUS_ROOFTOP = "The rooftop is far too dangerous in that direction.";
+
 HRoom   Battlements "Battlements"        
   with  name 'battlements' 'crenellations',
         se_to Roof,
         description "The old crenellated battlements of the house. An Englishman's home is, of course, his castle, but Meldrew Hall never saw much fighting and these military-looking features were just a seventeenth-century fashion. They also weren't intended for standing on, and the only safe way to proceed is back southeast.^^It is peculiarly cold here.",
-        cant_go "The rooftop is far too dangerous in that direction.",
+        cant_go DANGEROUS_ROOFTOP,
   has   light;
 
 Object  -> iron_key "gothic-looking iron key"    
@@ -1876,7 +1878,7 @@ HRoom   Tiny_Balcony "Tiny Balcony"
         description "A tiny balcony around Miss Alison's windows, offering fresh air, blue skies and a 
             magnificent view over the gardens down to the droning motorway in the distance. The roof is too perilous
             to scale even if you had a good reason (which you haven't), so you had better go back north.",
-        cant_go "The rooftop is far too dangerous in that direction.",
+        cant_go DANGEROUS_ROOFTOP,
   has   light;
 
 Object  -> window_sill "window sill"     
