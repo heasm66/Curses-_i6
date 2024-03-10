@@ -205,9 +205,11 @@ Object  -> runner_bean_plant "runner-bean plant"
         section T_GARDEN,
   has   door static;
 
+Constant YOU_FALL_AND_BREAK_NECK = "You fall and break your neck!";
+
 GRoom   Up_the_Beanstalk "Up the Beanstalk"      
   with  before [;
-            Jump: deadflag = DIED; "You fall and break your neck!";
+            Jump: deadflag = DIED; print_ret YOU_FALL_AND_BREAK_NECK;
         ],
         after [;
             Drop:
@@ -355,7 +357,7 @@ GRoom   Up_the_Plane_Tree "Up the Plane Tree"
   with  name 'jemima' 'conservatory' 'window',
         before [;
             Jump:
-                deadflag = DIED; "You fall and break your neck!";
+                deadflag = DIED; print_ret YOU_FALL_AND_BREAK_NECK;
         ],
         d_to Family_Tree,
         description "A magnificent view of the gardens would be yours, were it not for the branches and leaves 
