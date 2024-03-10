@@ -362,6 +362,8 @@ Object ship_in_a_bottle "ship in a bottle"
         angel_hint "Oh, well done!  Why not take a closer look, you deserve it?",
   has   ;
 
+Constant HINT_GET_INSIDE_BOTTLE = "The great challenge, of course, is to get it inside a bottle.";
+
 Object model_ship "model ship"  
   with  name 'model' 'sailing' 'ship' 'anchor' 'chain' 'mermaid' 'filigree' 'prow' 'stern',
         description "A superb model sailing ship, about six inches from prow to stern, immaculate in every detail from an anchor on a filigree chain to a carved mermaid up front.",
@@ -374,7 +376,7 @@ Object model_ship "model ship"
                 "As you pull the anchor chain, the masts fold inwards and the decks concertina back, until you're 
                  holding no more than a tight bundle of sticks.";
         ],
-        angel_hint "The great challenge, of course, is to get it inside a bottle.",
+        angel_hint HINT_GET_INSIDE_BOTTLE,
   has   general;
 
 Object  stick_with_an_anchor "stick with an anchor"      
@@ -389,7 +391,7 @@ Object  stick_with_an_anchor "stick with an anchor"
         ],
         description "A tightly-folded bundle of sticks, about six inches long, with a filigree chain and anchor 
             hanging from it.",
-        angel_hint "The great challenge, of course, is to get it inside a bottle.",
+        angel_hint HINT_GET_INSIDE_BOTTLE,
   has   ;
 
 TRoom   Sea_Shore "Sea Shore"    
