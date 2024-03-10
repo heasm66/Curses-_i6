@@ -257,6 +257,8 @@ Object Hellish_Place "Hellish Place"
         section T_AFTERLIFE,
   has   light;
 
+CONSTANT ONE_DOES_NOT_GIVE_ORDERS = "One does not give orders to such a character.";
+
 Object -> demon "demon"
   with  name 'devil' 'demon' 'demonic' 'gentleman',
         life [ i;
@@ -264,7 +266,7 @@ Object -> demon "demon"
                 if( HellishAsk() ~= 0 ) rtrue;
                 if( DemonQuestion(special_word) ~= 0 ) give demon ~general;
                 rtrue;
-            Order: "One does not give orders to such a character.";
+            Order: print_ret ONE_DOES_NOT_GIVE_ORDERS;
             Give, Show:
                 if( HellishAsk() ~= 0 ) rtrue;
                 print "The demon glances lazily at ", (the) noun, " and rouses himself to say: ~";
@@ -338,7 +340,7 @@ Object -> angel "angel"
                 if( AngelHints() ~= 0 ) rtrue;
                 if( AngelQuestion(special_word) ~= 0 ) give angel ~general;
                 rtrue;
-            Order: "One does not give orders to such a character.";
+            Order: print_ret ONE_DOES_NOT_GIVE_ORDERS;
             Give, Show:
                 if( AngelHints() ~= 0 ) rtrue;
                 print "The angel looks keenly at ", (the) noun, " and rouses himself to say: ~";
