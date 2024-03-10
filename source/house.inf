@@ -2608,6 +2608,8 @@ Object  -> little_window1 "little window"
         description "You can just make out an impression of golden light.",
   has   static;
 
+Constant MOUSE_EMITS_UNHAPPY_BEEP = "The mouse emits a querulous, unhappy bleep.";
+
 Object  -> robot_mouse "robot mouse"     
   with  name 'robot' 'mouse',
         orders [ frm dst prev_loc;
@@ -2667,7 +2669,7 @@ Object  -> robot_mouse "robot mouse"
                         "The mouse runs off as ordered.";
                 }
                 "POSSIBLE BUG?";
-            default: "The mouse emits a querulous, unhappy bleep.";
+            default: print_ret MOUSE_EMITS_UNHAPPY_BEEP;
         ],
 
         initial "In one corner is a dust-covered robot mouse.",
@@ -2768,7 +2770,7 @@ Object  -> hole_in_the_wall "hole in the wall"
                 }
                 "From somewhere inside the hole, you hear tiny wheels spin.";
 
-            default: "The mouse emits a querulous, unhappy bleep.";
+            default: print_ret MOUSE_EMITS_UNHAPPY_BEEP;
         ],
   has   scenery talkable;
 
