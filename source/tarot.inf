@@ -471,13 +471,15 @@ Object  -> amber_hairband "amber hairband"
         devil_hint "Mmm... it still has her perfume on it. Hehehehe. Bet she's dead now.",
   has   concealed static hidden_rod;
 
+Constant ONLY_DULL_GRASSLAND = "There's only dull grassland that way.";
+
 TRoom   Cliffs "Cliffs"  
   with  name 'pharos' 'lighthouse' 'tower',
         e_to Clifftop_Walk,
         sw_to Cave_Mouth,
         d_to Sea_Shore,
         description "On top of some exposed cliffs on the Mediterranean. A dangerous slither down leads on one side to the shore, all other ways down being even more hazardous. Atop the cliffs is the Pharos tower, a round stone pinnacle lighthouse, but there is no way in from here.^^A grassy walk leads east, and a narrow crack leads southwest into a cave mouth.",
-        cant_go "There's only dull grassland that way.",
+        cant_go ONLY_DULL_GRASSLAND,
   has   light;
 
 TRoom   Clifftop_Walk "Clifftop Walk"    
@@ -490,7 +492,7 @@ TRoom   Clifftop_Walk "Clifftop Walk"
         ],
         w_to Cliffs,
         description "A long clifftop walk by the sea, from the lighthouse to the west to the village not far east. These fields are occupied by herds of hardy mountain goats, continually butting each other and frisking. To the south a path leads across sparse grassland to a great outgrowth of some kind.",
-        cant_go "There's only dull grassland that way.",
+        cant_go ONLY_DULL_GRASSLAND,
   has   light;
 
 Object  -> herd_of_goats "herd of goats" 
@@ -505,7 +507,7 @@ TRoom   Outside_Taverna "Outside Taverna"
   with  s_to Eraina_Taverna,
         w_to Clifftop_Walk,
         description "A long walk along the cliffs from the lighthouse leads naturally here, just outside the Eraina Taverna, whose open doorway lies to the south.",
-        cant_go "There's only dull grassland that way.",
+        cant_go ONLY_DULL_GRASSLAND,
   has   light;
 
 Object  -> small_thorny_tree "small thorny tree" 
@@ -580,7 +582,7 @@ TRoom   Wall_of_Thorns "Wall of Thorns"
   with  n_to Clifftop_Walk,
         s_to wall_of_thorns_object,
         description "The rather sparse rolling landscape is dominated here by a massive, and suspiciously unnatural, wall of thorns, which forms a great ring about an area perhaps a hundred yards in diameter. There are goat pastures to the north.",
-        cant_go "There's only dull grassland that way.",
+        cant_go ONLY_DULL_GRASSLAND,
   has   light;
 
 Object  -> wall_of_thorns_object "wall of thorns"        
