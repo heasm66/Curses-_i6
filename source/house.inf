@@ -2428,10 +2428,12 @@ HRoom   Storage_Room "Storage Room"
     rfalse;
 ];
 
+Constant CONCEALED_SAFETY_HATCH = "There is a concealed safety catch (poorly) hidden on the wheel.";
+
 Object  -> wheel2 "wheel"        
   with  name 'wheel' 'handle' 'catch' 'safety',
         before WheelBefore,
-        description "There is a concealed safety catch (poorly) hidden on the wheel.",
+        description CONCEALED_SAFETY_HATCH,
   has   on scenery switchable;
 
 Object  -> dumbwaiter "dumbwaiter"       
@@ -2588,7 +2590,7 @@ HRoom   Cellars "Cellars"
 Object  -> wheel "wheel" 
   with  name 'wheel' 'handle' 'catch' 'safety',
         before WheelBefore,
-        description "There is a concealed safety catch (poorly) hidden on the wheel.",
+        description CONCEALED_SAFETY_HATCH,
   has   on scenery switchable;
 
 Object  -> dark_shaft_obj2 "dark shaft"  
