@@ -72,17 +72,19 @@ Object  -> potted_shrub "potted shrub"
         initial "A shrub is being nursed in a wide round tub in the centre of the path, sheltered behind the wall.",
   has   static;
 
+Constant THE_WALL_IS_MUTE = "The old wall is mute.";
+
 Object  -> stone_wall "stone wall"       
   with  name 'stone' 'wall' 'carved' 'carvings' 'painted',
         before [;
             Climb, Enter:
                 "The old, carved garden wall is one of the treasures of rural England, and you're not nearly 
                  desperate enough to crumble it further into ruin.";
-            Answer, Ask: "The old wall is mute.";
+            Answer, Ask: print_ret THE_WALL_IS_MUTE;
         ],
         orders [;
             Lagach: "For a moment, the slightest of zephyrs blows from the wall, but dies away to nothing.";
-            default: "The old wall is mute.";
+            default: print_ret THE_WALL_IS_MUTE;
         ],
         description "The garden wall once bore painted carvings, but they have fallen into disrepair.",
         found_in Beside_the_Wall Beside_the_Drive,
