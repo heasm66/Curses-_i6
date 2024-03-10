@@ -80,9 +80,10 @@ Object  Stone_Cross "Stone Cross"
         section T_NE_OF_HOME,
   has   light;
 
-Constant EVANS_HYPNOTIC_DAZE = "He looks at you in a hypnotic daze,";
-Constant EVANS_HOW_HEARTLESS = " and before you can say ~How heartless I am~ he obediently hands you the Moon.";
-Constant EVANS_HAT_IS_EMPTY  = "Old Evans' hat is empty. You feel terribly guilty.";
+Constant EVANS_HYPNOTIC_DAZE            = "He looks at you in a hypnotic daze,";
+Constant EVANS_HOW_HEARTLESS            = " and before you can say ~How heartless I am~ he obediently hands you the Moon.";
+Constant EVANS_HAT_IS_EMPTY             = "Old Evans' hat is empty. You feel terribly guilty.";
+Constant EVANS_CANT_FOLLOW_INSTRUCTIONS = " unable to follow your perfectly clear instruction.";
 
 [ OldEvansLife ;
     if( action == ##Order or ##Ask ) {
@@ -96,7 +97,7 @@ Constant EVANS_HAT_IS_EMPTY  = "Old Evans' hat is empty. You feel terribly guilt
             self.description = EVANS_HAT_IS_EMPTY;
             print_ret EVANS_HOW_HEARTLESS;
         }
-        " unable to follow your perfectly clear instruction.";
+        print_ret EVANS_CANT_FOLLOW_INSTRUCTIONS;
     }
     if( action == ##Answer ) {
         "Evans is lost. Whatever do you mean?";
@@ -122,7 +123,7 @@ Object  -> Old_Evans "Old Evans"
                     self.description = EVANS_HAT_IS_EMPTY;
                     print_ret EVANS_HOW_HEARTLESS;
                 }
-            " unable to follow your perfectly clear instruction.";
+            print_ret EVANS_CANT_FOLLOW_INSTRUCTIONS;
         ],
         initial "Old Evans, the village racing enthusiast, sits on the steps of the memorial, combing the back pages of his ~Racing Times~ newspaper.",
         description "In the band of his hat is his lucky mascot: a little picture of the crescent moon.",
