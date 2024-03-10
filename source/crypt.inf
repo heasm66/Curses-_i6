@@ -257,16 +257,18 @@ Object -> iron_grid "iron grid"
         ],
   has   static;
 
+Constant OUT_OF_REACH_BEYOND_GLASS = "It is out of reach, beyond the glass.";
+
 Object -> glowing_golden_orb "glowing golden orb"
   with  name 'glowing' 'golden' 'orb',
-        before [; default: "It is out of reach, beyond the glass."; ],
+        before [; default: print_ret OUT_OF_REACH_BEYOND_GLASS; ],
         description "How tantalisingly valuable it seems.",
   has   scenery;
 
 Object -> cannonball "cannonball"
   with  name 'cannon' 'ball' 'cannonball',
         before [;
-            Examine: "It is out of reach, beyond the glass.";
+            Examine: print_ret OUT_OF_REACH_BEYOND_GLASS;
         ],
         description "Solid, heavy, reliable, out of reach on the other side of the glass.",
   has   scenery;
