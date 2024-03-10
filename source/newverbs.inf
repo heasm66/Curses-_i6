@@ -428,10 +428,10 @@
     rtrue;
 ];
 
+Constant YOU_ARENT_HOLDING_IT = "But you aren't holding it.";
+
 [ WaveSub r ;
-    if (noun notin player) {
-        "But you aren't holding it.";
-    }
+    if (noun notin player) print_ret YOU_ARENT_HOLDING_IT;
     if (noun has hidden_rod) {
         if (daisy_chain in player && daisy_chain has worn && daisy_chain.number == 1) {
             score = score + 6;
@@ -549,7 +549,7 @@
 ];
 
 [ PointSub r ;
-    if( noun notin player ) "But you aren't holding it.";
+    if( noun notin player ) print_ret YOU_ARENT_HOLDING_IT;
     if( second in player ) "It's too fiddly pointing it at something you're holding.";
     if( noun hasnt rod_attr ) "Ok. (Why?)";
     if( noun hasnt charged ) "Nothing happens.";
@@ -566,7 +566,7 @@
 
 
 [ StrikeSub ;
-    if( noun notin player ) "But you aren't holding it.";
+    if( noun notin player ) print_ret YOU_ARENT_HOLDING_IT;
     if( noun hasnt rod_attr ) 
         print_ret "You ineffectually bash ", (the) noun, " on the ground.";
     if( noun has charged ) {
