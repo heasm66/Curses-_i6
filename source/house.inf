@@ -1643,14 +1643,15 @@ Object  -> Sir_Joshua_Meldrewe "Sir Joshua Meldrewe"
 
   has   animate concealed;
 
+Constant TOO_NARROW_A_SQUEEZE = "It's too narrow a squeeze for you at present.";
+
 HRoom  Chimney "Chimney"        
   with  before [ o;
             Exit, Look, Inv: rfalse;
             Go:
                 if (noun == d_obj) {
                     objectloop( o in player )
-                        if( o hasnt worn || o == rucksack )
-                            "It's too narrow a squeeze for you at present.";
+                        if( o hasnt worn || o == rucksack ) print_ret TOO_NARROW_A_SQUEEZE;
                     print "You squeeze awkwardly down the chimney. Lucky your best clothes are all packed, because 
                         you're getting filthy.^";
                 }
@@ -1687,8 +1688,7 @@ HRoom   Priests_Hole "Priest's Hole"
             Go:
                 if( noun == u_obj ) {
                     objectloop( o in player )
-                        if( o hasnt worn || o == rucksack )
-                            "It's too narrow a squeeze for you at present.";
+                        if( o hasnt worn || o == rucksack ) print_ret TOO_NARROW_A_SQUEEZE;
                     print "You squeeze awkwardly back up the chimney.^";
                 }
                 if( noun == d_obj )
