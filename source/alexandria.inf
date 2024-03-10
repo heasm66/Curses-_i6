@@ -338,10 +338,12 @@ Object  The_Height_of_Fashion "The Height of Fashion"
         section T_ALEXANDRIA,
   has   scored cat_nofollow;
 
+Constant DESC_SPHINX = "No grave would be complete without one.";
+
 Object  -> sphinxes "sphinxes"   
   with  name 'sphinx' 'sphinxes' 'stone' 'statue' 'statues',
         initial "The sphinxes seem to stare balefully at you.",
-        description "No grave would be complete without one.",
+        description DESC_SPHINX,
         article "two",
   has   static;
 
@@ -457,7 +459,7 @@ Object  The_Spirit_World "The Spirit World"
 Object  -> spirit_sphinxes "sphinxes"   
   with  name 'sphinx' 'sphinxes' 'stone' 'statue' 'statues',
         initial "Stone sphinxes guard the west doorway, staring balefully at you.",
-        description "No grave would be complete without one.",
+        description DESC_SPHINX,
   has   static;
 
 Object  -> spirit_wooden_couch "wooden couch"   
