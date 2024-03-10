@@ -1134,6 +1134,8 @@ Object  -> water_pipe "water pipe"
         description "The joint on the water pipe looks none too sturdy.",
   has   concealed static;
 
+Constant CANT_READ_HOLDING_PIPE = "You can't read it while it's holding the pipe up.";
+
 Object  -> romantic_novel "romantic novel"       
   with  name 'romance' 'romantic' 'novel' 'book',
         parse_name BookParsename,
@@ -1144,7 +1146,7 @@ Object  -> romantic_novel "romantic novel"
                     rtrue;
                 }
             Examine:
-                if( steel_wrench hasnt general ) "You can't read it while it's holding the pipe up.";
+                if( steel_wrench hasnt general ) print_ret CANT_READ_HOLDING_PIPE;
                 trigger_quotation(35);
                 rfalse;
         ],
@@ -1174,7 +1176,7 @@ Object  -> book_of_Twenties_poetry "book of Twenties poetry"
                     rtrue;
                 }
             Examine:
-                if( steel_wrench hasnt general ) "You can't read it while it's holding the pipe up.";
+                if( steel_wrench hasnt general ) print_ret CANT_READ_HOLDING_PIPE;
                 if( location == thedark )
                     "1920s poetry may be literarily enlightening, but not literally. It is, in fact, too dark to 
                      make out the print.";
