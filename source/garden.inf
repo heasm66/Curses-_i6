@@ -1,10 +1,12 @@
 Class   GRoom
   with  section T_GARDEN;
 
+Constant TOO_SHALLOW_FOR_COMFORT = "Too shallow for comfort.";
+
 GRoom   Garden_Stream "Garden Stream"    
   with  name 'reeds',
         before [;
-            Swim: "Too shallow for comfort.";
+            Swim: print_ret TOO_SHALLOW_FOR_COMFORT;
             Drink: "Just about drinkable. Not much fun, though.";
         ],
         n_to "Better not... you'd be seen from the Library.",
