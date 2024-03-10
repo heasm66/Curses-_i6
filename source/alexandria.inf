@@ -345,9 +345,11 @@ Object  -> sphinxes "sphinxes"
         article "two",
   has   static;
 
+Constant COMFORTABLE_WOODEN_COUCH = "A comfortable-looking wooden couch, covered with weave matting.";
+
 Object  -> wooden_couch "wooden couch"   
   with  name 'wood' 'wooden' 'couch' 'bed' 'weave' 'matting',
-        description "A comfortable-looking wooden couch, covered with weave matting.",
+        description COMFORTABLE_WOODEN_COUCH,
   has   enterable scenery supporter;
 
 Object  stone_nose_of_a_sphinx "stone nose of a sphinx"  
@@ -461,7 +463,7 @@ Object  -> spirit_sphinxes "sphinxes"
 Object  -> spirit_wooden_couch "wooden couch"   
   with  name 'wood' 'wooden' 'couch' 'bed' 'weave' 'matting',
         initial "The weave matting on the couch is now in some disarray.",
-        description "A comfortable-looking wooden couch, covered with weave matting.",
+        description COMFORTABLE_WOODEN_COUCH,
   has   enterable scenery supporter;
 
 Object  Napoleonic_officers "Napoleonic officers"        
