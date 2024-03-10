@@ -1090,6 +1090,8 @@ Object carbolic_soap "carbolic soap"
     rtrue;
 ];
 
+Constant IN_THE_GARDENS = "(in the gardens)        ";
+
 [ DrawStatusLine columns c2 tmpvar ;
     if (lightflag == 0 && DEADFLAG > 0) location = thedark;     !r18: Let statusline remain as "Darkness" when you're dead.
     columns = 0->33;
@@ -1162,8 +1164,8 @@ Object carbolic_soap "carbolic soap"
             if (game_section == T_UNREAL) print "(in the Unreal City)    ";
             if (game_section == T_HAMBURG) print "(Hamburg by night)      ";
             if (game_section == T_TAROT) print "(in the Tarot box)      ";
-            if (game_section == T_GARDEN) print "(in the gardens)        ";
-            if (game_section == T_GARDEN_PAST) print "(in the gardens)        ";
+            if (game_section == T_GARDEN) print IN_THE_GARDENS;
+            if (game_section == T_GARDEN_PAST) print IN_THE_GARDENS;
             if (game_section == T_ANCIENT_BRITAIN) print "(in the Master Game)    ";
             if (game_section == T_DREAMING or T_EGYPT_DREAMING) print "(dreaming?)             ";
             if (game_section == T_CATACOMBS) print "(in the catacombs)      ";
