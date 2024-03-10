@@ -877,7 +877,7 @@
         if( game_section == T_ALEXANDRIA ) {
             "Austin is quite unruffled.";
         }
-        print "For some reason, Austin is startled and springs for his life ";
+        print AUSTIN_STARTLED;
         trigger_quotation(7);
         if( location == Souvenirs_Room && charcoal_sketch in slide_projector && south_wall hasnt concealed ) {
             move Austin to Causeway;

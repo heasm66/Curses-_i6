@@ -352,6 +352,8 @@ Include "parser_fix.inf";
     return 1;
 ];
 
+Constant AUSTIN_STARTLED = "For some reason, Austin is startled and springs for his life ";
+
 Object LibraryMessages
   with  before [;
             Score:
@@ -375,7 +377,7 @@ Object LibraryMessages
             Jump:
                 if( Austin notin location ) rfalse;
                 if( game_section == T_ALEXANDRIA ) "Austin is quite unruffled.";
-                print "For some reason, Austin is startled and springs for his life ";
+                print AUSTIN_STARTLED;
                 trigger_quotation(7);
                 if( location == Souvenirs_Room && charcoal_sketch in slide_projector && south_wall hasnt concealed ) {
                     move Austin to Causeway;
