@@ -241,7 +241,7 @@
     }
 ];
 
-
+Constant HEDGES_IN_THE_WAY = "The privet hedges are in the way.";
 
 GRoom   Maze "Maze"      
   with  before [ x y;
@@ -297,7 +297,7 @@ GRoom   Maze "Maze"
         s_to Family_Tree,
         w_to Viewpoint_Ledge,
         description "A maze of green privet passages, all alike.",
-        cant_go "The privet hedges are in the way.",
+        cant_go HEDGES_IN_THE_WAY,
   has   light scored;
 
 GRoom   Patio_in_Maze "Patio in Maze"    
@@ -313,7 +313,7 @@ GRoom   Patio_in_Maze "Patio in Maze"
         u_to "Up?  Are we playing the same game?",
         d_to Crypt,
         description "This is an old stone patio in the heart of the garden maze. A missing flagstone offers an intriguing dark prospect beneath.",
-        cant_go "The privet hedges are in the way.",
+        cant_go HEDGES_IN_THE_WAY,
   has   light scored;
 
 Object  -> marble_rose "marble rose"     
