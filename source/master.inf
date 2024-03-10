@@ -272,7 +272,7 @@ Object Valley_Prospect "Valley Prospect"
             and the slope can safely be traversed to the east.^^It is a brightly moonlit night, cool as in late
             spring. There will be a sharp frost tomorrow. Down in the valley, a great cartwheel circle of camp
             fires illuminate some dark shapes, perhaps crude encampments. There is no other sign of civilisation.",
-        cant_go "The hillside is too steep.",
+        cant_go HILLSIDE_IS_TOO_STEEP,
         section T_ANCIENT_BRITAIN,
   has   light;
 

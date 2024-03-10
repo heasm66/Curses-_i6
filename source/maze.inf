@@ -327,6 +327,8 @@ Object  -> marble_rose "marble rose"
         angel_hint "Perfection set in stone. Not a gift for mortal women!",
   has   ;
 
+Constant HILLSIDE_IS_TOO_STEEP = "The hillside is too steep.";
+
 GRoom   Viewpoint_Ledge "Viewpoint Ledge"        
   with  name 'motorway' 'coaches',
         before [;
@@ -341,7 +343,7 @@ GRoom   Viewpoint_Ledge "Viewpoint Ledge"
             to the motorway below. Coaches pass by, reminding you of the rapidly approaching time when visitors
             will have to be let in again for the summer. The only safe way to go is back east into the maze. To
             one side is a plaque.",
-        cant_go "The hillside is too steep.",
+        cant_go HILLSIDE_IS_TOO_STEEP,
   has   light scored;
 
 Object  -> plaque "plaque"       
@@ -368,7 +370,7 @@ Object Folly "Folly"
             the river.^^Towering over you is a monstrously awful piece of architecture, a Folly. The freestanding
             tower has no appreciable purpose and no apparent entrance. The latter is just as well since it looks
             extremely unsafe.",
-        cant_go "The hillside is too steep.",
+        cant_go HILLSIDE_IS_TOO_STEEP,
         section T_GARDEN_PAST,
   has   light scored;
 
