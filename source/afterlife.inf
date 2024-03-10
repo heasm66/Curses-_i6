@@ -258,7 +258,9 @@ Object Hellish_Place "Hellish Place"
         section T_AFTERLIFE,
   has   light;
 
-CONSTANT ONE_DOES_NOT_GIVE_ORDERS = "One does not give orders to such a character.";
+Constant ONE_DOES_NOT_GIVE_ORDERS = "One does not give orders to such a character.";
+Constant ROUSES_HIMSELF_TO_SAY    = " and rouses himself to say: ~";
+
 
 Object -> demon "demon"
   with  name 'devil' 'demon' 'demonic' 'gentleman',
@@ -270,7 +272,7 @@ Object -> demon "demon"
             Order: print_ret ONE_DOES_NOT_GIVE_ORDERS;
             Give, Show:
                 if( HellishAsk() ~= 0 ) rtrue;
-                print "The demon glances lazily at ", (the) noun, " and rouses himself to say: ~";
+                print "The demon glances lazily at ", (the) noun, ROUSES_HIMSELF_TO_SAY;
                 give demon ~general;
                 if( noun has edible ) {
                     remove noun;
@@ -344,7 +346,7 @@ Object -> angel "angel"
             Order: print_ret ONE_DOES_NOT_GIVE_ORDERS;
             Give, Show:
                 if( AngelHints() ~= 0 ) rtrue;
-                print "The angel looks keenly at ", (the) noun, " and rouses himself to say: ~";
+                print "The angel looks keenly at ", (the) noun, ROUSES_HIMSELF_TO_SAY;
                 give angel ~general;
                 i = noun.angel_hint;
                 if( i == -1 ) {
