@@ -184,6 +184,11 @@ Array angel_topics -->
     }
 ];
 
+Constant DEMON_ANGEL_QUESTION_1 = "~That's a question you'd better put to my colleague in the Other Place,~ says the ";
+Constant DEMON_ANGEL_QUESTION_2 = " smoothly. ~Try something else.~";
+Constant DEMON_ANGEL_QUESTION_3 = "~That's not something I am empowered to answer,~ says the ";
+Constant DEMON_ANGEL_QUESTION_4 = ". ~Try something else.~^";
+
 [ DemonQuestion w topic ;
     topic = AngelDevilConsultTopic(demon_topics,w);
     if( topic ~= 0 ) {
@@ -192,10 +197,8 @@ Array angel_topics -->
         rtrue;
     }
     if( AngelDevilConsultTopic(angel_topics,w) ~= 0 )
-        "~That's a question you'd better put to my colleague in the Other Place,~ says the demon smoothly. 
-         ~Try something else.~";
-    print "~That's not something I am empowered to answer,~ says the demon with a nervous glance behind him. 
-           ~Try something else.~^";
+		print_ret (string) DEMON_ANGEL_QUESTION_1, "demon", (string) DEMON_ANGEL_QUESTION_2;
+    print (string) DEMON_ANGEL_QUESTION_3, "demon with a nervous glance behind him", (string) DEMON_ANGEL_QUESTION_4;
     rfalse;
 ];
 
@@ -207,10 +210,8 @@ Array angel_topics -->
         rtrue;
     }
     if( AngelDevilConsultTopic(demon_topics,w) ~= 0 )
-        "~That's a question you'd better put to my colleague in the Other Place,~ says the angel smoothly. 
-         ~Try something else.~^";
-    print "~That's not something I am empowered to answer,~ says the angel with a beatific smile upward. 
-           ~Try something else.~^";
+		print_ret (string) DEMON_ANGEL_QUESTION_1, "angel", (string) DEMON_ANGEL_QUESTION_2;
+    print (string) DEMON_ANGEL_QUESTION_3, "angel with a beatific smile upward", (string) DEMON_ANGEL_QUESTION_4;
     rfalse;
 ];
 
