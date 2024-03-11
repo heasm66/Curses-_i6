@@ -73,16 +73,19 @@ LagachObj -> Impressionist_painting "Impressionist painting"
         article "an",
   has   static;
 
-Constant THE_HANGING_CURTAIN = "Peculiarly, the hanging curtain seems to be solid iron when you walk into it.";
+Constant THE_HANGING_CURTAIN  = "Peculiarly, the hanging curtain seems to be solid iron when you walk into it.";
+Constant CONSULTING_ROOM_DESC = "The stairs end at a shabby room, with screened windows, lit by incense sticks and 
+                                 sevenbranched candelabra. A doorway with a hanging bead curtain leads ";
 
 URoom   Consulting_Room "Consulting Room"        
   with  name 'sevenbranch' 'candelabra' 'sticks' 'table',
         before [; Smell: "You feel briefly incensed."; ],
         w_to THE_HANGING_CURTAIN,
         d_to Shadowy_Hallway,
-        description "The stairs end at a shabby room, with screened windows, lit by incense sticks and sevenbranched 
-            candelabra. A doorway with a hanging bead curtain leads west. In the centre of the room is a table,
-            on which is an electric bell push and a wicked Tarot pack.",
+        description [ ;
+            print (string) CONSULTING_ROOM_DESC;
+            "west. In the centre of the room is a table, on which is an electric bell push and a wicked Tarot pack.";
+        ],
   has   light;
 
 Object  -> Tarot_pack "Tarot pack"       

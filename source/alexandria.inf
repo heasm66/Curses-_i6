@@ -753,8 +753,10 @@ Object  Ancient_Consulting_Room "Consulting Room"
   with  name 'sevenbranched' 'candelabra' 'sticks' 'candles',
         e_to THE_HANGING_CURTAIN,
         d_to A_Tower,
-        description "The stairs end at a shabby room, with screened windows, lit by incense sticks and sevenbranched candelabra. A doorway 
-                     with a hanging bead curtain leads east. In the centre of the room is a table, which is bare.",
+        description [ ;
+            print (string) CONSULTING_ROOM_DESC;
+            "east. In the centre of the room is a table, which is bare.";
+        ],
         section T_ALEXANDRIA,
   has   light scored cat_nofollow;
 
