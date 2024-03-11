@@ -215,12 +215,16 @@ Constant DEMON_ANGEL_QUESTION_4 = ". ~Try something else.~^";
     rfalse;
 ];
 
+Constant DEMON_MEMORABLE_SMILE    = "~ says the demon with a memorable smile.";
+Constant ANGEL_MEMORABLE_SMILE    = "~ says the angel with a memorable smile.";
+
 [ DemonAngelWelcomeMsg obj;
     print "~Good ";
-    if (obj == Hellish_Place) print "afternoon"; else print "day";
-    print ",~ says the ";
-    if (obj == Hellish_Place) print "demon"; else print "angel";
-    print " with a memorable smile. ~As a reward for your ";
+    if (obj == Hellish_Place) 
+		print "afternoon,", (string) DEMON_MEMORABLE_SMILE;
+	else 
+		print "day", (string) ANGEL_MEMORABLE_SMILE;
+    print " ~As a reward for your ";
     if (obj == Hellish_Place) print "naked greed"; else print "act of faith";
     print ", may I welcome you to our little information service. We 
            try to be as helpful as possible to explorers who are lost, 
@@ -248,9 +252,9 @@ Object Hellish_Place "Hellish Place"
                     demon.number = cnt;
                     if( cnt > 0 ) give demon general;
                 }
-                if( cnt == 0 ) "~Begone, pipsqueak!  I'll be seeing you... much later...~ says the demon with a memorable smile.";
-                if( cnt == 1 ) "~All right, toad, you have one, just one, chance left,~ says the demon with a memorable smile.";
-                if( cnt == 2 ) "~Now then, two chances remaining,~ says the demon with a memorable smile.";
+                if( cnt == 0 ) "~Begone, pipsqueak!  I'll be seeing you... much later...", (string) DEMON_MEMORABLE_SMILE;
+                if( cnt == 1 ) "~All right, toad, you have one, just one, chance left,", (string) DEMON_MEMORABLE_SMILE;
+                if( cnt == 2 ) "~Now then, two chances remaining,", (string) DEMON_MEMORABLE_SMILE;
 
                 DemonAngelWelcomeMsg(self);
         ],
@@ -322,9 +326,9 @@ Object Heavenly_Place "Heavenly Place"
                     angel.number = i;
                     if( i > 0 ) give angel general;
                 }
-                if( i == 0 ) "~I'm afraid I can be of no further use to you!  See you in another life,~ says the angel with a memorable smile.";
-                if( i == 1 ) "~You have one remaining question,~ says the angel with a memorable smile."; 
-                if( i == 2 ) "~A whole two questions left,~ says the angel with a memorable smile.";
+                if( i == 0 ) "~I'm afraid I can be of no further use to you!  See you in another life,", (string) ANGEL_MEMORABLE_SMILE;
+                if( i == 1 ) "~You have one remaining question,", (string) ANGEL_MEMORABLE_SMILE; 
+                if( i == 2 ) "~A whole two questions left,", (string) ANGEL_MEMORABLE_SMILE;
 
                 DemonAngelWelcomeMsg(self);
         ],
