@@ -102,6 +102,7 @@ Constant SCORE_HIGHROD = 44;
 Constant KEY_GROUP = 1;     ! Identified from DM4
 Constant BOOK_GROUP = 2;
 Constant TORCH_GROUP = 3;
+Constant ROD_GROUP = 4;
 Constant TASKS_PROVIDED;
 Constant NUMBER_TASKS = 45;
 
@@ -377,14 +378,14 @@ Object LibraryMessages
                 rfalse;
             Jump:
                 if( Austin notin location ) rfalse;
-                if( game_section == T_ALEXANDRIA ) print_ret AUSTIN_IS_UNRUFFLED;
-                print AUSTIN_STARTLED;
+                if( game_section == T_ALEXANDRIA ) print_ret (string) AUSTIN_IS_UNRUFFLED;
+                print (string) AUSTIN_STARTLED;
                 trigger_quotation(7);
                 if( location == Souvenirs_Room && charcoal_sketch in slide_projector && south_wall hasnt concealed ) {
                     move Austin to Causeway;
                     Achieved(SCORE_AUSTIN);
                     StartDaemon(Outside_the_Royal_Museum);
-                    print_ret AUSTIN_JUMPS_TO_ALEXANDRIA;
+                    print_ret (string) AUSTIN_JUMPS_TO_ALEXANDRIA;
                 }
                 AustinMovements(true);
                 rfalse;
@@ -1164,8 +1165,8 @@ Constant IN_THE_GARDENS = "(in the gardens)        ";
             if (game_section == T_UNREAL) print "(in the Unreal City)    ";
             if (game_section == T_HAMBURG) print "(Hamburg by night)      ";
             if (game_section == T_TAROT) print "(in the Tarot box)      ";
-            if (game_section == T_GARDEN) print IN_THE_GARDENS;
-            if (game_section == T_GARDEN_PAST) print IN_THE_GARDENS;
+            if (game_section == T_GARDEN) print (string) IN_THE_GARDENS;
+            if (game_section == T_GARDEN_PAST) print (string) IN_THE_GARDENS;
             if (game_section == T_ANCIENT_BRITAIN) print "(in the Master Game)    ";
             if (game_section == T_DREAMING or T_EGYPT_DREAMING) print "(dreaming?)             ";
             if (game_section == T_CATACOMBS) print "(in the catacombs)      ";

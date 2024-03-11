@@ -190,7 +190,7 @@ Constant RAM_IS_KIND_OF_SHEEP = "No, this is a goat. A ~ram~ is a kind of sheep.
 
 DERoom  Coven_Cell "Coven Cell"  
   with  before [;
-            Ram: print_ret RAM_IS_KIND_OF_SHEEP;
+            Ram: print_ret (string) RAM_IS_KIND_OF_SHEEP;
             Wait: rfalse;
             default: 
                 if( player hasnt general ) rfalse;
@@ -305,7 +305,7 @@ Object  -> glass_cabinet "glass cabinet"
 Object  -> -> smooth_round_stone "smooth round stone"    
   with  name 'smooth' 'round' 'pumice' 'metal' 'stone',
         before [;
-            Take: if( self has general ) print_ret OBJECT_OUT_OF_REACH;
+            Take: if( self has general ) print_ret (string) OBJECT_OUT_OF_REACH;
         ],
         initial nothing,
         description "A smooth palm-sized disc, perhaps of pumice stone, painted in yellows and browns with a single 

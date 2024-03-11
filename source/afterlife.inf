@@ -214,6 +214,25 @@ Array angel_topics -->
     rfalse;
 ];
 
+[ DemonAngelWelcomeMsg obj;
+    print "~Good ";
+    if (obj == Hellish_Place) print "afternoon"; else print "day";
+    print ",~ says the ";
+    if (obj == Hellish_Place) print "demon"; else print "angel";
+    print " with a memorable smile. ~As a reward for your ";
+    if (obj == Hellish_Place) print "naked greed"; else print "act of faith";
+    print ", may I welcome you to our little information service. We 
+           try to be as helpful as possible to explorers who are lost, 
+           or can't think how to solve their problems";
+    if (obj == Hellish_Place) 
+        ", you know the kind of thing. So just tell me what you want to know, 
+         or show me something to look at. You get the usual three hints.~"; 
+    else 
+        ". Is there anything, pray, which you would like a hint about, or which 
+         you'd like to show me?  You are permitted three hints in all, in 
+         accordance with standard practice.~";
+];
+
 Constant DIRECTION_NOT_FOR_LIVING = "That direction is not for the living.";
 
 Object Hellish_Place "Hellish Place"
@@ -232,10 +251,7 @@ Object Hellish_Place "Hellish Place"
                 if( cnt == 1 ) "~All right, toad, you have one, just one, chance left,~ says the demon with a memorable smile.";
                 if( cnt == 2 ) "~Now then, two chances remaining,~ says the demon with a memorable smile.";
 
-                "~Good afternoon,~ says the demon with a memorable smile. ~As a reward for your naked greed, may I 
-                 welcome you to our little information service. We try to be as helpful as possible to explorers
-                 who are lost, or can't think how to solve their problems, you know the kind of thing. So just
-                 tell me what you want to know, or show me something to look at. You get the usual three hints.~";
+                DemonAngelWelcomeMsg(self);
         ],
         n_to Cellar_West,
         u_to Cellar_West,
@@ -245,7 +261,7 @@ Object Hellish_Place "Hellish Place"
                      about. Not in this life, anyway.",
         cant_go [;
             trigger_quotation(37);
-            print_ret DIRECTION_NOT_FOR_LIVING;
+            print_ret (string) DIRECTION_NOT_FOR_LIVING;
         ],
         each_turn [;
             switch( random(10) ) {
@@ -261,7 +277,6 @@ Object Hellish_Place "Hellish Place"
 Constant ONE_DOES_NOT_GIVE_ORDERS = "One does not give orders to such a character.";
 Constant ROUSES_HIMSELF_TO_SAY    = " and rouses himself to say: ~";
 
-
 Object -> demon "demon"
   with  name 'devil' 'demon' 'demonic' 'gentleman',
         life [ i;
@@ -269,10 +284,10 @@ Object -> demon "demon"
                 if( HellishAsk() ~= 0 ) rtrue;
                 if( DemonQuestion(special_word) ~= 0 ) give demon ~general;
                 rtrue;
-            Order: print_ret ONE_DOES_NOT_GIVE_ORDERS;
+            Order: print_ret (string) ONE_DOES_NOT_GIVE_ORDERS;
             Give, Show:
                 if( HellishAsk() ~= 0 ) rtrue;
-                print "The demon glances lazily at ", (the) noun, ROUSES_HIMSELF_TO_SAY;
+                print "The demon glances lazily at ", (the) noun, (string) ROUSES_HIMSELF_TO_SAY;
                 give demon ~general;
                 if( noun has edible ) {
                     remove noun;
@@ -289,6 +304,7 @@ Object -> demon "demon"
                      play this gentleman.",
         number 4,
   has   animate scenery;
+
 
 Object Heavenly_Place "Heavenly Place"
   with  name 'furniture' 'cloud',
@@ -309,11 +325,7 @@ Object Heavenly_Place "Heavenly Place"
                 if( i == 1 ) "~You have one remaining question,~ says the angel with a memorable smile."; 
                 if( i == 2 ) "~A whole two questions left,~ says the angel with a memorable smile.";
 
-                "~Good day,~ says the angel with a memorable smile. ~As a reward for your act of faith, may I welcome 
-                 you to our little information service. We try to be as helpful as possible to explorers who are lost,
-                 or can't think how to solve their problems. Is there anything, pray, which you would like a hint
-                 about, or which you'd like to show me?  You are permitted three hints in all, in accordance with
-                 standard practice.~";
+                DemonAngelWelcomeMsg(self);
         ],
         s_to Up_the_Beanstalk,
         description "Heaven, you always imagined, would be a world of marble pillars, fluffy clouds, harps and 
@@ -323,7 +335,7 @@ Object Heavenly_Place "Heavenly Place"
                      enough for you to hear properly. Not in this life, anyway.",
         cant_go [;
             trigger_quotation(27);
-            print_ret DIRECTION_NOT_FOR_LIVING;
+            print_ret (string) DIRECTION_NOT_FOR_LIVING;
         ],
         each_turn [;
             switch( random(10) ) {
@@ -343,10 +355,10 @@ Object -> angel "angel"
                 if( AngelHints() ~= 0 ) rtrue;
                 if( AngelQuestion(special_word) ~= 0 ) give angel ~general;
                 rtrue;
-            Order: print_ret ONE_DOES_NOT_GIVE_ORDERS;
+            Order: print_ret (string) ONE_DOES_NOT_GIVE_ORDERS;
             Give, Show:
                 if( AngelHints() ~= 0 ) rtrue;
-                print "The angel looks keenly at ", (the) noun, ROUSES_HIMSELF_TO_SAY;
+                print "The angel looks keenly at ", (the) noun, (string) ROUSES_HIMSELF_TO_SAY;
                 give angel ~general;
                 i = noun.angel_hint;
                 if( i == -1 ) {

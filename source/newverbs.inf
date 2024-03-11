@@ -431,7 +431,7 @@
 Constant YOU_ARENT_HOLDING_IT = "But you aren't holding it.";
 
 [ WaveSub r ;
-    if (noun notin player) print_ret YOU_ARENT_HOLDING_IT;
+    if (noun notin player) print_ret (string) YOU_ARENT_HOLDING_IT;
     if (noun has hidden_rod) {
         if (daisy_chain in player && daisy_chain has worn && daisy_chain.number == 1) {
             score = score + 6;
@@ -549,7 +549,7 @@ Constant YOU_ARENT_HOLDING_IT = "But you aren't holding it.";
 ];
 
 [ PointSub r ;
-    if( noun notin player ) print_ret YOU_ARENT_HOLDING_IT;
+    if( noun notin player ) print_ret (string) YOU_ARENT_HOLDING_IT;
     if( second in player ) "It's too fiddly pointing it at something you're holding.";
     if( noun hasnt rod_attr ) "Ok. (Why?)";
     if( noun hasnt charged ) "Nothing happens.";
@@ -566,7 +566,7 @@ Constant YOU_ARENT_HOLDING_IT = "But you aren't holding it.";
 
 
 [ StrikeSub ;
-    if( noun notin player ) print_ret YOU_ARENT_HOLDING_IT;
+    if( noun notin player ) print_ret (string) YOU_ARENT_HOLDING_IT;
     if( noun hasnt rod_attr ) 
         print_ret "You ineffectually bash ", (the) noun, " on the ground.";
     if( noun has charged ) {
@@ -680,7 +680,7 @@ Constant YOU_ARENT_HOLDING_IT = "But you aren't holding it.";
 
 [ RamSub ;
     if( game_section == T_MODERN ) "For heaven's sake, this is your own house.";
-    if( location == Coven_Cell ) print_ret RAM_IS_KIND_OF_SHEEP;
+    if( location == Coven_Cell ) print_ret (string) RAM_IS_KIND_OF_SHEEP;
     "Please don't ram anything. This computer only has limited RAM.";
 ];
 
@@ -876,13 +876,13 @@ Constant AUSTIN_IS_UNRUFFLED = "Austin is quite unruffled.";
 
 [ JumpSub ;
     if( Austin in location ) {
-        if( game_section == T_ALEXANDRIA ) print_ret AUSTIN_IS_UNRUFFLED;
-        print AUSTIN_STARTLED;
+        if( game_section == T_ALEXANDRIA ) print_ret (string) AUSTIN_IS_UNRUFFLED;
+        print (string) AUSTIN_STARTLED;
         trigger_quotation(7);
         if( location == Souvenirs_Room && charcoal_sketch in slide_projector && south_wall hasnt concealed ) {
             move Austin to Causeway;
             Achieved(SCORE_AUSTIN);
-            print_ret AUSTIN_JUMPS_TO_ALEXANDRIA;
+            print_ret (string) AUSTIN_JUMPS_TO_ALEXANDRIA;
         }
         AustinMovements(true);
         rfalse;

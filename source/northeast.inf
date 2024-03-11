@@ -90,14 +90,14 @@ Constant EVANS_CANT_FOLLOW_INSTRUCTIONS = " unable to follow your perfectly clea
         if( self hasnt general ) {
             "~Just a minute, I'm doing my form.~";
         }
-        print EVANS_HYPNOTIC_DAZE;
+        print (string) EVANS_HYPNOTIC_DAZE;
         if( action == ##Give && noun == Crescent_Moon && second == player && Crescent_Moon in Old_Evans ) {
             move Crescent_Moon to player;
             Achieved(SCORE_HYPNOSIS);
             self.description = EVANS_HAT_IS_EMPTY;
-            print_ret EVANS_HOW_HEARTLESS;
+            print_ret (string) EVANS_HOW_HEARTLESS;
         }
-        print_ret EVANS_CANT_FOLLOW_INSTRUCTIONS;
+        print_ret (string) EVANS_CANT_FOLLOW_INSTRUCTIONS;
     }
     if( action == ##Answer ) {
         "Evans is lost. Whatever do you mean?";
@@ -115,15 +115,15 @@ Object  -> Old_Evans "Old Evans"
   with  name 'racing' 'enthusiast' 'old' 'evans',
         life OldEvansLife,
         orders [;
-            print EVANS_HYPNOTIC_DAZE;
+            print (string) EVANS_HYPNOTIC_DAZE;
             Give:
                 if( noun == Crescent_Moon && second == player && Crescent_Moon in Old_Evans ) {
                     move Crescent_Moon to player;
                     Achieved(SCORE_HYPNOSIS);
                     self.description = EVANS_HAT_IS_EMPTY;
-                    print_ret EVANS_HOW_HEARTLESS;
+                    print_ret (string) EVANS_HOW_HEARTLESS;
                 }
-            print_ret EVANS_CANT_FOLLOW_INSTRUCTIONS;
+            print_ret (string) EVANS_CANT_FOLLOW_INSTRUCTIONS;
         ],
         initial "Old Evans, the village racing enthusiast, sits on the steps of the memorial, combing the back pages of his ~Racing Times~ newspaper.",
         description "In the band of his hat is his lucky mascot: a little picture of the crescent moon.",
@@ -384,7 +384,7 @@ Object  adamantine_knight "adamantine knight"
                      effortless, but by the time he's finished you can almost see ghostly perspiration bead on
                      the ghostly sinews around his adamantine body.";
                 }
-                print_ret CONFUSED_KNIGHT;
+                print_ret (string) CONFUSED_KNIGHT;
             Go:
                 "The knight just about understands that he is to go somewhere, but cannot quite comprehend the 
                  direction. You'll have to indicate it somehow. (Shame there were no adamantine ears, really.)";
@@ -454,9 +454,9 @@ Object  adamantine_knight "adamantine knight"
             Give, Insert:
                 if( second == statue_of_Diana && noun == marble_rose ) 
                     "The knight likes the idea but is confused.";
-                print_ret CONFUSED_KNIGHT;
+                print_ret (string) CONFUSED_KNIGHT;
             default: 
-                print_ret CONFUSED_KNIGHT;
+                print_ret (string) CONFUSED_KNIGHT;
         ],
         initial "The adamantine knight stands staunchly here.",
         description [  ;

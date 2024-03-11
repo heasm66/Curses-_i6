@@ -6,7 +6,7 @@ Constant TOO_SHALLOW_FOR_COMFORT = "Too shallow for comfort.";
 GRoom   Garden_Stream "Garden Stream"    
   with  name 'reeds',
         before [;
-            Swim: print_ret TOO_SHALLOW_FOR_COMFORT;
+            Swim: print_ret (string) TOO_SHALLOW_FOR_COMFORT;
             Drink: "Just about drinkable. Not much fun, though.";
         ],
         n_to "Better not... you'd be seen from the Library.",
@@ -82,11 +82,11 @@ Object  -> stone_wall "stone wall"
             Climb, Enter:
                 "The old, carved garden wall is one of the treasures of rural England, and you're not nearly 
                  desperate enough to crumble it further into ruin.";
-            Answer, Ask: print_ret THE_WALL_IS_MUTE;
+            Answer, Ask: print_ret (string) THE_WALL_IS_MUTE;
         ],
         orders [;
             Lagach: "For a moment, the slightest of zephyrs blows from the wall, but dies away to nothing.";
-            default: print_ret THE_WALL_IS_MUTE;
+            default: print_ret (string) THE_WALL_IS_MUTE;
         ],
         description "The garden wall once bore painted carvings, but they have fallen into disrepair.",
         found_in Beside_the_Wall Beside_the_Drive,
@@ -213,7 +213,7 @@ Constant YOU_FALL_AND_BREAK_NECK = "You fall and break your neck!";
 
 GRoom   Up_the_Beanstalk "Up the Beanstalk"      
   with  before [;
-            Jump: deadflag = DIED; print_ret YOU_FALL_AND_BREAK_NECK;
+            Jump: deadflag = DIED; print_ret (string) YOU_FALL_AND_BREAK_NECK;
         ],
         after [;
             Drop:
@@ -361,7 +361,7 @@ GRoom   Up_the_Plane_Tree "Up the Plane Tree"
   with  name 'jemima' 'conservatory' 'window',
         before [;
             Jump:
-                deadflag = DIED; print_ret YOU_FALL_AND_BREAK_NECK;
+                deadflag = DIED; print_ret (string) YOU_FALL_AND_BREAK_NECK;
         ],
         d_to Family_Tree,
         description "A magnificent view of the gardens would be yours, were it not for the branches and leaves 

@@ -759,7 +759,7 @@ Object  -> -> Pan_pipes "Pan pipes"
   with  name 'pan' 'pipes' 'panpipes' 'syrinx',
         before [;
             Blow:
-                if( gas_mask has worn ) print_ret WITH_THE_GAS_MASK_ON;
+                if( gas_mask has worn ) print_ret (string) WITH_THE_GAS_MASK_ON;
                 if( location == Clifftop_Walk ) "The goats are amused by your derisory playing.";
                 if( location ~= Cave_Mouth ) "You sound off some dissonant notes.";
                 print "Seized by divine inspiration, you launch into J. S. Bach's ";
@@ -1232,10 +1232,10 @@ Object  -> british_flag "flag of the British Merchant Navy"
   with  name 'flag' 'ensign' 'navy' 'british' 'merchant' 'of' 'tassels',
         before [;
             Remove:
-                if( self in comfortable_bed ) print_ret FLAG_SEEMS_PERFECT;
+                if( self in comfortable_bed ) print_ret (string) FLAG_SEEMS_PERFECT;
                 rfalse;
             Take, Pull:
-                if( self in comfortable_bed ) print_ret FLAG_SEEMS_PERFECT;
+                if( self in comfortable_bed ) print_ret (string) FLAG_SEEMS_PERFECT;
                 if( self notin Up_the_Mast ) rfalse;
                 give british_flag general;
                 "You take hold of the tassels of the flag in one hand (though it won't pull away from the pole).";

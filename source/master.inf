@@ -292,7 +292,7 @@ Object Roman_Villa "Roman Villa"
 Object Villa_Stream "Stream"  
   with  name 'river' 'road' 'stream' 'roof',
         before [;
-            Swim: print_ret TOO_SHALLOW_FOR_COMFORT;
+            Swim: print_ret (string) TOO_SHALLOW_FOR_COMFORT;
             Drink: "Deliciously clear and unpolluted.";
         ],
         w_to Roman_Villa,

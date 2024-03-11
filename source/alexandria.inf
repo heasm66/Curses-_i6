@@ -126,7 +126,7 @@ Object  -> rusty_iron_key "rusty iron key"
   with  name 'rusty' 'iron' 'key',
         before [;
             Take:
-                if( rusty_iron_key hasnt general ) print_ret OBJECT_OUT_OF_REACH;
+                if( rusty_iron_key hasnt general ) print_ret (string) OBJECT_OUT_OF_REACH;
                 rfalse;
         ],
         list_together KEY_GROUP,
@@ -168,7 +168,7 @@ Constant SWIM_MESSAGE = "The sepulchral calm of the ocean overwhelms you, and yo
 
 Object  Harbour_Mouth "Harbour Mouth"    
   with  before [;
-            Exit, Swim: print_ret SWIM_MESSAGE;
+            Exit, Swim: print_ret (string) SWIM_MESSAGE;
         ],
         description "As the skiff passes the jaws of the Royal Harbour, beneath the great Pharos light, you have a 
                      final view of the receding civilisation of Alexandria: ahead lies the vast, oil-calm Mediterranean
@@ -189,7 +189,7 @@ Object  Harbour_Mouth "Harbour Mouth"
 Object  Drifting "Drifting"      
   with  name 'curious' 'fish' 'zephyr' 'sea',
         before [;
-            Exit, Swim: print_ret SWIM_MESSAGE;
+            Exit, Swim: print_ret (string) SWIM_MESSAGE;
         ],
         description "You drift in the wide, peaceful Lunar sea. Curious fish, their yellow-green eyes gleaming beneath the silver ripples, brush 
                      past your wake: the night zephyr is almost slack but still you drift. Minutes pass like hours in paradise.",
@@ -525,7 +525,7 @@ Object  Quite_an_Undertaking "Quite an Undertaking"
                 rfalse;
             Go:
                 if( player in mummy_case ) {
-                    print MUMMY_CASE_DISTRACTION;
+                    print (string) MUMMY_CASE_DISTRACTION;
                     << Exit >>;
                 }
                 if( noun == n_obj or ne_obj ) {
@@ -542,7 +542,7 @@ Object  Quite_an_Undertaking "Quite an Undertaking"
             default: 
                 if( player notin mummy_case )
                     rfalse;
-                print MUMMY_CASE_DISTRACTION;
+                print (string) MUMMY_CASE_DISTRACTION;
                 move player to parent(mummy_case);
                 location = parent(player);
         ],

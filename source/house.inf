@@ -323,7 +323,7 @@ HRoom   Servants_Room "Servant's Room"
                 if( Austin in location ) 
                     "Austin leaps up onto the bed, jumps around for a bit, and then falls back onto the floor. 
                      You are unable to get any sleep.";
-                if( servants_bed has general ) print_ret YOU_DOZE_AWHILE;
+                if( servants_bed has general ) print_ret (string) YOU_DOZE_AWHILE;
                 give servants_bed general;
                 print "You sleep unexpectedly deeply, but just as you think you are starting to wake up, you 
                     experience a sudden...^";
@@ -463,7 +463,7 @@ Object  -> -> bird_whistle "bird whistle"
   with  name 'bird' 'whistle' 'harrison',
         before [;
             Blow:
-                if( gas_mask has worn ) print_ret WITH_THE_GAS_MASK_ON;
+                if( gas_mask has worn ) print_ret (string) WITH_THE_GAS_MASK_ON;
                  print "Fweep!  Fweep!^";
                 if( Austin in location ) 
                     print "^Austin is startled, but too lazy to look up.^";
@@ -1147,7 +1147,7 @@ Object  -> romantic_novel "romantic novel"
                     rtrue;
                 }
             Examine:
-                if( steel_wrench hasnt general ) print_ret CANT_READ_HOLDING_PIPE;
+                if( steel_wrench hasnt general ) print_ret (string) CANT_READ_HOLDING_PIPE;
                 trigger_quotation(35);
                 rfalse;
         ],
@@ -1177,7 +1177,7 @@ Object  -> book_of_Twenties_poetry "book of Twenties poetry"
                     rtrue;
                 }
             Examine:
-                if( steel_wrench hasnt general ) print_ret CANT_READ_HOLDING_PIPE;
+                if( steel_wrench hasnt general ) print_ret (string) CANT_READ_HOLDING_PIPE;
                 if( location == thedark )
                     "1920s poetry may be literarily enlightening, but not literally. It is, in fact, too dark to 
                      make out the print.";
@@ -1652,7 +1652,7 @@ HRoom  Chimney "Chimney"
             Go:
                 if (noun == d_obj) {
                     objectloop( o in player )
-                        if( o hasnt worn || o == rucksack ) print_ret TOO_NARROW_A_SQUEEZE;
+                        if( o hasnt worn || o == rucksack ) print_ret (string) TOO_NARROW_A_SQUEEZE;
                     print "You squeeze awkwardly down the chimney. Lucky your best clothes are all packed, because 
                         you're getting filthy.^";
                 }
@@ -1689,7 +1689,7 @@ HRoom   Priests_Hole "Priest's Hole"
             Go:
                 if( noun == u_obj ) {
                     objectloop( o in player )
-                        if( o hasnt worn || o == rucksack ) print_ret TOO_NARROW_A_SQUEEZE;
+                        if( o hasnt worn || o == rucksack ) print_ret (string) TOO_NARROW_A_SQUEEZE;
                     print "You squeeze awkwardly back up the chimney.^";
                 }
                 if( noun == d_obj )
@@ -1758,7 +1758,7 @@ HRoom   Alisons_Writing_Room "Alison's Writing Room"
                     "Awareness that something important is happening tugs at your subconscious.^^But you feel too exposed to sleep with only a sheet on the bed, and can't get comfortable.";
 
                 Achieved(SCORE_SLEEP);
-                if( comfortable_bed has general ) print_ret YOU_DOZE_AWHILE;
+                if( comfortable_bed has general ) print_ret (string) YOU_DOZE_AWHILE;
                 give comfortable_bed general;
                 print "You sleep uneasily, fancying you can see Miss Alison writing at her table, trying to see 
                     the words, and always on the edge of a...^";
@@ -2670,7 +2670,7 @@ Object  -> robot_mouse "robot mouse"
                         "The mouse runs off as ordered.";
                 }
                 "POSSIBLE BUG?";
-            default: print_ret MOUSE_EMITS_UNHAPPY_BEEP;
+            default: print_ret (string) MOUSE_EMITS_UNHAPPY_BEEP;
         ],
 
         initial "In one corner is a dust-covered robot mouse.",
@@ -2771,7 +2771,7 @@ Object  -> hole_in_the_wall "hole in the wall"
                 }
                 "From somewhere inside the hole, you hear tiny wheels spin.";
 
-            default: print_ret MOUSE_EMITS_UNHAPPY_BEEP;
+            default: print_ret (string) MOUSE_EMITS_UNHAPPY_BEEP;
         ],
   has   scenery talkable;
 
@@ -2827,11 +2827,21 @@ HRoom   Infinity_Symbol "Infinity Symbol"
                 rfalse;
         ],
         se_to Cellar_West,
-        description "An eerie, dark cave carved from crystal icicles of rock and strewn with great spiders' webs 
-            hung from the ragged stone, inhabited only by dead white insects. A narrow crevice opens out to an iron
-            doorway and the warmth of the house.^^The rough stone floor levels out to a perfectly round, smooth white
-            marble disc about five yards across, inscribed with a black lemniscus (or infinity) symbol.^^You shiver
-            with foreboding, but inexplicably feel that the map you're looking for must be somewhere near here.",
+        description [ ;
+            if (spherical_opening hasnt general)
+                print "An eerie, dark cave carved from crystal icicles of rock and strewn with great spiders' webs 
+                       hung from the ragged stone, inhabited only by dead white insects. A narrow crevice opens out to an iron
+                       doorway and the warmth";
+            else
+                print "A cave carved from crystal icicles of rock and glowing with vivid, 
+                       golden light, so bright it almost hurts your eyes. A narrow crevice opens out to an iron doorway
+                       and the relative darkness";
+            print  " of the house.^^The rough stone floor levels out to a perfectly round, smooth white marble
+                    disc about five yards across, inscribed with a black lemniscus (or infinity) symbol";
+            if (spherical_opening hasnt general)
+                print ".^^You shiver with foreboding, but inexplicably feel that the map you're looking for must be somewhere near here";
+            ".";
+        ],
   has   light scored;
 
 Object  -> circular_arc "circular arc"   
@@ -2879,11 +2889,6 @@ Object  spherical_opening "spherical opening"
                 move spherical_opening to golden_orb;
                 remove golden_orb;
                 give spherical_opening general;
-                Infinity_Symbol.description = "A cave carved from crystal icicles of rock and glowing with vivid, 
-                    golden light, so bright it almost hurts your eyes. A narrow crevice opens out to an iron doorway
-                    and the relative darkness of the house.^^The rough stone floor levels out to a perfectly
-                    round, smooth white marble disc about five yards across, inscribed with a black lemniscus
-                    (or infinity) symbol.";
                 "The orb fits perfectly, and the socket comes alive with golden light, which soaks out into the 
                  fabric of the cave until the whole place is shining bright.";
         ],
