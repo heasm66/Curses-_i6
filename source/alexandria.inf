@@ -314,6 +314,8 @@ LagachObj  -> painted_writings "painted writings"
         article "some",
   has   scenery pluralname;
 
+Constant HEIGHT_OF_FASHION_DESC = "A perfectly-cut room of rose-coloured granite, twelve feet across, painted in yellows and browns to simulate alabaster panelling";
+
 Object  The_Height_of_Fashion "The Height of Fashion"    
   with  name 'table' 'panelling' 'doorway' 'door',
         before [;
@@ -332,9 +334,11 @@ Object  The_Height_of_Fashion "The Height of Fashion"
             return This_Is_The_Death;
         ],
         u_to Necropolis,
-        description "A perfectly-cut room of rose-coloured granite, twelve feet across, painted in yellows and browns to simulate alabaster panelling. 
-                     This is the latest in modern funerary apartments.^^There's a couch for visitors, a table, a flight of steps up and a doorway 
-                     to the west, flanked by two stone sphinxes.",
+        description [ ;
+			print (string) HEIGHT_OF_FASHION_DESC;
+			". This is the latest in modern funerary apartments.^^There's a couch for visitors, a table, 
+			 a flight of steps up and a doorway to the west, flanked by two stone sphinxes.";
+		],
         section T_ALEXANDRIA,
   has   scored cat_nofollow;
 
@@ -418,9 +422,10 @@ Object  The_Spirit_World "The Spirit World"
             }
             << Look >>;
         ],
-        description "A perfectly-cut room of rose-coloured granite, twelve feet across, painted in yellows and 
-                     browns to simulate alabaster panelling, at the foot of a flight of steps which leads only 
-                     to a sealed wall.",
+        description [ ;
+			print (string) HEIGHT_OF_FASHION_DESC;
+			", at the foot of a flight of steps which leads only to a sealed wall.";
+		],
         number 1,
         each_turn [;
             if( The_Spirit_World.number < 4 ) rfalse;
