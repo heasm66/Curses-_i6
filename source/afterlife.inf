@@ -371,10 +371,13 @@ Object -> angel "angel"
         number 4,
   has   animate scenery;
 
+Constant ONLY_ONE_HINT_1 = "~Under Regulation 3, paragraph 15 (i) clause (f), only one hint per visit to the ";
+Constant ONLY_ONE_HINT_2 = " domain. You'll have to go away again and come back if you want another. So sorry.~";
+
 [ HellishAsk ;
     if( demon hasnt general ) {
         if( demon.number == 0 ) "~No hints left, sucker.~";
-        "~Under Regulation 3, paragraph 15 (i) clause (f), only one hint per visit to the infernal domain. You'll have to go away again and come back if you want another. So sorry.~";
+        print_ret (string) ONLY_ONE_HINT_1, "infernal", (string) ONLY_ONE_HINT_2;
     }
     rfalse;
 ];
@@ -382,7 +385,7 @@ Object -> angel "angel"
 [ AngelHints ;  
     if( angel hasnt general ) {
         if( angel.number == 0 ) "~No hints left, alas.~";
-        "~Under Regulation 3, paragraph 15 (i) clause (f), only one hint per visit to the sacred domain. You'll have to go away again and come back if you want another. So sorry.~";
+        print_ret (string) ONLY_ONE_HINT_1, "sacred", (string) ONLY_ONE_HINT_2;
     }
     rfalse;
 ];       
